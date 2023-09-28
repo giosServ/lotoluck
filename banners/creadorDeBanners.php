@@ -80,6 +80,9 @@ function generarBanners($id_zona){
 				}
 				
 				
+				
+				
+				
 				echo "</div>";
 				$id= $listaBanners[$numBanner]->getId_campana(); 
 				$sql_prints = "update banners_campanas set num_prints= num_prints + 1 where id_campana=$id";
