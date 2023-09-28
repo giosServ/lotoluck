@@ -1,0 +1,98 @@
+
+.sectionBusquedas {
+
+  visibility:visible;
+ 
+  margin-top: 0;
+ 
+ 
+ 
+  -webkit-transition-property: margin-top;
+  -webkit-transition-duration: .3s;
+ 
+  -moz-transition-property: margin-top;
+  -moz-transition-duration: .3s;
+ 
+  -o-transition-property: margin-top;
+  -o-transition-duration: .3s;
+ 
+  -ms-transition-property: margin-top;
+  -ms-transition-duration: .3s;
+ 
+}
+
+
+
+.resultados_busqueda_oculto{
+	
+	height: 800px;
+	margin-top: -800px;
+	
+	visibility:hidden;
+}
+
+.resultados_busqueda{
+
+  position: absolute;
+  width: 100%;
+  height: 1000;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #FFFFFF;
+	
+
+}
+
+.localiza_admin_tabla{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 2px;
+  border-color: #c9c9c9;
+  border-collapse:collapse;
+
+  
+}
+
+.localiza_admin_tabla th{
+	
+  border: solid 1px;
+  border-color:#c9c9c9;
+  background-color: #e8c22c;
+  padding:0px;
+  margin:0px;
+  font-size: 16px;
+  height:3em;
+  color: #545454;
+  font-weight: 600;
+}
+
+.localiza_admin_tabla td{
+  border: solid 1px;
+  border-color:#c9c9c9;
+  margin:auto;
+  padding:auto;
+  text-align:center;
+  font-size: 16px;
+  color: #545454;
+  width:auto;
+}
+
+.imgTabla{
+	width:60%;
+}
+
+.link_anunciate{
+	
+	color:#d4ac0d;
+	font-style:bold;
+	text-decoration:none;
+}
+
+.icono_tabla_buscar{
+	
+	text-decoration:none;
+	color:black;
+	width:40%;
+	
+}

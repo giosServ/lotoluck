@@ -1,0 +1,84 @@
+
+.circuloBlanco{
+
+	width: 25px;
+	height: 25px;
+	background-color: blue;
+	border-radius: 100%;
+	text-align: center;
+    font-family: monospace;
+    font-size: 20;
+    color: white;
+    padding: 20px;
+}
+
+
+.circuloAmarillo{
+
+	width: 25px;
+	height: 25px;
+	background-color: #f4d059;
+	border-radius: 100%;
+	text-align: center;
+    font-family: monospace;
+    font-size: 20;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circuloVerde{
+
+	width: 25px;
+	height: 25px;
+	background-color: #a6cfa1;
+	border-radius: 100%;
+	text-align: center;
+    font-family: monospace;
+    font-size: 20;
+    color: #086d2f;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circuloAzul{
+	width: 25px;
+	height: 25px;
+	background-color: #9dc5de;
+	border-radius: 100%;
+	text-align: center;
+    font-family: monospace;
+    font-size: 20;
+    color: #03578b;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.soles{
+	display: block;
+    width: 55px;
+    height: 52px;
+    background: url(../imagenes/bg_sol.jpg) no-repeat left center;
+    font-size: 18px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+    color: #285113;
+}
+
+.estrellas{
+	display: block;
+    width: 50px;
+    height: 50px;
+    background: url(../imagenes/bg_estrella.png) no-repeat top left;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+}

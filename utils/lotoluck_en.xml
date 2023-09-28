@@ -1,0 +1,1058 @@
+<ResultadosLoterias>
+<!-- COMIENZA JUEGO Loteria Nacional -->
+<Juego>
+<IdJuego>
+<![CDATA[ 9 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Loteria Nacional ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49984 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230325 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 1 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Loteria Nacional correspondiente al 25/03/2023. Numero premiado: 08089; Serie: -; Fraccion: -; Terminaciones: 2 - 6 - 9. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="08089" Significado="Numero"/>
+<Resultado Orden="2" Valor="-" Significado="Serie"/>
+<Resultado Orden="3" Valor="-" Significado="Fraccion"/>
+<Resultado Orden="4" Valor="2 - 6 - 9" Significado="Terminaciones"/>
+<Resultado Orden="5" Valor="76126" Significado="segundo"/>
+</Resultados>
+<Premios>
+<Premio Categoria="Premio Especial(Frac. -, Serie -) " ImporteEuros="-" NumeroPremiado="08089"/>
+<Premio Categoria="Primer Premio" ImporteEuros="600.000,00" NumeroPremiado="08089"/>
+<Premio Categoria="Segundo Premio" ImporteEuros="120.180,00" NumeroPremiado="76126"/>
+<Premio Categoria="Reintegros" ImporteEuros="60,00" NumeroPremiado="2 - 6 - 9"/>
+<Premio Categoria="Terminación" ImporteEuros="1.500" NumeroPremiado="6440"/>
+<Premio Categoria="Terminación" ImporteEuros="300" NumeroPremiado="830"/>
+<Premio Categoria="Terminación" ImporteEuros="120" NumeroPremiado="80"/>
+<Premio Categoria="Terminación" ImporteEuros="120" NumeroPremiado="90"/>
+<Premio Categoria="Terminación" ImporteEuros="300" NumeroPremiado="271"/>
+<Premio Categoria="Terminación" ImporteEuros="300" NumeroPremiado="351"/>
+<Premio Categoria="Terminación" ImporteEuros="300" NumeroPremiado="861"/>
+<Premio Categoria="Terminación" ImporteEuros="480" NumeroPremiado="112"/>
+<Premio Categoria="Terminación" ImporteEuros="180" NumeroPremiado="12"/>
+<Premio Categoria="Terminación" ImporteEuros="180" NumeroPremiado="42"/>
+<Premio Categoria="Terminación" ImporteEuros="60" NumeroPremiado="2"/>
+<Premio Categoria="Terminación" ImporteEuros="300" NumeroPremiado="753"/>
+<Premio Categoria="Terminación" ImporteEuros="120" NumeroPremiado="14"/>
+<Premio Categoria="Terminación" ImporteEuros="1.500" NumeroPremiado="2255"/>
+<Premio Categoria="Terminación" ImporteEuros="300" NumeroPremiado="795"/>
+<Premio Categoria="Terminación" ImporteEuros="120" NumeroPremiado="15"/>
+<Premio Categoria="Terminación" ImporteEuros="1.560" NumeroPremiado="9486"/>
+<Premio Categoria="Terminación" ImporteEuros="480" NumeroPremiado="526"/>
+<Premio Categoria="Terminación" ImporteEuros="180" NumeroPremiado="26"/>
+<Premio Categoria="Terminación" ImporteEuros="60" NumeroPremiado="6"/>
+<Premio Categoria="Terminación" ImporteEuros="300" NumeroPremiado="787"/>
+<Premio Categoria="Terminación" ImporteEuros="240" NumeroPremiado="27"/>
+<Premio Categoria="Terminación" ImporteEuros="1.500" NumeroPremiado="2758"/>
+<Premio Categoria="Terminación" ImporteEuros="480" NumeroPremiado="089"/>
+<Premio Categoria="Terminación" ImporteEuros="360" NumeroPremiado="919"/>
+<Premio Categoria="Terminación" ImporteEuros="180" NumeroPremiado="89"/>
+<Premio Categoria="Terminación" ImporteEuros="60" NumeroPremiado="9"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=9&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Gordo de Navidad -->
+<Juego>
+<IdJuego>
+<![CDATA[ 26 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Gordo de Navidad ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 48740 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20221222 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 1 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Gordo de Navidad correspondiente al 22/12/2022. Combinacion ganadora: 05490; . ]]>
+</Titular>
+<Resultados/>
+<Premios>
+<Premio Categoria="Primer Premio" ImporteEuros="4.000.000,00" NumeroPremiado="05490"/>
+<Premio Categoria="Segundo premio" ImporteEuros="1.250.000,00" NumeroPremiado="04074"/>
+<Premio Categoria="Tercer premio" ImporteEuros="500.000,00" NumeroPremiado="45250"/>
+<Premio Categoria="Cuarto premio" ImporteEuros="200.000,00" NumeroPremiado="25296"/>
+<Premio Categoria="Cuarto premio" ImporteEuros="200.000,00" NumeroPremiado="54289"/>
+<Premio Categoria="Quinto Premio" ImporteEuros="60.000,00" NumeroPremiado="24492"/>
+<Premio Categoria="Quinto Premio" ImporteEuros="60.000,00" NumeroPremiado="36142"/>
+<Premio Categoria="Quinto premio" ImporteEuros="60.000,00" NumeroPremiado="38454"/>
+<Premio Categoria="Quinto premio" ImporteEuros="60.000,00" NumeroPremiado="43696"/>
+<Premio Categoria="Quinto premio" ImporteEuros="60.000,00" NumeroPremiado="62391"/>
+<Premio Categoria="Quinto premio" ImporteEuros="60.000,00" NumeroPremiado="79138"/>
+<Premio Categoria="Quinto premio" ImporteEuros="60.000,00" NumeroPremiado="87092"/>
+<Premio Categoria="Quinto premio" ImporteEuros="60.000,00" NumeroPremiado="88509"/>
+<Premio Categoria="Reintegro" ImporteEuros="200,00" NumeroPremiado="0"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=19&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO El Niño -->
+<Juego>
+<IdJuego>
+<![CDATA[ 25 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ El Niño ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 48939 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230106 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 1 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de El Niño correspondiente al 06/01/2023. Combinacion ganadora: 89603; . ]]>
+</Titular>
+<Resultados/>
+<Premios>
+<Premio Categoria="Primer premio" ImporteEuros="2.000.000,00" NumeroPremiado="89603"/>
+<Premio Categoria="Segundo premio" ImporteEuros="750.200,00" NumeroPremiado="72289"/>
+<Premio Categoria="Tercer premio" ImporteEuros="250.400,00" NumeroPremiado="18918"/>
+<Premio Categoria="Reintegros" ImporteEuros="200,00" NumeroPremiado="3 - 4 - 9"/>
+<Premio Categoria="Extraccion de 4 cifras" ImporteEuros="3.500,00" NumeroPremiado="6338"/>
+<Premio Categoria="Extraccion de 4 cifras" ImporteEuros="3.500,00" NumeroPremiado="8173"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="224"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="231"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="266"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="278"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="300"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="387"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="457"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="527"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="538"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="550"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="726"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="760"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="888"/>
+<Premio Categoria="Extraccion de 3 cifras" ImporteEuros="1.000,00" NumeroPremiado="928"/>
+<Premio Categoria="Extraccion de 2 cifras" ImporteEuros="400,00" NumeroPremiado="11"/>
+<Premio Categoria="Extraccion de 2 cifras" ImporteEuros="400,00" NumeroPremiado="18"/>
+<Premio Categoria="Extraccion de 2 cifras" ImporteEuros="400,00" NumeroPremiado="24"/>
+<Premio Categoria="Extraccion de 2 cifras" ImporteEuros="400,00" NumeroPremiado="29"/>
+<Premio Categoria="Extraccion de 2 cifras" ImporteEuros="400,00" NumeroPremiado="41"/>
+<Premio Categoria="Reintegro" ImporteEuros="200,00" NumeroPremiado="3"/>
+<Premio Categoria="Reintegro" ImporteEuros="200,00" NumeroPremiado="4"/>
+<Premio Categoria="Reintegro" ImporteEuros="200,00" NumeroPremiado="9"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=20&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Euromillones -->
+<Juego>
+<IdJuego>
+<![CDATA[ 14 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Euromillones ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49977 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230324 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Euromillones correspondiente al 24/03/2023. Combinacion ganadora: , NPH40743, 5, 12, 25, 36, 46; Estrellas: 6, 10. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="" Significado="Lluvia"/>
+<Resultado Orden="2" Valor="NPH40743" Significado="Millon"/>
+<Resultado Orden="3" Valor="5" Significado="Numero"/>
+<Resultado Orden="4" Valor="12" Significado="Numero"/>
+<Resultado Orden="5" Valor="25" Significado="Numero"/>
+<Resultado Orden="6" Valor="36" Significado="Numero"/>
+<Resultado Orden="7" Valor="46" Significado="Numero"/>
+<Resultado Orden="8" Valor="6" Significado="E1"/>
+<Resultado Orden="9" Valor="10" Significado="E2"/>
+</Resultados>
+<Premios>
+<Premio Categoria="1" ImporteEuros="66.287.741,00" Acertantes="1" AcertantesESP="0"/>
+<Premio Categoria="2" ImporteEuros="126.453,83" Acertantes="6" AcertantesESP="0"/>
+<Premio Categoria="3" ImporteEuros="25.332,29 " Acertantes="7" AcertantesESP="1"/>
+<Premio Categoria="4" ImporteEuros="1.624,49" Acertantes="34" AcertantesESP="6"/>
+<Premio Categoria="5" ImporteEuros="117,76" Acertantes="864" AcertantesESP="197"/>
+<Premio Categoria="6" ImporteEuros="62,90" Acertantes="1.710" AcertantesESP="381"/>
+<Premio Categoria="7" ImporteEuros="39,86" Acertantes="1.896" AcertantesESP="441"/>
+<Premio Categoria="8" ImporteEuros="15,62" Acertantes="24.195" AcertantesESP="5.054"/>
+<Premio Categoria="9" ImporteEuros="12,06" Acertantes="34.942" AcertantesESP="7.759"/>
+<Premio Categoria="10" ImporteEuros="9,20" Acertantes="85.287" AcertantesESP="18.511"/>
+<Premio Categoria="11" ImporteEuros="7,58" Acertantes="125.436" AcertantesESP="25.942"/>
+<Premio Categoria="12" ImporteEuros="5,91" Acertantes="506.644" AcertantesESP="108.209"/>
+<Premio Categoria="13" ImporteEuros="3,93" Acertantes="1.225.880" AcertantesESP="258.103"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=1&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO La Primitiva -->
+<Juego>
+<IdJuego>
+<![CDATA[ 1 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ La Primitiva ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49992 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230325 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de La Primitiva correspondiente al 25/03/2023. Combinacion ganadora: 5, 9, 21, 36, 41, 46; Complementario: 26,Joker: 0683239,Reintegro: 5. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="5" Significado="Numero"/>
+<Resultado Orden="2" Valor="9" Significado="Numero"/>
+<Resultado Orden="3" Valor="21" Significado="Numero"/>
+<Resultado Orden="4" Valor="36" Significado="Numero"/>
+<Resultado Orden="5" Valor="41" Significado="Numero"/>
+<Resultado Orden="6" Valor="46" Significado="Numero"/>
+<Resultado Orden="7" Valor="26" Significado="Complementario"/>
+<Resultado Orden="8" Valor="0683239" Significado="Joker"/>
+<Resultado Orden="9" Valor="5" Significado="Reintegro"/>
+</Resultados>
+<Premios>
+<Premio Categoria="Especial" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="1ª" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="2ª" ImporteEuros="101.696,28" Acertantes="2"/>
+<Premio Categoria="3ª" ImporteEuros="2.485,91" Acertantes="150"/>
+<Premio Categoria="4ª" ImporteEuros="61,65" Acertantes="8.798"/>
+<Premio Categoria="5ª" ImporteEuros="8,00" Acertantes="171.429"/>
+<Premio Categoria="6ª" ImporteEuros="1,00" Acertantes="1.195.279"/>
+<Premio Categoria="Todas las cifras" ImporteEuros="1.000.000,00" Acertantes="-" NumeroPremiado="0683239"/>
+<Premio Categoria="6 primeras o últimas cifras" ImporteEuros="10.000,00" Acertantes="-" NumeroPremiado="068323_ | _683239"/>
+<Premio Categoria="5 primeras o últimas cifras" ImporteEuros="1.000,00" Acertantes="-" NumeroPremiado="06832__ | __83239"/>
+<Premio Categoria="4 primeras o últimas cifras" ImporteEuros="300,00" Acertantes="-" NumeroPremiado="0683___ | ___3239"/>
+<Premio Categoria="3 primeras o últimas cifras" ImporteEuros="50,00" Acertantes="-" NumeroPremiado="068____ | ____239"/>
+<Premio Categoria="2 primeras o últimas cifras" ImporteEuros="5,00" Acertantes="-" NumeroPremiado="06_____ | _____39"/>
+<Premio Categoria="la primera o última cifra" ImporteEuros="1,00" Acertantes="-" NumeroPremiado="0______ | ______9"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=2&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Bonoloto -->
+<Juego>
+<IdJuego>
+<![CDATA[ 2 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Bonoloto ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49993 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230325 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Bonoloto correspondiente al 25/03/2023. Combinacion ganadora: 3, 16, 33, 34, 42, 46; Complementario: 17,Reintegro: 5. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="3" Significado="Numero"/>
+<Resultado Orden="2" Valor="16" Significado="Numero"/>
+<Resultado Orden="3" Valor="33" Significado="Numero"/>
+<Resultado Orden="4" Valor="34" Significado="Numero"/>
+<Resultado Orden="5" Valor="42" Significado="Numero"/>
+<Resultado Orden="6" Valor="46" Significado="Numero"/>
+<Resultado Orden="7" Valor="17" Significado="Complementario"/>
+<Resultado Orden="8" Valor="5" Significado="Reintegro"/>
+</Resultados>
+<Premios>
+<Premio Categoria="1" ImporteEuros="2.515.431,69" Acertantes="1"/>
+<Premio Categoria="2" ImporteEuros="172.337,21 " Acertantes="1"/>
+<Premio Categoria="3" ImporteEuros="916,69" Acertantes="94"/>
+<Premio Categoria="4" ImporteEuros="25,45" Acertantes="5.078"/>
+<Premio Categoria="5" ImporteEuros="4,00" Acertantes="91.520"/>
+<Premio Categoria="R" ImporteEuros="0,50" Acertantes="549.493"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=3&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO El Gordo -->
+<Juego>
+<IdJuego>
+<![CDATA[ 3 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ El Gordo ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49911 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230319 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de El Gordo correspondiente al 19/03/2023. Combinacion ganadora: 9, 32, 37, 41, 54; 2. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="9" Significado="Numero"/>
+<Resultado Orden="2" Valor="32" Significado="Numero"/>
+<Resultado Orden="3" Valor="37" Significado="Numero"/>
+<Resultado Orden="4" Valor="41" Significado="Numero"/>
+<Resultado Orden="5" Valor="54" Significado="Numero"/>
+<Resultado Orden="6" Valor="2" Significado="Clave"/>
+</Resultados>
+<Premios>
+<Premio Categoria="1" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="2" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="3" ImporteEuros="13.890,87" Acertantes="15"/>
+<Premio Categoria="4" ImporteEuros="229,44 " Acertantes="163"/>
+<Premio Categoria="5" ImporteEuros="54,31" Acertantes="787"/>
+<Premio Categoria="6" ImporteEuros="18,91 " Acertantes="7.346"/>
+<Premio Categoria="7" ImporteEuros="8,58" Acertantes="12.451"/>
+<Premio Categoria="8" ImporteEuros="3,00" Acertantes="120.046"/>
+<Premio Categoria="9" ImporteEuros="1,50" Acertantes="241.422"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=4&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO La Quiniela -->
+<Juego>
+<IdJuego>
+<![CDATA[ 13 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ La Quiniela ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49996 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230326 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Quiniela y resultados de la jornada 48. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="1" Significado="Ibiza - Burgos" Equipo1="Ibiza" GolesEquipo1="2" Equipo2="Burgos" GolesEquipo2="0"/>
+<Resultado Orden="2" Valor="2" Significado="Racing - Levante" Equipo1="Racing" GolesEquipo1="0" Equipo2="Levante" GolesEquipo2="1"/>
+<Resultado Orden="3" Valor="1" Significado="Alavés - Tenerife" Equipo1="Alavés" GolesEquipo1="1" Equipo2="Tenerife" GolesEquipo2="0"/>
+<Resultado Orden="4" Valor="x" Significado="Eibar - Andorra" Equipo1="Eibar" GolesEquipo1="0" Equipo2="Andorra" GolesEquipo2="0"/>
+<Resultado Orden="5" Valor="x" Significado="Ponferradina - Mirandés" Equipo1="Ponferradina" GolesEquipo1="0" Equipo2="Mirandés" GolesEquipo2="0"/>
+<Resultado Orden="6" Valor="x" Significado="R. Zaragoza - Albacete" Equipo1="R. Zaragoza" GolesEquipo1="1" Equipo2="Albacete" GolesEquipo2="1"/>
+<Resultado Orden="7" Valor="1" Significado="Granada - R. Oviedo" Equipo1="Granada" GolesEquipo1="1" Equipo2="R. Oviedo" GolesEquipo2="0"/>
+<Resultado Orden="8" Valor="x" Significado="Villarreal B - Huesca" Equipo1="Villarreal B" GolesEquipo1="0" Equipo2="Huesca" GolesEquipo2="0"/>
+<Resultado Orden="9" Valor="" Significado="Las Palmas - Sporting" Equipo1="Las Palmas" GolesEquipo1="-" Equipo2="Sporting" GolesEquipo2="-"/>
+<Resultado Orden="10" Valor="" Significado="Málaga - Leganes" Equipo1="Málaga" GolesEquipo1="lunes" Equipo2="Leganes" GolesEquipo2="21:00"/>
+<Resultado Orden="11" Valor="x" Significado="Croacia - Gales" Equipo1="Croacia" GolesEquipo1="1" Equipo2="Gales" GolesEquipo2="1"/>
+<Resultado Orden="12" Valor="1" Significado="Inglaterra - Ucrania" Equipo1="Inglaterra" GolesEquipo1="2" Equipo2="Ucrania" GolesEquipo2="0"/>
+<Resultado Orden="13" Valor="" Significado="Luxemburgo - Portugal" Equipo1="Luxemburgo" GolesEquipo1="-" Equipo2="Portugal" GolesEquipo2="-"/>
+<Resultado Orden="14" Valor="" Significado="Malta - Italia" Equipo1="Malta" GolesEquipo1="-" Equipo2="Italia" GolesEquipo2="-"/>
+<Resultado Orden="15" Valor="M - 0" Significado="España - Noruega" Equipo1="España" GolesEquipo1="3" Equipo2="Noruega" GolesEquipo2="0"/>
+</Resultados>
+<Premios>
+<Premio Categoria="Especial" ImporteEuros=""/>
+<Premio Categoria="1" ImporteEuros=""/>
+<Premio Categoria="2" ImporteEuros=""/>
+<Premio Categoria="3" ImporteEuros=""/>
+<Premio Categoria="4" ImporteEuros=""/>
+<Premio Categoria="5" ImporteEuros=""/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=5&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO El Quinigol -->
+<Juego>
+<IdJuego>
+<![CDATA[ 18 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ El Quinigol ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49995 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230326 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Quinigol y resultados de la jornada 55. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="2 - 0" Significado="Ibiza - Burgos" Equipo1="Ibiza" GolesEquipo1="2" Equipo2="Burgos" GolesEquipo2="0"/>
+<Resultado Orden="2" Valor="0 - 1" Significado="Racing - Levante" Equipo1="Racing" GolesEquipo1="0" Equipo2="Levante" GolesEquipo2="1"/>
+<Resultado Orden="3" Valor="1 - 0" Significado="Alavés - Tenerife" Equipo1="Alavés" GolesEquipo1="1" Equipo2="Tenerife" GolesEquipo2="0"/>
+<Resultado Orden="4" Valor="0 - 0" Significado="Eibar - Andorra" Equipo1="Eibar" GolesEquipo1="0" Equipo2="Andorra" GolesEquipo2="0"/>
+<Resultado Orden="5" Valor="0 - 0" Significado="Ponferradina - Mirandés" Equipo1="Ponferradina" GolesEquipo1="0" Equipo2="Mirandés" GolesEquipo2="0"/>
+<Resultado Orden="6" Valor="1 - 1" Significado="R. Zaragoza - Albacete" Equipo1="R. Zaragoza" GolesEquipo1="1" Equipo2="Albacete" GolesEquipo2="1"/>
+</Resultados>
+<Premios>
+<Premio Categoria="6" ImporteEuros="En escrutinio"/>
+<Premio Categoria="5" ImporteEuros=""/>
+<Premio Categoria="4" ImporteEuros=""/>
+<Premio Categoria="3" ImporteEuros=""/>
+<Premio Categoria="2" ImporteEuros=""/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=6&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Lototurf -->
+<Juego>
+<IdJuego>
+<![CDATA[ 16 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Lototurf ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49914 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230319 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Lototurf correspondiente al 19/03/2023. Combinacion ganadora: 6, 9, 11, 17, 20, 28; Caballo: 4,Reintegro: 0. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="6" Significado="Numero"/>
+<Resultado Orden="2" Valor="9" Significado="Numero"/>
+<Resultado Orden="3" Valor="11" Significado="Numero"/>
+<Resultado Orden="4" Valor="17" Significado="Numero"/>
+<Resultado Orden="5" Valor="20" Significado="Numero"/>
+<Resultado Orden="6" Valor="28" Significado="Numero"/>
+<Resultado Orden="7" Valor="4" Significado="Caballo"/>
+<Resultado Orden="8" Valor="0" Significado="Reintegro"/>
+</Resultados>
+<Premios>
+<Premio Categoria="1" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="2" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="3" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="4" ImporteEuros="275,82" Acertantes="20"/>
+<Premio Categoria="5" ImporteEuros="30,31 " Acertantes="52"/>
+<Premio Categoria="6" ImporteEuros="6,81" Acertantes="463"/>
+<Premio Categoria="7" ImporteEuros="7,45" Acertantes="423"/>
+<Premio Categoria="R" ImporteEuros="1,00" Acertantes="7.962"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=7&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Quintuple Plus -->
+<Juego>
+<IdJuego>
+<![CDATA[ 17 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Quintuple Plus ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 50002 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230326 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Quintuple Plus correspondiente al 26/03/2023. Combinacion ganadora: 3, 1, 5, 8, 9, 5; . ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="3" Significado="Numero"/>
+<Resultado Orden="2" Valor="1" Significado="Numero"/>
+<Resultado Orden="3" Valor="5" Significado="Numero"/>
+<Resultado Orden="4" Valor="8" Significado="Numero"/>
+<Resultado Orden="5" Valor="9" Significado="Numero"/>
+<Resultado Orden="6" Valor="5" Significado="Numero"/>
+</Resultados>
+<Premios>
+<Premio Categoria="1" ImporteEuros="En escrutinio"/>
+<Premio Categoria="2" ImporteEuros=""/>
+<Premio Categoria="3" ImporteEuros=""/>
+<Premio Categoria="4" ImporteEuros=""/>
+<Premio Categoria="5" ImporteEuros=""/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#023C6F" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=8&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Ordinario -->
+<Juego>
+<IdJuego>
+<![CDATA[ 10 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Ordinario ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49964 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230323 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Ordinario correspondiente al 23/03/2023. Numero premiado: 06855. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="06855" Significado="Número"/>
+<Resultado Orden="2" Valor="012" Significado="Serie"/>
+</Resultados>
+<Premios>
+<!-- keyword ordinario -->
+<Premio Categoria="5 cifras y Serie" Numero="06855" LaPaga="012" ImporteEuros="500.000,00"/>
+<Premio Categoria="5 cifras" Numero="06855" LaPaga="" ImporteEuros="35.000,00"/>
+<Premio Categoria="4 cifras Primeras y 4 Ultimas" Numero="0685_ | _6855" LaPaga="" ImporteEuros="250,00"/>
+<Premio Categoria="3 cifras Primeras y 3 Ultimas" Numero="068__ | __855" LaPaga="" ImporteEuros="25,00"/>
+<Premio Categoria="2 cifras Primeras y 2 Ultimas" Numero="06___ | ___55" LaPaga="" ImporteEuros="6,00"/>
+<Premio Categoria="Cifra Primera" Numero="0____" LaPaga="" ImporteEuros="2,00"/>
+<Premio Categoria="Cifra Ultima" Numero="____5" LaPaga="" ImporteEuros="2,00"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#060" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=10&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Cupón Extraordinario -->
+<Juego>
+<IdJuego>
+<![CDATA[ 23 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Cupón Extraordinario ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49913 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230319 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Cupón Extraordinario correspondiente al 19/03/2023. Numero premiado: 35254. Serie: 004. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="35254" Significado="Número"/>
+<Resultado Orden="2" Valor="004" Significado="Serie"/>
+</Resultados>
+<Premios>
+<!-- keyword extraordinario -->
+<Premio Categoria="a las 5 cifras y Serie" ImporteEuros="17.000.000,00" NumeroPremiado="35254"/>
+<Premio Categoria="a las 5 cifras" ImporteEuros="40.000,00" NumeroPremiado="35254"/>
+<Premio Categoria="a las 4 últimas cifras" ImporteEuros="1.500,00" NumeroPremiado="_5254"/>
+<Premio Categoria="a las 3 últimas cifras" ImporteEuros="100,00" NumeroPremiado="__254"/>
+<Premio Categoria="a las 2 últimas cifras" ImporteEuros="10,00" NumeroPremiado="___54"/>
+<Premio Categoria="a la última cifra" ImporteEuros="5,00" NumeroPremiado="____4"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#060" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=11&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Cuponazo -->
+<Juego>
+<IdJuego>
+<![CDATA[ 11 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Cuponazo ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49979 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230324 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Cuponazo correspondiente al 24/03/2023. Numero premiado: 00240. Serie: 022. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="00240" Significado="Número"/>
+<Resultado Orden="2" Valor="022" Significado="Serie"/>
+<Resultado Orden="3" Valor=" - - - - - - - - " Significado="Numeros adicionales"/>
+<Resultado Orden="4" Valor=" - - - - - - - - " Significado="Series adicionales"/>
+</Resultados>
+<Premios>
+<!-- keyword cuponazo -->
+<Premio Categoria="5 cifras y Serie" Numero="00240" Serie="022" ImporteEuros="6.000.000,00"/>
+<Premio Categoria="5 cifras" Numero="00240" Serie="" ImporteEuros="40.000,00"/>
+<Premio Categoria="4 cifras Primeras y 4 Ultimas" Numero="0024_ | _0240" Serie="" ImporteEuros="500,00"/>
+<Premio Categoria="3 cifras Primeras y 3 Ultimas" Numero="002__ | __240" Serie="" ImporteEuros="50,00"/>
+<Premio Categoria="2 cifras Primeras y 2 Ultimas" Numero="00___ | ___40" Serie="" ImporteEuros="6,00"/>
+<Premio Categoria="Cifra Primera" Numero="0____" Serie="" ImporteEuros="3,00"/>
+<Premio Categoria="Cifra Ultima" Numero="____0" Serie="" ImporteEuros="3,00"/>
+<Numero Adicional="" Serie=""/>
+<Numero Adicional="" Serie=""/>
+<Numero Adicional="" Serie=""/>
+<Numero Adicional="" Serie=""/>
+<Numero Adicional="" Serie=""/>
+<Numero Adicional="" Serie=""/>
+<Numero Adicional="" Serie=""/>
+<Numero Adicional="" Serie=""/>
+<Numero Adicional="" Serie=""/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#060" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=12&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Fin de Semana -->
+<Juego>
+<IdJuego>
+<![CDATA[ 12 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Fin de Semana ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49994 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230325 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Fin de Semana correspondiente al 25/03/2023. Numero premiado: 60265. Serie: 046. Premio: . ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="60265" Significado="Número"/>
+<Resultado Orden="2" Valor="046" Significado="Serie"/>
+<Resultado Orden="3" Valor="01057 - 30186 - 62470 - 91747" Significado="Numeros adicionales"/>
+<Resultado Orden="4" Valor="030 - 044 - 046 - 043" Significado="Series adicionales"/>
+</Resultados>
+<Premios>
+<!-- keyword fin_de_semana -->
+<Premio Categoria="5 cifras y Serie" Numero="60265" Serie="046" ImporteEuros="300.000,00 + 5.000,00 al mes durante 20 años"/>
+<Premio Categoria="5 cifras" Numero="60265" Serie="" ImporteEuros="20.000,00"/>
+<Premio Categoria="4 últimas cifras" Numero="_0265" Serie="" ImporteEuros="200,00"/>
+<Premio Categoria="3 últimas cifras" Numero="__265" Serie="" ImporteEuros="30,00"/>
+<Premio Categoria="2 últimas cifras" Numero="___65" Serie="" ImporteEuros="4,00"/>
+<Premio Categoria="Ultima cifra" Numero="____5" Serie="" ImporteEuros="2,00"/>
+<PremioAdicional Categoria="5 cifras y Serie" Numero="01057" Serie="030" ImporteEuros="Al mes durante 10 años, 2.000,00"/>
+<PremioAdicional Categoria="5 cifras" Numero="01057" Serie="" ImporteEuros="400,00"/>
+<PremioAdicional Categoria="5 cifras y Serie" Numero="30186" Serie="044" ImporteEuros="Al mes durante 10 años, 2.000,00"/>
+<PremioAdicional Categoria="a las 5 cifras" Numero="30186" Serie="" ImporteEuros="400,00"/>
+<PremioAdicional Categoria="5 cifras y Serie" Numero="62470" Serie="046" ImporteEuros="Al mes durante 10 años, 2.000,00"/>
+<PremioAdicional Categoria="5 cifras" Numero="62470" Serie="" ImporteEuros="400,00"/>
+<PremioAdicional Categoria="5 cifras y Serie" Numero="91747" Serie="043" ImporteEuros="Al mes durante 10 años, 2.000,00"/>
+<PremioAdicional Categoria="5 cifras" Numero="91747" Serie="" ImporteEuros="400,00"/>
+<Numero Adicional="01057" Serie="030"/>
+<Numero Adicional="30186" Serie="044"/>
+<Numero Adicional="62470" Serie="046"/>
+<Numero Adicional="91747" Serie="043"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#060" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=13&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Eurojackpot -->
+<Juego>
+<IdJuego>
+<![CDATA[ 27 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Eurojackpot ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49973 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230324 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Eurojackpot correspondiente al 24/03/2023. Combinacion ganadora: 6, 21, 23, 26, 43; 3, 9. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="6" Significado="Numero"/>
+<Resultado Orden="2" Valor="21" Significado="Numero"/>
+<Resultado Orden="3" Valor="23" Significado="Numero"/>
+<Resultado Orden="4" Valor="26" Significado="Numero"/>
+<Resultado Orden="5" Valor="43" Significado="Numero"/>
+<Resultado Orden="6" Valor="3" Significado="S1"/>
+<Resultado Orden="7" Valor="9" Significado="S2"/>
+</Resultados>
+<Premios>
+<Premio Categoria="1ª" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="2ª" ImporteEuros="663.892,60" Acertantes="5"/>
+<Premio Categoria="3ª" ImporteEuros="131.238,40" Acertantes="9"/>
+<Premio Categoria="4ª" ImporteEuros="4.329,50" Acertantes="45"/>
+<Premio Categoria="5ª" ImporteEuros="305,10" Acertantes="798"/>
+<Premio Categoria="6ª" ImporteEuros="112,90" Acertantes="2.395"/>
+<Premio Categoria="7ª" ImporteEuros="112,90" Acertantes="1.702"/>
+<Premio Categoria="8ª" ImporteEuros="17,80" Acertantes="35.457"/>
+<Premio Categoria="9ª" ImporteEuros="17,80" Acertantes="38.076"/>
+<Premio Categoria="10ª" ImporteEuros="17,30" Acertantes="75.946"/>
+<Premio Categoria="11ª" ImporteEuros="8,90" Acertantes="183.281"/>
+<Premio Categoria="12ª" ImporteEuros="8,90" Acertantes="549.653"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#060" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=21&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Super Once -->
+<Juego>
+<IdJuego>
+<![CDATA[ 22 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Super Once ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49999 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230326 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Super Once correspondiente al 26/03/2023. Combinacion ganadora: 4, 7, 9, 10, 12, 22, 25, 29, 31, 32, 37, 45, 52, 53, 68, 73, 74, 75, 76, 79; . ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="4" Significado="Numero"/>
+<Resultado Orden="2" Valor="7" Significado="Numero"/>
+<Resultado Orden="3" Valor="9" Significado="Numero"/>
+<Resultado Orden="4" Valor="10" Significado="Numero"/>
+<Resultado Orden="5" Valor="12" Significado="Numero"/>
+<Resultado Orden="6" Valor="22" Significado="Numero"/>
+<Resultado Orden="7" Valor="25" Significado="Numero"/>
+<Resultado Orden="8" Valor="29" Significado="Numero"/>
+<Resultado Orden="9" Valor="31" Significado="Numero"/>
+<Resultado Orden="10" Valor="32" Significado="Numero"/>
+<Resultado Orden="11" Valor="37" Significado="Numero"/>
+<Resultado Orden="12" Valor="45" Significado="Numero"/>
+<Resultado Orden="13" Valor="52" Significado="Numero"/>
+<Resultado Orden="14" Valor="53" Significado="Numero"/>
+<Resultado Orden="15" Valor="68" Significado="Numero"/>
+<Resultado Orden="16" Valor="73" Significado="Numero"/>
+<Resultado Orden="17" Valor="74" Significado="Numero"/>
+<Resultado Orden="18" Valor="75" Significado="Numero"/>
+<Resultado Orden="19" Valor="76" Significado="Numero"/>
+<Resultado Orden="20" Valor="79" Significado="Numero"/>
+</Resultados>
+<Premios/>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#060" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=15&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Triplex -->
+<Juego>
+<IdJuego>
+<![CDATA[ 35 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Triplex ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 50000 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230326 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Triplex correspondiente al 26/03/2023. Combinacion ganadora: 4, 8, 6; . ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="4" Significado="Numero"/>
+<Resultado Orden="2" Valor="8" Significado="Numero"/>
+<Resultado Orden="3" Valor="6" Significado="Numero"/>
+</Resultados>
+<Premios>
+<Premio Categoria="Triplex" ImporteEuros="En escrutinio" Acertantes="En escrutinio"/>
+<Premio Categoria="3 cifras del Triplex en cualquier orden" ImporteEuros=""/>
+<Premio Categoria="2 primeras cifras" ImporteEuros=""/>
+<Premio Categoria="2 últimas cifras" ImporteEuros=""/>
+<Premio Categoria="Primera cifra" ImporteEuros=""/>
+<Premio Categoria="Ultima cifra" ImporteEuros=""/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#060" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=242&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Mi Día -->
+<Juego>
+<IdJuego>
+<![CDATA[ 36 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Mi Día ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49991 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230325 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Mi Día correspondiente al 25/03/2023. Combinacion ganadora: 17, MAY, 2009, 09; . ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="17" Significado="Numero"/>
+<Resultado Orden="2" Valor="MAY" Significado="Numero"/>
+<Resultado Orden="3" Valor="2009" Significado="Numero"/>
+<Resultado Orden="4" Valor="09" Significado="Numero"/>
+</Resultados>
+<Premios>
+<Premio Categoria="Día, Mes y Año" ImporteEuros="" Acertantes="3.000,00"/>
+<Premio Categoria="Día y Año" ImporteEuros="" Acertantes="65,00"/>
+<Premio Categoria="Mes y Año" ImporteEuros="" Acertantes="32,00"/>
+<Premio Categoria="Día y Mes" ImporteEuros="" Acertantes="16,00"/>
+<Premio Categoria="Año" ImporteEuros="" Acertantes="8,00"/>
+<Premio Categoria="Día" ImporteEuros="" Acertantes="4,00"/>
+<Premio Categoria="Mes" ImporteEuros="" Acertantes="2,00"/>
+<Premio Categoria="Número de la Suerte" ImporteEuros="" Acertantes="1,00"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#060" href="" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >javascript:void(0)</span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Lotto 6/49 -->
+<Juego>
+<IdJuego>
+<![CDATA[ 4 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Lotto 6/49 ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49986 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230325 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Lotto 6/49 correspondiente al 25/03/2023. Combinacion ganadora: 13, 22, 30, 35, 45, 48; Reintegro: 3,Plus 1,Joquer: 691226,Complementario: 23. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="13" Significado="Numero"/>
+<Resultado Orden="2" Valor="22" Significado="Numero"/>
+<Resultado Orden="3" Valor="30" Significado="Numero"/>
+<Resultado Orden="4" Valor="35" Significado="Numero"/>
+<Resultado Orden="5" Valor="45" Significado="Numero"/>
+<Resultado Orden="6" Valor="48" Significado="Numero"/>
+<Resultado Orden="7" Valor="3" Significado="Reintegro"/>
+<Resultado Orden="8" Valor="1" Significado="Plus"/>
+<Resultado Orden="9" Valor="691226" Significado="Joquer"/>
+<Resultado Orden="10" Valor="23" Significado="Complementario"/>
+</Resultados>
+<Premios>
+<Premio Categoria="1ª" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="2ª" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="3ª" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="4ª" ImporteEuros="0" Acertantes="0"/>
+<Premio Categoria="5ª" ImporteEuros="101,80" Acertantes="46"/>
+<Premio Categoria="6ª" ImporteEuros="9,42" Acertantes="1.223"/>
+<Premio Categoria="7ª" ImporteEuros="1,00" Acertantes="6.979"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#C00" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=16&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO Trio -->
+<Juego>
+<IdJuego>
+<![CDATA[ 20 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ Trio ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 50001 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230326 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de Trio correspondiente al 26/03/2023. Combinacion ganadora: 4, 9, 0; . ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="4" Significado="Numero"/>
+<Resultado Orden="2" Valor="9" Significado="Numero"/>
+<Resultado Orden="3" Valor="0" Significado="Numero"/>
+</Resultados>
+<Premios>
+<Premio Categoria="3 números + superTrio" ImporteEuros="En escrutinio" NumeroPremiado="En escrutinio"/>
+<Premio Categoria="3 números" ImporteEuros=""/>
+<Premio Categoria="2 primeros números" ImporteEuros=""/>
+<Premio Categoria="2 últimos números" ImporteEuros=""/>
+<Premio Categoria="El primer y el último número" ImporteEuros=""/>
+<Premio Categoria="El último número" ImporteEuros=""/>
+<Premio Categoria="El primer número" ImporteEuros=""/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#C00" href="https://lotoluck.com/utils/lotoluck_redirect.php?e=17&user=lotoluck_int&mod=xml" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >más info en nuestra web </span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+<!-- COMIENZA JUEGO La Grossa -->
+<Juego>
+<IdJuego>
+<![CDATA[ 37 ]]>
+</IdJuego>
+<NombreJuego>
+<![CDATA[ La Grossa ]]>
+</NombreJuego>
+<IdSorteo>
+<![CDATA[ 49971 ]]>
+</IdSorteo>
+<Fecha>
+<![CDATA[ 20230324 ]]>
+</Fecha>
+<comp_activo>
+<![CDATA[ 0 ]]>
+</comp_activo>
+<Titular>
+<![CDATA[ Sorteo de La Grossa correspondiente al 24/03/2023. Combinacion ganadora: 4, 7, 1, 1, 7, 6; Reintegro: 3. ]]>
+</Titular>
+<Resultados>
+<Resultado Orden="1" Valor="4" Significado="Reintegro2"/>
+<Resultado Orden="2" Valor="7" Significado="Numero"/>
+<Resultado Orden="3" Valor="1" Significado="Numero"/>
+<Resultado Orden="4" Valor="1" Significado="Numero"/>
+<Resultado Orden="5" Valor="7" Significado="Numero"/>
+<Resultado Orden="6" Valor="6" Significado="Numero"/>
+<Resultado Orden="7" Valor="3" Significado="Reintegro"/>
+</Resultados>
+<Premios>
+<Premio Categoria="Primer premio 5 cifras" ImporteEuros="" Acertantes="50.000,00"/>
+<Premio Categoria="Número anterior al primer premio" ImporteEuros="" Acertantes="5.000,00"/>
+<Premio Categoria="Número posterior al primer premio" ImporteEuros="" Acertantes="5.000,00"/>
+<Premio Categoria="4 últimas cifras del primer premio" ImporteEuros="" Acertantes="500,00"/>
+<Premio Categoria="3 últimas cifras del primer premio" ImporteEuros="" Acertantes="50,00"/>
+<Premio Categoria="2 últimas cifras del primer premio" ImporteEuros="" Acertantes="6,00"/>
+<Premio Categoria="Ultima cifra correcta" ImporteEuros="" Acertantes="3,00"/>
+<Premio Categoria="Reintegro 2" ImporteEuros="" Acertantes="3,00"/>
+<Premio Categoria="Reintegro 3" ImporteEuros="" Acertantes="3,00"/>
+</Premios>
+<enlace>
+<![CDATA[ <a style="font-family:Verdana, Geneva, sans-serif; width:200px; height:30px; display:block; text-decoration:none; color:#fff; font-weight:bold; font-size:14px; text-align:center; background:#C00" href="" target="_blank" ><span style="display:block; text-shadow:#666 2px 2px 1px; width:100%; margin-top:6px;" >javascript:void(0)</span></a> ]]>
+</enlace>
+<Administraciones>
+<!-- Comienzan administraciones - 1 -->
+</Administraciones>
+</Juego>
+</ResultadosLoterias>

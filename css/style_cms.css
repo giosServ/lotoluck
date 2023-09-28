@@ -1,0 +1,338 @@
+
+
+
+
+
+
+button.botonazul
+{
+	width: 100;
+	text-align: center;
+	text-decoration: none;
+	font-family: monospace;
+	font-size: 14px;
+	font-weight: inherit;
+	color: #ffffff;
+	border-color: #3165cd;
+	background-color: #3165cd;
+	border-radius: 3px;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	line-height: 1;
+	border: none;	
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+button.botonrojo
+{
+	width: 100;
+	text-align: center;
+	text-decoration: none;
+	font-family: monospace;
+	font-size: 14px;
+	font-weight: inherit;
+	color: #ffffff;
+	border-color: #e23427;
+	background-color: #e23427;
+	border-radius: 3px;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	line-height: 1;
+	border: none;	
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+button.botonverde
+{
+	width: 100;
+	text-align: center;
+	text-decoration: none;
+	font-family: monospace;
+	font-size: 14px;
+	font-weight: inherit;
+	color: #ffffff;
+	border-color: #29994e;
+	background-color: #29994e;
+	border-radius: 3px;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	line-height: 1;
+	border: none;	
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+
+p.tabla
+{
+	font-family: monospace;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+p.tabla2
+{
+	font-family: monospace;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+p.titols
+{
+	font-family: monospace;
+	font-size: 14px;
+	font-weight: bold;
+	color: blue;
+	border-color: black;
+ 	padding: 10px;
+ 	border: 1px solid;
+}
+
+p.resultados
+{
+	font-family: monospace;
+	font-size: 12px;
+ 	padding: 10px;
+ 	border: 1px solid;
+}
+
+td.sorteos
+{
+	font-family: monospace;
+	font-size: 14px;
+	color: blue;
+	display: none;
+	margin-left: 20px;
+}
+
+td.categoria
+{
+	font-family: monospace;
+	font-size: 14px;
+	color: black;
+	margin-left: 20px;
+}
+
+table.resultados
+{
+	font-family: monospace;
+	font-size: 14px;
+	margin-top: 50px; 
+	width: 80%; 
+	border: 5px solid; 
+	border-color: gray; 
+	border-radius: 5px;
+}
+
+
+
+
+h2.titulo_h2
+{	
+	font-family: monospace;
+	font-size:30px;
+	font-weight: bold;
+	padding: 15px;
+	width: 85%;
+}
+
+h3.titulo_h3
+{
+	margin-top: 20px;
+	font-family: monospace;		
+	font-size: 18px;
+    font-weight: bold;
+}
+
+input.cms
+{
+	font-family: monospace;
+	font-size: 12px;
+	border-radius: 2px;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    padding: 10px;
+    margin-top: 6px;
+    width:150px;
+}
+
+select.cms
+{
+	font-family: monospace;
+	font-size: 12px;
+	border-radius: 2px;
+	border-bottom: 1px sol0id;
+    border-top: 1px solid;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    padding: 10px;
+    margin-top: 6px;
+    width:150px;
+}
+
+textarea.fichero
+{
+	margin-top: -15px;
+    width: 600px;
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-radius: 5px;
+}
+
+textarea.comentario
+{
+	margin-top: 6px;
+    width: 600px;    
+    border-bottom: 1px solid;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-radius: 5px;
+}
+
+/*		CSS revisado 		*/
+label.usuario
+{
+	/* Definición del estilo de las etiquetas donde aparece el nombre del usuario que actualmente esta conectado al CMS */
+	font-family: monospace;
+	font-size: 14px;
+	color: black;
+}
+
+label.cms
+{
+	/* Definición del estilo de las etiquetas que aparecen en el CMS. En la majoria de casos estan relacionadas con un textbox o selectbox */
+	font-family: monospace;
+	font-size: 24px;
+	font-weight: bold;
+	color: black;
+}
+
+label.cms_error
+{
+	/* Definición del estilo de las etiquetas que aparecen en el CMS. En la majoria de casos estan relacionadas con errores */
+	font-family: monospace;
+	font-size: 30px;
+	color: red;
+	display: none;
+}
+
+input.cms
+{
+	/* Definición del estilo de los inputs que permiten introducir datos en el CMS.  */
+	font-family: monospace;
+	font-size: 24px;
+	color: black;
+}
+
+p.sorteos
+{
+	/* Definición del estilo del parafo que permite mostrar el menu izquierdo de los sorteos */
+	font-family: monospace;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+p.menus
+{
+	/* Definición del estilo del parafo que permite mostrar el menu superior del CMS */
+	font-family: monospace;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+p.menu2
+{
+	/* Definición del estilo del parafo que permite mostrar el submenu superior del CMS */
+	font-family: monospace;
+	font-size: 24px;
+	font-weight: bold;
+}
+
+p.cabecera
+{
+	font-family: monospace;
+	font-size: 24px;
+	font-weight: bold;
+	color: blue;
+	border-color: black;
+ 	padding: 10px;
+ 	border: 1px solid;
+ 	text-align: center
+}
+
+p.resultado
+{
+	font-family: monospace;
+	font-size: 24px;
+	color: black;
+	border-color: black;
+ 	padding: 10px;
+ 	border: 1px solid;
+}
+
+a.links
+{
+	/* Definición de los links de los sorteos*/
+	font-family: monospace;
+	font-size: 24px;
+	margin-left: 20px;
+	color:black; 
+}
+
+a.links_boton
+{
+	/* Definición de los links de los sorteos*/
+	font-family: monospace;
+	font-size: 20px;
+	color:black; 
+}
+
+h1.titulo_h1
+{	
+	/* Definición del estilo de los títulos	*/
+	font-family: monospace;		
+	font-size: 32px;
+    font-weight: bold;
+    color: white;
+    margin-top: 50px;
+    margin-left: 20px;
+}
+
+div.titulos
+{
+	width: 150%;
+	margin-top:30px;
+	background: rgb(24,24,24);
+	background: linear-gradient(0deg, rgba(24,24,24,1) 0%, rgba(85,85,85,1) 100%); 
+	color:#ffffff;
+}
+
+button.formulario
+{
+	/* Definición del estilo de los botones generales del formulario 	*/
+	text-align: center;
+	font-family: monospace;
+	font-size: 20px;
+	font-weight: bold;
+	background: #e1c147;
+	border-radius: 10px;
+	padding: 20px;
+}
+
+td.espacio
+{
+	padding: 30px;
+}

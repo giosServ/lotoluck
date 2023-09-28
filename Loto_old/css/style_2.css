@@ -1,0 +1,94 @@
+.formularios_2{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto 
+}
+
+.tdformularios_2{
+  color: #545454;
+  font-size: 14px;
+}
+
+.boxform_2{
+  width: 50%;
+  min-height: 80px;
+  display: block;
+  float: left;
+}
+
+.cajaform_2{
+  border-width: 1px;
+  border-style: solid;
+  background-color: #F4F4F4;
+  border-color: #FF0000;
+  padding: 0.75em;
+}
+.cajaform_3{
+  border-width: 1px;
+  border-style: solid;
+  background-color: #F4F4F4;
+  border-color: #008f39;
+  padding: 0.75em;
+}
+
+.textform_2{
+  font-size:12px;
+  color: #acacac;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.checkform_2{
+  font-size:13px;
+  color: #515151;
+  margin-top: 10px;
+}
+.ocultarMensaje{
+	display:none;
+}
+.errAlias2{
+	color: #FF0000;
+}
+.aliasOk{
+	color: #008f39;
+}
+.condiciones{
+	font-family: 'Arial', arial, serif; 
+	color: #FF0000;
+	text-align: center;
+}
+
+
+.wrapper {
+    position: relative;
+    height: 60px;
+    width: 400px;
+    border-radius: 5px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+.wrapper input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #5b3e68;
+    padding-left: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.wrapper input::placeholder {
+    font-size: 18px;
+}
+.wrapper span {
+    font-size: 20px;
+    color: #5b3e68;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.wrapper span i.esconder-btn::before {
+    content: "\f070"; //el icono del ojo tachado
+}
+.wrapper input:valid~span {
+    display: block;
+}

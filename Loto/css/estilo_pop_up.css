@@ -1,0 +1,138 @@
+.overlay{
+	background: rgba(0,0,0,.3);
+	position: fixed;
+	top: 0;
+	bottom:0;
+	left: 0;
+	right: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index:300;
+	padding-top:40px;
+	
+	
+	
+}
+
+.overlayConfirm {
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 300;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0s linear 0.5s;
+}
+
+.overlayConfirm.visible {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.overlayConfirm.hidden {
+  display: none;
+}
+
+.overlayConfirm > div {
+  background-color: white;
+  border: 1px solid;
+  padding: 20px;
+  max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.overlayConfirm.visible > div {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+.hidden {
+	display: none;
+}
+
+.popup{
+	
+	background: #f8f8f8;
+	box-shadow: 0px 0px 5px 0 px rgba(0,0,0,0.3);
+	border-radius: 3px;
+	font-family: sans-serif;
+	padding: 20px;
+	text-align: center;
+	width: 600px;
+	
+	
+	
+	
+}
+
+.cerrar_popup{
+	text-decoration: none;
+	color: #ffffff;
+	border-color: #d4ac0d;
+	background-color: #d4ac0d;
+	border-radius: 3px;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+	padding-left: 20px;
+	font-family: inherit;
+	font-weight: inherit;
+	line-height: 1;
+	border: none;
+	cursor: pointer;
+	transition-duration: 0.4s;
+}
+
+.cerrar_popup:hover{
+    background-color: #e8c22c;
+	text-decoration: none;
+
+}
+
+.popup h3{
+	font-size: 36px;
+	font-weight: 600;
+	margin-bottom: 10px;
+}
+
+.popup h5{
+	font-size: 26px;
+	font-weight: 300;
+	margin-bottom: 40px;
+}
+
+.container {
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+padding: 20px;
+box-sizing: border-box;
+}
+
+.box {
+background-color: white;
+border: solid;
+padding: 20px;
+text-align: center;
+}
+
+.button {
+margin-top: 20px;
+}
+
+
+
+

@@ -1,0 +1,248 @@
+div.titulo_lc
+{
+	font-family: monospace;
+	font-size: 24px;
+	font-weight: bold;
+
+	text-align: center;
+	color: #e41834;
+
+	padding-top: 10px;
+}
+
+div.titulo_lae
+{
+	font-family: monospace;
+	font-size: 24px;
+	font-weight: bold;
+
+	text-align: center;
+	color: #1f7bb3;
+
+	padding-top: 10px;
+}
+
+div.titulo
+{
+	font-family: monospace;
+	font-size: 24px;
+
+	text-align: center;
+
+	padding-top: 10px;
+}
+
+label.titulo
+{
+	font-family: monospace;
+	font-size: 24px;
+	font-weight: bold;
+
+	color: white;
+}
+
+label.subtitulo
+{
+	font-family: monospace;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+button.botonLAE
+{
+	font-family: monospace;
+	font-size: 12px;
+	font-weight: bold;
+
+	text-align: center;
+
+	background: #9dc5de;
+	border-color: #1f7bb3;
+	border-width: 2px;
+	border-radius: 10px;
+
+	padding: 10px;
+	width: 150px;
+}
+
+button.botonONCE
+{
+	font-family: monospace;
+	font-size: 12px;
+	font-weight: bold;
+
+	text-align: center;
+
+	background: #268b1a69;
+	border-color: #1a8b43;
+	border-width: 2px;
+	border-radius: 10px;
+
+	padding: 10px;
+	width: 150px;
+}
+
+button.botonLC
+{
+	font-family: monospace;
+	font-size: 12px;
+	font-weight: bold;
+
+	text-align: center;
+
+	background: #e4183457;
+	border-color: #e41834;
+	border-width: 2px;
+	border-radius: 10px;
+
+	padding: 10px;
+	width: 150px;
+}
+
+td.sorteoLC
+{
+	font-family: monospace;
+	font-size: 16;
+	font-weight: bold;
+
+	text-align: center;
+
+	background: #e41834;
+	border-color: white;
+	border-width: 2px;
+	border-radius: 10px;
+	color: white;
+
+	padding: 20px;
+	margin: 20px;
+
+}
+
+td.sorteoLAE
+{
+	font-family: monospace;
+	font-size: 16;
+	font-weight: bold;
+
+	text-align: center;
+
+	background: #1f7bb3;
+	border-color: white;
+	border-width: 2px;
+	border-radius: 10px;
+	color: white;
+
+	padding: 20px;
+	margin: 20px;
+
+}
+
+td.pv
+{
+	font-family: monospace;
+	font-size: 16;
+	font-weight: bold;
+
+	text-align: center;
+
+	background: #8bc34a;
+	border-color: white;
+	border-width: 2px;
+	border-radius: 10px;
+	color: white;
+
+	padding: 20px;
+	margin: 20px;
+
+}
+
+td.infopv
+{
+	font-family: monospace;
+	font-size: 14;
+
+	text-align: center;
+
+	background: #9e9e9e7a;
+	border-color: white;
+	border-width: 2px;
+	border-radius: 10px;
+	color: black;
+
+	padding: 20px;
+	margin: 20px;
+
+}
+
+td.resultados
+{
+	font-family: monospace;
+	font-size: 22;
+	font-weight: bold;
+
+	text-align: center;
+
+	padding: 20px;
+	margin: 20px;
+}
+
+td.premios
+{
+	font-family: monospace;
+	font-size: 22;
+
+	text-align: center;
+
+	padding: 20px;
+	margin: 20px;
+}
+
+td.premios_n
+{
+	font-family: monospace;
+	font-size: 22;
+
+	text-align: right;
+
+	padding: 20px;
+	margin: 20px;
+}
+select.sorteo
+{
+	font-family: monospace;
+	font-size: 20px;
+
+	width: 280px;
+
+	border: gray 2px solid;
+	border-radius:10px;
+}
+
+a.sorteos
+{
+	font-family: monospace;
+	font-size: 12px;
+	font-weight: bold;
+
+	color: black;
+
+	padding: 5px;
+}
+
+.circuloRojo
+{
+	width: 50px;
+	height: 50px;
+
+	background-color: #ff7f91;
+	border-radius: 100%;
+
+	text-align: center;
+	font-family: monospace;
+	font-size: 20;
+	font-weight: bold;
+
+	color: #ad1d31;
+
+	padding: 12px;
+}

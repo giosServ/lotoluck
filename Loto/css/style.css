@@ -1,0 +1,2288 @@
+html, body {  
+   margin:0px;  
+   height:100%; 
+   width: 100%;
+   font-family: 'Arial', arial, serif; }
+ul {
+  list-style-type: none;
+  text-decoration: none;
+}
+li a{ list-style-type: none;
+  text-decoration: none;
+  }
+
+p{
+  color: #4d4d4d;
+  font-size: 15px;
+}
+
+h2{
+  color: #545454;
+  font-size: 21px;
+  letter-spacing: 2px;
+  padding-bottom: 20px;
+  font-weight: 500;
+}
+
+h3{  
+  color: #545454;
+  font-size: 18px;
+  letter-spacing: 1px;
+
+}
+
+/*-----Botones------*/
+
+.boton{
+text-decoration: none;
+color: #ffffff;
+background-color: #d4ac0d;
+border-radius: 3px;
+padding-top: 10px;
+padding-right: 20px;
+padding-bottom: 10px;
+padding-left: 20px;
+font-family: inherit;
+font-weight: inherit;
+border: none;
+cursor: pointer;
+transition-duration: 0.4s;
+
+}
+
+.boton:hover {
+background-color: #e8c22c;
+text-decoration: none;
+}
+
+.boton2{
+text-decoration: none;
+color: #ffffff;
+background-color: #d4ac0d;
+border-radius: 3px;
+padding-top: 20px;
+padding-right: 20px;
+padding-bottom: 10px;
+padding-left: 20px;
+font-family: inherit;
+font-weight: inherit;
+border: none;
+cursor: pointer;
+transition-duration: 0.4s;
+
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.boton{
+  font-size: 12px;
+  padding-left: 12px;
+  padding-right: 12px;
+}}
+
+
+.botonblanco{
+text-decoration: none;
+color: #ffffff;
+background-color: #FFFFFF5E;
+border-radius: 3px;
+padding-top: 1%;
+padding-right: 2%;
+padding-bottom: 1%;
+padding-left: 2%;
+font-family: inherit;
+font-weight: inherit;
+line-height: 1;
+border: none;
+text-decoration: none;
+cursor: pointer;
+transition-duration: 0.4s;
+margin-right: 1.5%;
+position: relative;
+}
+
+.botonblanco:hover {
+background-color: #ffffff80;
+text-decoration: none;
+}
+
+.botonresultados{
+text-decoration: none;
+color: #ffffff;
+background-color: #d4ac0d;
+border-radius: 3px;
+padding-top: 1%;
+padding-right: 2%;
+padding-bottom: 1%;
+padding-left: 2%;
+font-family: inherit;
+font-weight: inherit;
+line-height: 1;
+border: none;
+text-decoration: none;
+cursor: pointer;
+transition-duration: 0.4s;
+margin-right: 1.5%;
+position: relative;
+}
+
+.botonresultados:hover {
+background-color: #e4bd22;
+text-decoration: none;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.botonresultados{padding-top: 1%;
+padding-right: 5%;
+padding-bottom: 1%;
+padding-left: 5%;
+margin-bottom: 1%;}
+
+}
+
+
+/*-----Menus--------*/
+
+.nav{
+  margin-right: 50px; 
+  margin-top: 50px;
+  margin-left: 50px;
+  padding-bottom: 5%;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.nav{
+  margin: 2%;
+  padding-bottom: 10%;
+}}
+
+ .nav2 {
+  padding-bottom: 15px; 
+  overflow: hidden;
+  background-color: #F4F4F4;
+  clear: both;
+} 
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.nav2 {
+  margin-left: -20px;}}
+
+ .subnav {
+  background-color: #eeeeee;
+  clear: both;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .subnav {display: none;}
+}
+
+.subnavme{
+ padding-left: 0px;
+ position: relative;
+ overflow: hidden;
+ display: flex;
+ text-align: center;
+ margin-left: auto;
+ margin-right: auto;
+list-style-type: none;
+text-decoration: none;
+}
+
+.subnavmenu a{
+ padding-right: 20px;
+ float: left;
+ color: #999999;
+ font-size: 14px;
+ text-align: center;
+ padding-left: 20px;
+padding-right: 20px;
+border-right: 1px solid #C4C4C4;
+list-style-type: none;
+text-decoration: none;
+}
+
+.subnavmenu a:hover{
+  color: #bdbdbd;
+}
+.iconosnav{
+  padding-right: 1.5%;
+  float: left;
+}
+
+.iconosnav a:hover{
+ opacity: 0.5;
+
+}
+
+.desplegable li ul {
+  display:none;
+  position:absolute;
+  min-width:195px;
+  text-decoration:none; 
+  margin-left: -70px;
+  list-style:none;
+  text-decoration: none;
+  font-size: 14px;
+  z-index: 10;
+      }
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.desplegable li ul {margin-left: -130px;}
+
+}
+
+.desplegable li a{     
+  color: white;
+  display:block;
+}
+
+.desplegable li ul li{     
+  background-color:white;
+  box-shadow: 2px 2px 2px grey;
+  border-top: 2px solid;
+  border-color: #eeeeee;
+
+}
+
+.desplegable li ul li a{     
+  padding:10px 12px;
+  color: #d4ac0d;
+}
+
+.desplegable li ul a:hover {
+  background-color:#d4ac0d;
+  color: white;
+      }
+      
+.desplegable li:hover > ul {
+    display:block;
+    padding:10px 12px;
+      }
+
+
+/*--------*/
+
+.logo{
+  width: 17%; 
+  float: left; 
+  margin-top: -20px;  
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .logo{
+  width: 33%; 
+  margin: 0;
+}
+}
+
+.logoañadiryquitar{
+  float:right; 
+  margin-right: 20px; 
+  margin-top: -8px;
+}
+
+.logoañadiryquitar a:hover{
+  opacity: 0.5;
+  }
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.logoañadiryquitar{
+  display: none;
+}}
+
+.googleplay{
+  float:right; 
+  margin-right: 10px; 
+  margin-top: -1px;
+}
+
+.googleplay a:hover{
+  opacity: 0.5;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.googleplay{
+  display: none;
+}}
+
+
+.icogoogleplay{
+  display: none;
+}
+
+.icogoogleplay a:hover{
+  opacity: 0.5;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.icogoogleplay{
+  display: block;
+  float:right; 
+  margin-right: 2%;
+}}
+
+.login{
+  display: none;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.login{
+  display: block;
+  padding: 0px;
+}}
+
+.registrarse{
+  display: block;
+}
+.iniciarsesion{
+  display: block;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.registrarse{
+  display: none;
+}
+.iniciarsesion{
+  display: none;
+}}
+
+/*------SLIDER------*/
+      
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  height: 480px;
+  width: 100%;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  height: 132px;
+  width: 100%;
+}}
+
+.slider-container a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  /*añadir display*/
+  opacity: 0;
+  /* transition: fadein 1s ease-in-out;*/
+  z-index: 0;
+  animation-name: fadein;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadein {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.slider-container a.active {
+  display: block;
+  /*añadir display*/
+  /*opacity: 1;---*/
+}
+
+.slider-prev,
+.slider-next {
+  position: absolute;
+  top: 70%;
+}
+
+.slider-prev {
+  left: 1%;
+}
+
+.slider-next {
+  right: 1%;
+}
+
+.slider-prev:hover,
+.slider-next:hover {
+  cursor: pointer;
+  transform: scale(1.4);
+  transition-duration: 0.5s;
+}
+
+
+/*-----SECCION DESTACADA------*/
+
+.seccionheader{
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -15px;
+  margin-bottom: 30px;
+  z-index: 10;
+  background-color: white;
+  border-left: 5px solid #d4ac0d;
+  border-bottom: 1px solid grey;
+  border-right: 1px solid grey;
+  border-top: 1px solid #d4ac0d;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .seccionheader{
+  width: 90%;
+  position: relative;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -15px;
+  margin-bottom: 30px;
+  z-index: 10;
+  background-color: white;
+  border-left: 5px solid #d4ac0d;
+  border-bottom: 1px solid grey;
+  border-right: 1px solid grey;
+  border-top: 1px solid #d4ac0d;
+  padding-bottom: 6%;
+ }}
+
+.articledestacado{
+  width: 100%;
+  padding: 1%;
+  float: left;
+  padding-bottom: 5%;
+}
+
+.articlebotes{
+  margin-right: 1%;
+  width: 100%;
+  background-color: #f4f4f4;
+  padding: 4%;
+  padding-bottom: 5%;
+  float: left;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.articlebotes{padding-bottom: 10%; width: 100%; padding-left: 0%; padding-right: 0%;}
+
+}
+
+.imgdestacado {width: 100%; margin-top: 20px;}
+
+/*-----BOTONES DESTACADA------*/
+
+.destacados{
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.botondestacados{
+  width: 100%;
+  
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+  .destacados{
+  width: 100%;
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 0px;}
+
+  .botondestacados{margin-bottom: 15%;
+}}
+
+.botonheader{
+text-decoration: none;
+color: #d4ac0d;
+background-color: white;
+padding-top: 15px;
+padding-right: 35px;
+padding-bottom: 15px;
+padding-left: 35px;
+font-family: inherit;
+border: 2px solid #d4ac0d;
+text-decoration: none;
+cursor: pointer;
+transition-duration: 0.4s;
+
+}
+
+.botonheader:hover {
+color: #ffffff;
+border-color: #d4ac0d;
+background-color: #d4ac0d;
+text-decoration: none;
+}
+
+ /*-----CONTENIDO------*/ 
+
+.cabeceras{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  text-align: center;
+  border-left: 5px solid #d4ac0d;
+  background-color: #f4f4f4;
+  font-size: 17px;
+  padding-top: 20px;
+  color: #545454;
+  font-weight: 500;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .cabeceras{width: 90%; font-size: 14px;}}
+  
+
+.cabeceras2{
+  width: 80%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  text-align: center;
+  border-left: 5px solid #d4ac0d;
+  background-color: #f4f4f4;
+  font-size: 22px;
+  padding-top: 20px;
+  color: #545454;
+  font-weight: 500;
+}
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .cabeceras2{width: 90%; font-size: 15px; margin-bottom: 1%; padding-left: 2%; padding-right: 1%;}}
+
+
+/*---BOTES EN JUEGO-----*/
+
+.seccionbotes{
+width: 70%;
+margin-left: auto;
+margin-right: auto;
+}
+
+.ico_bote{
+  width: 50%;
+}
+
+.bote-text {
+color:white; 
+
+}
+
+.bannerbotes{
+width: 50%;
+float: right;
+}
+
+.bannerbotes:hover {
+opacity: 0.9;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.seccionbotes{width:100%;}
+.ico_bote{width: 70%;}
+.bote-text {font-size: 3vw;}
+.bannerbotes{width: 80%;}
+}
+
+.bote_loteria{
+  background-color: #67b7d4;
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_bonoloto{
+  background-color: #b3b557;
+  width: 100%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_euromillones{
+  background-color: #4c8ca8;
+   width: 100%;
+     padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_quiniela{
+  background-color: #e88992;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_quinigol{
+  background-color: #a6cdd2;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_quintuple{
+  background-color: #a6cdd2;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_lototurf{
+  background-color: #ffb793;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_primitiva{
+  background-color: #90d090;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_ElGordo{
+  background-color: #f27774;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_once{
+  background-color: #a6cdd2;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_649{
+  background-color: #e18298;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_trio{
+  background-color: #fed287;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.bote_grossa{
+  background-color: #5bb777;
+  width: 100%;
+    padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+
+
+/*formularios*/
+
+.formularios{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto 
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.formularios{width: 90%;}
+
+}
+
+.tdformularios{
+  color: #545454;
+  font-size: 14px;
+}
+
+.boxform{
+  width: 50%;
+  min-height: 80px;
+  display: block;
+  float: left;
+  position: relative;
+}
+
+.cajaform{
+  border-width: 1px;
+  border-style: solid;
+  background-color: #F4F4F4;
+  border-color: #666;
+  padding: 0.75em;
+}
+
+.textform{
+  font-size:12px;
+  color: #acacac;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.checkform{
+  font-size:13px;
+  color: #515151;
+  margin-top: 10px;
+}
+
+/*AVISOS*/
+
+.AvisosLegales{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+.AvisosLegales p{
+  font-size: 14px;
+}
+
+/*En tu WEB*/
+
+.entuweb{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.entuweb{
+  width: 90%;}
+
+}
+
+.boxweb{
+  width: 50%;
+  min-height: 80px;
+  display: block;
+  float: left;
+  position: relative;
+  padding-bottom: 30px;
+}
+.cajaweb{
+  font-size: 14px ;
+  background-color: #F4F4F4;
+ 
+}
+
+/*---Busca tu admin-----*/
+
+.sectionBusquedas{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contenedorbusquedas{
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  float: left;
+}
+
+#formulario {
+  display: none;
+  padding-top: 1%;
+}
+
+#formulario2 {
+  display: none;
+  padding-top: 1%;
+}
+
+#formulario3 {
+  display: none;
+  padding-top: 1%;
+}
+
+#formulario4 {
+  display: none;
+  padding-top: 1%;
+}
+
+#formulario5 {
+  display: none;
+  padding-top: 1%;
+}
+
+.botonBusqueda{
+  text-decoration: none;
+  color: #d4ac0d;
+  background-color: #fff;
+  border-radius: 3px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  font-family: inherit;
+  font-weight: inherit;
+  border: none;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  font-size: 14px;
+}
+
+.botonBusqueda:hover {
+  color: #e8c22c;
+  background-color: #fff;
+  text-decoration: none;
+}
+
+.mapa{
+  margin-top: -40px;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.mapa{display: none;}
+.sectionBusquedas{width: 95%;}
+.contenedorbusquedas{width: 100%;}
+.botonBusqueda{padding-left: 1%; text-align: left; width: 93%;}}
+
+/*---Encuentra tu numero-----*/
+
+.formularios2{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 4%;
+}
+
+.contenedorbusqueda{
+  width: 33%; 
+  float:left;
+}
+
+.contenedornumero{float:left;}
+
+.logobusquedas{
+  width: 60%;
+}
+
+.textobusquedas{
+  font-size:18px;
+  color: #4d4d4d;
+  letter-spacing: 1px;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.formularios2{width: 90%;}
+.contenedorbusqueda{float: none; width: 95%;}
+.contenedornumero{margin-bottom: 15%;}
+
+}
+
+/*---JUEGOS INICIO-----*/
+
+.cabecerasJuegosinicio{
+  width: 80%;
+  color: white;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+  padding-top: 20px;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .cabecerasJuegosinicio{width: 95%;}
+}
+
+/*---SELAE-----*/
+
+.resultadosselae{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 2%;
+  border: 2px solid #0D7DAC;
+}
+
+.pieresultadolae{
+  background-color: #0D7DAC;
+  padding-bottom: 1%; 
+  padding-top: 1%;
+  display: grid;
+}
+
+.fecharesultados{
+  float:right; 
+  margin-right: 2%;
+}
+
+.logoresultados{
+  width: 30%;
+  float:left; 
+  margin-left: 3%;
+}
+
+.logoresultados2{
+  width: 25%;
+  float:left; 
+  margin-left: 3%;
+}
+
+.logoresultados3{
+  width: 20%;
+  float:left; 
+  margin-left: 3%;
+}
+
+.logoresultados4{
+  width: 15%;
+  float:left; 
+  margin-left: 3%;
+}
+
+.cajaresultado{
+  padding-top: 10%;
+  padding-bottom: 5%;
+
+}
+.cajaresultado2{
+  padding-top: 10%;
+  padding-bottom: 13%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tablaresultados{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tablaresultados2{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/*------------*/
+.tdloteriaNacional{
+  text-align: center;
+  color: #1f7baf;
+}
+
+.thloteriaNacional{
+  color: white;
+  background-color: #1f7baf;
+  padding: 5px;
+}
+/*------------*/
+.tdGordoNavidad{
+  text-align: center;
+  color: #d2200c;
+}
+
+.thGordoNavidad{
+  color: white;
+  background-color: #d2200c;
+  padding: 5px;
+}
+/*------------*/
+.tdelniño{
+  text-align: center;
+  color: #cc9023;
+}
+
+.thelniño{
+  color: white;
+  background-color: #cc9023;
+  padding: 5px;
+}
+
+/*------------*/
+
+.circuloeuromillon{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#143f65;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+.circuloeuromillonestrella{
+width:45px;
+height:45px;
+border-radius:50px; 
+background-color:#fac700;
+position:relative;
+float:left;
+margin-right: 1%;
+
+}
+
+.numeroeuromillon{
+  position:absolute;
+  color: white;
+  top:21px;
+  left:21px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.numeroeuromillonestrella{
+  position:absolute;
+  color: white;
+  top:12px;
+  left:12px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}
+.apendiceeuromillones{
+  position:absolute;
+  top:-40%;
+  left:40%; 
+  color:#fac700;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/*------------*/
+.circuloprimitiva{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#2c9336;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+.circuloprimitivaRe{
+width:45px;
+height:45px;
+border-radius:50px; 
+background-color:#5ebf64;
+position:relative;
+float:left;
+margin-right: 1%;
+
+}
+.apendiceprimitiva{
+  position:absolute;
+  top:-40%;
+  left:40%; 
+  color:#5ebf64;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.titulojoker{
+  position:absolute;
+  top:-25%;
+  left:20%; 
+  color:black;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.numerojoker{
+  position:absolute;
+  top:20%;
+  left:20%;
+  color:#2c9336;
+  font-weight: bold;
+}
+
+/*------------*/
+
+.circulobonoloto{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#748423;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+.circulobonolotoRe{
+width:45px;
+height:45px;
+border-radius:50px; 
+background-color:#b3b557;
+position:relative;
+float:left;
+margin-right: 1%;
+
+}
+.apendicebonoloto{
+  position:absolute;
+  top:-40%;
+  left:40%; 
+  color:#b3b557;
+  font-size: 13px;
+  font-weight: bold;
+}
+/*------------*/
+.circuloelgordo{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#d2200c;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+.circuloelgordoRe{
+width:45px;
+height:45px;
+border-radius:50px; 
+background-color:#ff5955;
+position:relative;
+float:left;
+margin-right: 1%;
+
+}
+.apendiceelgordo{
+  position:absolute;
+  top:-40%;
+  left:40%; 
+  color:#ff5955;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/*------------*/
+.circulolototurf{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#e56b1c;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+.circulolototurfRe{
+width:45px;
+height:45px;
+border-radius:50px; 
+background-color:#f49160;
+position:relative;
+float:left;
+margin-right: 1%;
+
+}
+.apendicelototurf{
+  position:absolute;
+  top:-40%;
+  left:40%; 
+  color:#f49160;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/*------------*/
+
+.tdquiniela{
+  
+  text-align: center;
+  color: #dd3740;
+}
+.thquiniela{
+  color: white;
+  background-color: #dd3740;
+  padding: 5px;
+  
+}
+/*------------*/
+.tdquinigol{
+  
+  text-align: center;
+  color: #3cb2c6;
+}
+.thquinigol{
+  color: white;
+  background-color: #3cb2c6;
+  padding: 5px;
+  
+}
+/*------------*/
+.tdquintuple{
+  
+  text-align: center;
+  color: #f5ba32;
+}
+.thquintuple{
+  color: white;
+  background-color: #f5ba32;
+  padding: 5px;
+  
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .resultadosselae{width: 95%; padding-top: 6%;}
+  .tablaresultados2{width: 90%;}
+  .logoresultados{width: 95%;}
+  .logoresultados2{width: 85%;}
+  .logoresultados3{width: 75%;}
+  .logoresultados4{width: 55%;}
+  .fecharesultados{float: none; text-align: center; clear: both;}
+  .cajaresultado{padding-bottom: 15%;}
+  .resultadosselae{padding-left: 0px;}
+  .circuloeuromillon{width:45px;height:45px;}
+  .circuloeuromillonestrella{margin-top: 10%;margin-bottom: 10%;}
+  .numeroeuromillon{font-size: 16px; top:13px;left:13px;}
+  .numeroeuromillonestrella{font-size: 16px; top:13px;left:13px;}
+
+  .circuloprimitiva{width:45px;height:45px; margin-bottom: 10%;}
+  .circuloprimitivaRe{margin-bottom: 10%;}
+
+  .circulobonoloto{width:45px;height:45px; margin-bottom: 10%;}
+  .circulobonolotoRe{margin-bottom: 10%;}
+
+  .circuloelgordo{width:45px;height:45px; margin-bottom: 10%;}
+  .circuloelgordoRe{margin-bottom: 10%;}
+
+  .circulolototurf{width:45px;height:45px; margin-bottom: 10%;}
+  .circulolototurfRe{margin-bottom: 10%;}
+
+ 
+}
+
+/*---ONCE-----*/
+.resultadosonce{
+  width: 80%;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 0px;
+  padding-top: 20px;
+  border: 2px solid #319852;
+}
+
+.pieresultadoonce{
+  background-color: #319852;
+  padding-bottom: 1%; 
+  padding-top: 1%;
+  display: grid;
+}
+
+/*------------*/
+.tdonce{
+  text-align: center;
+  color: #1C8942;
+}
+
+.thonce{
+  color: white;
+  background-color: #1C8942;
+  padding: 5px;
+}
+
+/*------------*/
+.circulojackpot{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#1C8942;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+.circulotriplex{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#1C8942;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .resultadosonce{width: 95%; padding-top: 6%;}
+  .circulojackpot{width:45px;height:45px; margin-bottom: 1%;}
+  .circulotriplex{width:45px;height:45px; margin-bottom: 12%;}
+}
+
+
+
+
+/*---CAT----*/
+.resultadoscat{
+  width: 80%;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 0px;
+  padding-top: 20px;
+  border: 2px solid #B94141;
+}
+
+
+.pieresultadocat{
+  background-color: #B94141;
+  padding-bottom: 1%; 
+  padding-top: 1%;
+  display: grid;
+}
+
+.tituloloteriacat {
+  float:left; 
+  color: white; 
+  font-size:28px; 
+  margin-top: 0px;
+}
+
+.tituloloteriacat2 {
+  float:left; 
+  color: white; 
+  font-size:28px; 
+  margin-top: 0px;
+  display: none;
+}
+
+
+/*------------*/
+
+.tdGrossa{
+  text-align: center;
+  color: #198b43;
+}
+
+.thGrossa{
+  color: white;
+  background-color: #198b43;
+  padding: 5px;
+}
+
+/*------------*/
+
+.circulotrio{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#eca116;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+/*------------*/
+
+.circulo649{
+  width:65px;
+  height:65px;
+  border-radius:50px; 
+  background-color:#e21934;
+  position:relative;
+  float:left;
+  margin-right: 1%;
+}
+
+.circulo649Re{
+width:45px;
+height:45px;
+border-radius:50px; 
+background-color:#f35479;
+position:relative;
+float:left;
+margin-right: 1%;
+
+}
+.apendicecirculo649{
+  position:absolute;
+  top:-40%;
+  left:40%; 
+  color:#f35479;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.titulocirculo649{
+  position:absolute;
+  top:-25%;
+  left:20%; 
+  color:black;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.numerocirculo649{
+  position:absolute;
+  top:20%;
+  left:20%;
+  color:#e21934;
+  font-weight: bold;
+}
+
+/*------------*/
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .resultadoscat{width: 95%; padding-top: 6%;}
+  .tituloloteriacat {display: none;}
+  .tituloloteriacat2 {display: block; font-size: 20px; padding-top: 2%;}
+  .circulotrio{width:45px;height:45px; margin-bottom: 12%;}
+  .circulo649{width:45px;height:45px; margin-bottom: 10%;}
+  .circulo649Re{margin-bottom: 10%;}
+  .titulocirculo649{left:2%;}
+  .numerocirculo649{left:2%;}
+}
+
+.ResultadosCirculos{
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 30px;
+  padding-top: 30px;
+
+}
+
+.circulo{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #0D7DAC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 20px;
+  padding:3%;
+
+}
+
+.circuloONCE{
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1C8942;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 20px;
+  padding:3%;
+
+}
+
+.circuloONCEsuper{
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1C8942;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 10px;
+  padding:3%;
+
+}
+
+
+
+
+/*------RESULTADOS PAGINAS INDIVIDUAL-----*/
+
+.cabecerasJuegos{
+  width: 80%;
+  color: white;
+  font-weight: 700;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+  margin-top: 50px;
+  padding-left: 1px;
+  padding-top: 0px;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+.cabecerasJuegos{width: 98%;}
+
+}
+
+.logocabecerajuegos{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 20%;
+}
+
+.logocabecerajuegosgrossa{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 6px;
+  padding-bottom: 10px;
+  width: 16%;
+}
+
+.logocabecerajuegostrio{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 15%;
+}
+
+.logocabecerajuegos649{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 17%;
+}
+
+.logocabecerajuegossuperonce{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 18%;
+}
+
+.logocabecerajuegostriplex{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 20%;
+}
+
+.logocabecerajuegossueldazo{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 23%;
+}
+.logocabecerajuegosmidia{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 20%;
+}
+
+.logocabecerajuegosjackpot{ 
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 20%;
+}
+.logocabecerajuegoscuponazo{ 
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 23%;
+}
+
+.logocabecerajuegosdiario{ 
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 27%;
+}
+
+.logocabecerajuegosextra{ 
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 0px;
+  padding-bottom: 10px;
+  width: 22%;
+}
+
+.logocabecerajuegosquintuple{ 
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 30%;
+}
+.logocabecerajuegoslototurf{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 20%;
+
+}
+
+.logocabecerajuegosquinigol{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 20%;
+}
+
+.logocabecerajuegosquiniela{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 24%;
+}
+
+.logocabecerajuegosgordo{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 19%;
+}
+
+.logocabecerajuegosbonoloto{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 23%;
+}
+
+.logocabecerajuegosprimitiva{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 27%;
+}
+
+.logocabecerajuegoseuromillon{
+  float:left; 
+  margin-left:2px;
+  padding-left: 20px;
+  padding-right: 10px; 
+  margin-top: -10px; 
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 30%;
+}
+
+.icocabecerajuegos{
+  float:right; 
+  margin-right: 10px; 
+  padding-top: 12px;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.logocabecerajuegos{width: 55%;}
+.icocabecerajuegos{width: 8%;}
+.logocabecerajuegos649{width: 48%;padding-left: 7px;}
+.logocabecerajuegostrio{width: 44%; padding-left: 7px;}
+.logocabecerajuegosgrossa{width: 45%; padding-left: 7px;}
+.logocabecerajuegossueldazo{width: 65%;padding-left: 7px;}
+.logocabecerajuegostriplex{width: 55%; padding-left: 7px;}
+.logocabecerajuegossuperonce{width: 50%;padding-left: 7px;}
+.logocabecerajuegosmidia{width: 55%; padding-left: 7px;}
+.logocabecerajuegosjackpot{ width: 55%; padding-left: 7px;}
+.logocabecerajuegoscuponazo{ width: 65%; padding-left: 7px;}
+.logocabecerajuegosdiario{width: 65%; padding-left: 7px; padding-top: 5px;}
+.logocabecerajuegosextra{width: 60%; padding-left: 7px;}
+.logocabecerajuegosquintuple{ width: 65%; padding-left: 7px; padding-top: 19px;}
+.logocabecerajuegoslototurf{width: 55%; padding-left: 7px;padding-top: 15px;}
+.logocabecerajuegosquinigol{width: 55%; padding-left: 7px;padding-top: 15px;}
+.logocabecerajuegosquiniela{width: 65%; padding-left: 7px;padding-top: 15px;}
+.logocabecerajuegosgordo{width: 50%; padding-left: 7px;padding-top: 15px;}
+.logocabecerajuegosbonoloto{width: 65%; padding-left: 7px;padding-top: 10px;}
+.logocabecerajuegosprimitiva{width: 65%; padding-left: 7px;padding-top: 15px;}
+.logocabecerajuegoseuromillon{width: 65%; padding-left: 7px;padding-top: 17px;}
+
+}
+
+/*-----ADMINISTRACIONES WEB-----*/
+
+
+.seccionppvv{
+  width: 100%;
+  --opacidad-negro: 0.6;
+  background-image: linear-gradient(rgba(250, 250, 250, var(--opacidad-negro)), rgba(250, 250, 250, var(--opacidad-negro))), url('../imagenes/Administraciones/ppvv cardona.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 20px;
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+.articleppvv{
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+  display:flex;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+
+  }
+
+.divppvv{
+  text-align: center;
+   margin-left: auto;
+  margin-right: auto;
+}
+
+.imagenppvv{
+  float: left;
+  width: 30%;
+  padding-top: 2%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+}
+
+.imagenppvv2{
+  float: left;
+  width: 35%;
+  padding-top: 2%;
+  padding-right: 4%;
+  padding-bottom: 4%;
+}
+
+.Textoppvv{
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  font-size: 13px;
+}
+
+.Textoppvv p{
+  font-size: 14px;
+}
+
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .divppvv{width: 95%; padding-left: 0px;}
+  .articleppvv{width: 95%; display: block;}
+  .Textoppvv{width: 95%;}
+  .imagenppvv2{width: 100%;}
+}
+
+/*----ANUNCIO PIE------*/
+
+.seccionpublicidad{
+  width: 100%;
+  background-image: url('../imagenes/fondo publi.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin-top: 60px;
+  padding-top: 80px;
+  padding-bottom: 20px;
+}
+
+.articlepublicidad{
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+  display:flex;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+  }
+
+
+.divpublicidad{
+  width: 40%;
+  padding-left: 40px;
+  text-align: center;
+}
+.divpublicidad2{ 
+  width: 20%;
+  padding-left: 40px;
+  text-align: center;
+}
+
+.divpublicidad3{
+  width: 60%;
+  padding-left: 40px;
+  text-align: center;
+}
+.divpublicidad4{ 
+  width: 20%;
+  padding-left: 40px;
+  text-align: center;
+  margin-top: -15px;
+}
+
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .divpublicidad2{width: 95%; padding-left: 0px;}
+  .divpublicidad{width: 95%; padding-left: 0px;}
+  .divpublicidad3{width: 95%; padding-left: 0px;}
+  .divpublicidad4{width: 95%; padding-left: 4%; margin-top: -15%;}
+  .articlepublicidad{width: 95%; display: block;}
+}
+
+
+/*------SUSCRIBIR PIE-----*/
+
+.seccionsuscribir{
+  width: 100%;
+  background-color: #F4F4F4;
+
+}
+.articlesuscribir{
+  width: 80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  padding-top: 30px;
+}
+.articlesuscribir2{
+  width: 70%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 50px;
+
+  }
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .articlesuscribir2{
+    width: 80%;
+    display: block;
+
+}}
+
+.divsuscribir{
+  
+  width: 100%;
+  padding-left: 40px;
+  text-align: left;
+}
+.divsuscribir2{
+  
+  width: 100%;
+  padding-left: 40px;
+  text-align: left;
+}
+
+
+.divsuscribircirculo{
+  
+  width: 100%;
+  padding-left: 40px;
+  text-align: left;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .divsuscribircirculo{display: none;}
+  .divsuscribir2{padding-top: 5%;}
+}
+
+.circulosuscribir{
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: #D4AC0D;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 20px;
+  padding:6%;
+
+}
+
+/*----------PIE-------------*/
+
+.seccionfooter{
+  width: 100%;
+  background-color: #3c4045;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .seccionfooter{display: block;} 
+  
+}
+
+.juegabien{
+  width: 8%;
+}
+
+.enlacepie{
+  color: white;
+}
+.enlacepie:hover {
+  color: #d4ac0d;
+}
+
+.articlefooter{
+  color: white;
+  width: 50%;
+  text-align: left;
+  padding-left: 6%;
+  font-size: 13px;
+  float: left;
+
+}
+.articlefooter2{
+  color: white;
+  width: 80%;
+  text-align: left;
+  padding-right: 5%;
+  font-size: 13px;
+  text-align: center;
+  float: left;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+  .articlefooter{padding-left: 10%;} 
+  .articlefooter2{padding-left: 10%;}
+  .juegabien{width: 25%;}
+}
+
+.pie{
+  background-color:#1c1c1c; 
+  padding: 20px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+/*-----------------    BANNERS  --------------------*/
+.img_banner_bote{
+	
+	width:60%;
+
+
+}
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.img_banner_bote{
+	
+	width:90%;
+
+
+}
+
+}
+
+
+.img_banner_resultados{
+	
+	width:23%;
+
+
+}
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.img_banner_resultados{
+	
+	width:90%;
+
+
+}
+
+}
+
+
+.banner_pral_izdo{
+	
+	float:left;
+	position: -webkit-sticky;
+    position: sticky;
+    top:0;
+	left:0;
+	overflow: hidden;
+	text-align:left;
+	
+	
+
+	
+
+}
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.banner_pral_izdo{
+	
+	
+
+}
+
+}
+
+
+.banner_pral_derecho{
+	
+	float:rigth;
+	position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+	right:0;
+	
+	overflow: hidden;
+	text-align:right;
+
+
+	
+
+}
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.banner_pral_derecho{
+	
+	
+
+}
+
+}
+
+
+.contenedor_banner_left{
+
+	height:10500px; 
+	position:absolute;
+	left:0;
+	width:10%;
+	z-index:-10;
+
+	
+
+}
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.contenedor_banner_left{
+	
+	display:none;
+
+}
+
+}
+
+
+
+
+
+.contenedor_banner_right{
+	
+	height:10500px; 
+	position:absolute;
+	right:0;
+	width:10%;
+	z-index:-10;
+	
+
+}
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.contenedor_banner_right{
+	
+	display:none;
+
+}
+
+}
+
+
+
+.banner_pral_superior{
+	
+	width:100%;
+	
+	text-align:center;
+}
+
+.banner_pral_inferior{
+	
+	width:100%;
+	text-align:center;
+}
+
+
+
+.banner_inferior_emergente{
+	
+	position: fixed;
+    bottom: 0px;
+    width: 80%;
+    z-index: 997!important;
+	float:right;
+    transition: 2s;
+	
+    margin: auto; /* Will not center vertically and won't work in IE6/7. */ 
+	left: 0;
+	right: 0
+
+
+	
+}
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+
+.banner_inferior_emergente{
+	
+	position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 997!important;
+   
+    transition: 2s;
+    margin: auto;
+    left: 0;
+    right: 0;
+	text-align:center;
+
+}
+
+}
+
+
+
+.banner_inferior_emergente_oculto{
+	
+	display:none;
+  
+   
+	
+	
+}
+/*-------------- SORTEO DE LA ONCE -------------------*/
+p.titol_once
+{
+	font-size: 18px;
+	text-align: center;
+	color: #1a8b43;
+}
+
+/*---------CSS MOVIL-----------*/
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+}
+ 
