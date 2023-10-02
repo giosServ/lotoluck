@@ -3,6 +3,7 @@ global $lista_juegos;
 global $juegos_data;
 global $vars;
 
+//Pruebas para comprobador de resultados
 
 $key_word	=	'loteria_nacional';
 print_r($juegos_data[$key_word]);
