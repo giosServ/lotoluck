@@ -76,7 +76,7 @@
 				window.location.href="loteriaNavidad.php";
 			}
 		</script>
-	<div id="tabsParaAdicionales"align='left'>
+	<div id="tabsParaAdicionales" style='align:left'>
 			<div class="tab" style="width:100%;">
 				<button class="tablinks active" type='button' onclick="openTab(event, 'adicional_1')"><span class='btnPestanyas' id='btnPestanyas'>RESULTADOS</span></button>
 				<button class="tablinks" type='button'id='btnJuegos' onclick="openTab(event, 'adicional_2')"><span class='btnPestanyas' id='btnPestanyas'>Puntos de venta con premio</span></button>
@@ -278,6 +278,10 @@
 			?>
 		</div>
 		</div>
+		<br>
+			<?php include "../filtro_formato_navidad.php"; ?>
+		<br><br><br><br>
+		
 	</div>
 		
 

@@ -1,6 +1,7 @@
 <?php
 
 	include __DIR__ . '/funciones.php';
+	include '../config.php';
 ?>	
 
 
@@ -14,11 +15,11 @@
     <meta name='keywords' content='Euromillones, Loteria nacional, Primitiva, Bonoloto, Quinielas,  Gordo, Gordo Navidad, El Niño, Cupon, Cuponazo, Sueldazo, Super Once, Trio, Loto, 6/49.' />
 
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
-    <link rel='stylesheet' type='text/css' href='http://lotoluck.es/Loto/css/style.css'>
-    <link rel='stylesheet' type='text/css' href='http://lotoluck.es/Loto/css/estilo_pop_up.css'>
+    <link rel='stylesheet' type='text/css' href='<?php echo $_GLOBALS['dominio'];?>Loto/css/style.css'>
+    <link rel='stylesheet' type='text/css' href='<?php echo $_GLOBALS['dominio'];?>Loto/css/estilo_pop_up.css'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script src="https://lotoluck.es/Loto/js/cookies_preferencia_visualizacion.js"></script>
+	<script src="'<?php echo $_GLOBALS['dominio'];?>Loto/js/cookies_preferencia_visualizacion.js"></script>
 	
   </head>
 

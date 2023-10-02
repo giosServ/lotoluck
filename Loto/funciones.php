@@ -25,6 +25,8 @@
 	}
 	$GLOBALS["conexion"]->set_charset("utf8");
 */
+
+
 	include "db_conn.php";
 	/**************************************************************************************************************************/
 	/***	 				FUNCIONES QUE NOS PERMITE OBTENER LA INFORMACIÓN DE LAS CATEGORIAS				 				***/

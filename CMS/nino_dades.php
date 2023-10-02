@@ -278,6 +278,9 @@
 			?>
 		</div>
 		</div>
+		<br>
+			<?php include "../filtro_formato.php"; ?>
+		<br><br><br><br>
 	</div>
 
 		<script type="text/javascript">

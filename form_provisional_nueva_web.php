@@ -10,7 +10,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 		
 		if($idUsuario!=-2 || $idUsuario!=-1 ){
 		
-			header('location: http://lotoluck.es/Loto/Inicio.php');
+			header('location: https://lotoluck.es/Loto/Inicio.php');
+			exit;
 		}
 		else
 	{

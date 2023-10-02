@@ -19,7 +19,8 @@
 		</script>       
 			<!--Editor tinyMCE-->
 		<script src="https://cdn.tiny.cloud/1/pt8yljxdfoe66in9tcbr6fmh0vaq2yk4lu0ibxllsvljedgh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
-		<script src="../js/tinyMCE.js"></script>		
+		<script src="../js/tinyMCE.js"></script>	
+		<script src='../js/juegos.filtros.nacional.js'></script>
 	
 
 	</head>

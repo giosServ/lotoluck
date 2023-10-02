@@ -8106,31 +8106,31 @@ function MostrarFicheros($idSorteo) {
 	}
 	if (isset($nombreFichero) && $nombreFichero != '' && $nombreFichero != NULL) {
 		echo '<tr> <td> <label class="cms"> Nombre público del fichero: </label> </td> </tr>';
-		echo '<tr> <td> <input class="fichero" id="nombreFichero" name="nombreFichero" value="'.$nombreFichero.'"></td> </tr>';
+		echo '<tr> <td style="padding-bottom:20px;"> <input class="fichero" id="nombreFichero" name="nombreFichero" value="'.$nombreFichero.'"></td> </tr>';
 		echo '<tr> <td> </td> </tr>';
 	} else {
 		echo '<tr> <td> <label class="cms"> Nombre público del fichero: </label> </td> </tr>';
-		echo '<tr> <td> <input class="fichero" id="nombreFichero" name="nombreFichero"> </td> </tr>';
+		echo '<tr> <td style="padding-bottom:20px;"> <input class="fichero" id="nombreFichero" name="nombreFichero"> </td> </tr>';
 		echo '<tr> <td> </td> </tr>';
 	}
 	if (isset($urlToPdf) && $urlToPdf != NULL) {
 		echo '<tr> <td> <label class="cms"> Listado Oficial Sorteo en PDF: (<a href="'.$urlToPdf.'" target="_blank" style="color:red;"> Ver </a>)</label> </td> </tr>';
 		echo '<tr> <td> <input id="borrarFicheroPDF" type="checkbox" value="borrarFicheroPDF"><label class="cms"> Eliminar fichero actual del servidor al guardar</label></td> </tr>';
-		echo '<tr> <td> <input id="listadoPDF" type="file"> </td> </tr>';
+		echo '<tr> <td style="padding-bottom:20px;"> <input id="listadoPDF" type="file"> </td> </tr>';
 		echo '<tr> <td> </td> </tr>';
 	} else {
 		echo '<tr> <td> <label class="cms"> Listado Oficial Sorteo en PDF: </label> </td> </tr>';
 		echo '<tr> <td> <input id="borrarFicheroPDF" type="checkbox" value="borrarFicheroPDF"><label class="cms"> Eliminar fichero actual del servidor al guardar</label></td> </tr>';
-		echo '<tr> <td> <input id="listadoPDF" type="file"> </td> </tr>';
-		echo '<tr> <td> </td> </tr>';
+		echo '<tr > <td style="padding-bottom:20px;"> <input id="listadoPDF" type="file"> </td> </tr>';
+		echo '<tr> <td></td> </tr>';
 	}
 	if (isset($urlToTxt) && $urlToTxt != NULL) {
-		echo '<tr> <td> <label class="cms"> Listado Oficial Sorteo en PDF: (<a href="'.$urlToTxt.'" target="_blank" style="color:red;"> Ver </a>)</label> </td> </tr>';
+		echo '<tr> <td> <label class="cms"> Listado Oficial Sorteo en TXT: (<a href="'.$urlToTxt.'" target="_blank" style="color:red;"> Ver </a>)</label> </td> </tr>';
 		echo '<tr> <td> <input id="borrarFicheroTXT" type="checkbox" value="borrarFicheroTXT"><label class="cms"> Eliminar fichero actual del servidor al guardar</label></td> </tr>';
 		echo '<tr> <td> <input id="listadoTXT" type="file"> </td> </tr>';
 		echo '<tr> <td> </td> </tr>';
 	} else {
-		echo '<tr> <td> <label class="cms"> Listado Oficial Sorteo en PDF: </label> </td> </tr>';
+		echo '<tr> <td> <label class="cms"> Listado Oficial Sorteo en TXT: </label> </td> </tr>';
 		echo '<tr> <td> <input id="borrarFicheroTXT" type="checkbox" value="borrarFicheroTXT"><label class="cms"> Eliminar fichero actual del servidor al guardar</label></td> </tr>';
 		echo '<tr> <td> <input id="listadoTXT" type="file"> </td> </tr>';
 		echo '<tr> <td> </td> </tr>';
@@ -8368,6 +8368,23 @@ function Mostrar_listado_Equipos()
 			}
 		}
 	}	
+	
+	function devolverTerminaciones($idSorteo){
+		$consulta = "SELECT numero, premio, posicion FROM loteriaNacional WHERE idSorteo=$idSorteo AND descripcion = 'Terminación'  ORDER BY cast(posicion as unsigned) ASC";
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, mostramos las categorias por pantalla
+			$terminaciones = [];
+			while (list( $numero, $premio) = $resultado->fetch_row())
+			{
+				$terminacion = $numero.' | '.$premio;
+				array_push($terminaciones, $terminacion);
+			}
+			return $terminaciones;
+		}
+		return -1;
+	}
 	function InsertarPremiosLoteriaNacional($array_premio) {
 		// var_dump($array_premio);
 		// die();
