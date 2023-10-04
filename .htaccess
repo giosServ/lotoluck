@@ -21,3 +21,6 @@ RewriteRule ^(.*)$ /secciones_publicas.php?nombre_parametro=politica-de-cookies 
 # Redireccionar cuando se solicite "/publica-tu-administracion-punto-de-venta"
 RewriteCond %{REQUEST_URI} ^/publica-tu-administracion-punto-de-venta$ [NC]
 RewriteRule ^(.*)$ /secciones_publicas.php?nombre_parametro=publica-tu-administracion-punto-de-venta [QSA,L]
+
+RewriteEngine On
+RewriteRule ^Loto/Inicio\.php$ https://lotoluck.es [R=301,L]
