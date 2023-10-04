@@ -121,21 +121,44 @@
 					</div>
 			</div>
 			<div id="adicional_3" class="tabcontent1" style="width:100%;display:none;">
-					<div class="adicional_3" align='left' style="margin:10px;">
+				<div class="adicional_3" align='left' style="margin:10px;">
+				
+					<div style="margin-top:50px; margin-left:15px">
+						<table>
+							<tbody>
+								<?php
+									if ($idSorteo !== -1) {
+										MostrarFicheros($idSorteo);
+									} else {
+								?>
+									<tr> <td> <label class="cms"> Nombre público del fichero: </label> </td> </tr>
+									<tr> <td> <input class="fichero" id="nombreFichero" name="nombreFichero"> </td> </tr>
+									<tr> <td> </td> </tr>
+									<tr> <td> <label class="cms"> Listado Oficial Sorteo en PDF: </label> </td> </tr>
+									<tr> <td> <input id="borrarFicheroPDF" type="checkbox" value="borrarFicheroPDF"><label class="cms"> Eliminar fichero actual del servidor al guardar</label></td> </tr>
+									<tr> <td style="padding-bottom:20px;"> <input id="listadoPDF" type="file"> </td> </tr>
+									<tr> <td> </td> </tr>
+									<tr> <td> <label class="cms"> Listado Oficial Sorteo en TXT: </label> </td> </tr>
+									<tr> <td> <input id="borrarFicheroTXT" type="checkbox" value="borrarFicheroTXT"><label class="cms"> Eliminar fichero actual del servidor al guardar</label></td> </tr>
+									<tr> <td> <input id="listadoTXT" type="file"> </td> </tr>
+								<?php
+								}
+								?>		
+							</tbody>
+						</table>
+					</div>
+					<br>
 					<hr><hr>
 					
 					<input type='checkbox' style='font-size:22px;'></input>&nbsp;&nbsp;<label style='font-size:22px;color:green;'><strong>Activar Comprobador de Premios:</strong></label>
 					
 					<hr><hr>
 					<br>
-					<span style='font-size:20px;color:blue;'>AYUDA FILTROS DEL TEXTO DE LISTADO OFICIAL PARA EL TXT</span><br>
-					<span><i>Selecciona el formato, copia y pega parte del texto del pdf aquí para limpiarlo</i></span><br><br>
-					<label><b>Formato</b>&nbsp;&nbsp;
-						<input type='radio'/>&nbsp;&nbsp;<label>NACIONAL REGULAR BÁSICO</label>&nbsp;&nbsp;
-						<input type='radio'/>&nbsp;&nbsp;<label>NACIONAL REGULAR</label>&nbsp;&nbsp;
-						<input type='radio'/>&nbsp;&nbsp;<label>ESPECIAL EL GORDO DE NAVIDAD<label>&nbsp;&nbsp;
-					</label>
-					</div>
+					<?php include "../filtro_formato.php"; ?>
+					<br><br><br><br>
+					
+				</div>
+				
 			</div>
 		
 			<div id="adicional_1" class="tabcontent1" style="width:100%;display:block;">
@@ -203,12 +226,15 @@
 					PremiosParaNuevoRegistroLoteriaNacional();
 				} else {
 					MostrarPremiosLoteriaNacional($idSorteo);
+					$terminaciones = devolverTerminaciones($idSorteo);
 				}
 					
 				?>
 				</tbody>
 			</table>
-
+			<script>
+				var format_ter = "<?= implode(";",$terminaciones) ?>";
+			</script>
 			<div align="right">
 
 				<?php 
@@ -280,30 +306,7 @@
 			<button class='botonAtras' onclick='atras()'>  Atrás</button>
 		</div>
 
-		<div style="margin-top:50px; margin-left:50px">
-			<table>
-				<tbody>
-					<?php
-						if ($idSorteo !== -1) {
-							MostrarFicheros($idSorteo);
-						} else {
-					?>
-						<tr> <td> <label class="cms"> Nombre público del fichero: </label> </td> </tr>
-						<tr> <td> <input class="fichero" id="nombreFichero" name="nombreFichero"> </td> </tr>
-						<tr> <td> </td> </tr>
-						<tr> <td> <label class="cms"> Listado Oficial Sorteo en PDF: </label> </td> </tr>
-						<tr> <td> <input id="borrarFicheroPDF" type="checkbox" value="borrarFicheroPDF"><label class="cms"> Eliminar fichero actual del servidor al guardar</label></td> </tr>
-						<tr> <td> <input id="listadoPDF" type="file"> </td> </tr>
-						<tr> <td> </td> </tr>
-						<tr> <td> <label class="cms"> Listado Oficial Sorteo en TXT: </label> </td> </tr>
-						<tr> <td> <input id="borrarFicheroTXT" type="checkbox" value="borrarFicheroTXT"><label class="cms"> Eliminar fichero actual del servidor al guardar</label></td> </tr>
-						<tr> <td> <input id="listadoTXT" type="file"> </td> </tr>
-					<?php
-					}
-					?>		
-				</tbody>
-			</table>
-		</div>
+		
 		
 		<div style="margin-top:20px;">
 			<label class="cms"> Texto banner resultado del juego </label>

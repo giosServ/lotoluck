@@ -1878,6 +1878,24 @@
 			}
 		}
 	}
+	
+	
+	function devolverTerminaciones($idSorteo){
+		$consulta = "SELECT numero, premio, posicion FROM loteriaNacional WHERE idSorteo=$idSorteo AND descripcion = 'Terminación'  ORDER BY cast(posicion as unsigned) ASC";
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, mostramos las categorias por pantalla
+			$terminaciones = [];
+			while (list( $numero, $premio) = $resultado->fetch_row())
+			{
+				$terminacion = $numero.'|'.$premio;
+				array_push($terminaciones, $terminacion);
+			}
+			return $terminaciones;
+		}
+		return -1;
+	}
 
 	function ObtenerNTerminaciones($idSorteo)
 	{
