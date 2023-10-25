@@ -1,4 +1,5 @@
 <?php
+	$idSorteo = $_GET['idSorteo'];
 	include "funciones.php";
 ?>
 
@@ -25,6 +26,16 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="https://lotoluck.es/Loto/js/cookies_preferencia_visualizacion.js"></script>
+	<style>
+	.compr-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50%; /* El 50% del ancho de la ventana */
+		margin: 0 auto;
+		margin-top:20px;
+	}
+	</style>
   </head>
   
 
@@ -33,11 +44,6 @@
 </style>
   <body style=''>
   
-	<?php
-		// Obtenemos el sorteo que se ha de mostrar
-		$idSorteo = $_GET['idSorteo'];
-	?>
-	
     <header>
 	
 	<?php
@@ -125,7 +131,9 @@
 				}
 			?>			
 		</div>
-		
+		<?php
+			include "../comprobador.php";
+		?>
 		<div align='center' style='padding-top: 5px;'>
 		<b>
 			<?php

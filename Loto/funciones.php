@@ -343,7 +343,9 @@
 		}
 
 		// Mostramos los resultados por pantalla
-		echo "<p class='fecharesultados'>Sorteo del <strong> $fecha </strong></p>";
+		echo "<ul'>
+			<li style='margin-top:1.5%;' class='liComprueba' ><a href='https://lotoluck.es/Loto/loteria_niño.php?idSorteo=-1' class='boton botonComprueba bnacional'><i class='fa fa-search'></i>&nbsp;COMPRUEBA TU NÚMERO</a></li>";
+		echo "<li style='display:contents;float:right;'><span class='fecharesultados'>Sorteo del <strong> $fecha </strong></span></li></ul>";
         echo "<div class='cajaresultado'>";
 		echo "<table class='tablaresultados'>";
         echo "<tr>";
@@ -838,7 +840,9 @@
 		}
 
 		// Mostramos los resultados por pantalla
-		echo "<p class='fecharesultados'>Sorteo del <strong> $fecha </strong></p>";
+		echo "<ul'>
+			<li style='margin-top:1.5%;' class='liComprueba' ><a href='https://lotoluck.es/Loto/loteria_navidad.php?idSorteo=-1' class='boton botonComprueba bnavidad'><i class='fa fa-search'></i>&nbsp;COMPRUEBA TU NÚMERO</a></li>";
+		echo "<li style='display:contents;float:right;'><span class='fecharesultados'>Sorteo del <strong> $fecha </strong></span></li></ul>";
 		echo "<div class='cajaresultado'>";
 		echo "<table class='tablaresultados'>";
 		echo "<tr>";
@@ -1128,7 +1132,9 @@
 		}
 
 		// Mostramos los resultados por pantalla
-		echo "<p class='fecharesultados'>Sorteo del <strong> $fecha </strong></p>";
+		echo "<ul'>
+			<li style='margin-top:1.5%;' class='liComprueba' ><a href='https://lotoluck.es/Loto/loteria_niño.php?idSorteo=-1' class='boton botonComprueba bnino'><i class='fa fa-search'></i>&nbsp;COMPRUEBA TU NÚMERO</a></li>";
+		echo "<li style='display:contents;float:right;'><span class='fecharesultados'>Sorteo del <strong> $fecha </strong></span></li></ul>";
 		echo "<div class='cajaresultado'>";
 		echo "<table class='tablaresultados'>";
 		echo "<tr>";

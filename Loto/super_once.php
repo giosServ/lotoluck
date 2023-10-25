@@ -188,7 +188,7 @@
 		</tr>
 		<tr style='border-bottom:1px dashed black;'>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'><b>8  </td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'> x115 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'> x100 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x500 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x3.000 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x10.000 €</td>
@@ -200,7 +200,7 @@
 		
 		<tr style='border-bottom:1px dashed black;'>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'><b>7  </td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'> x25 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'> x20 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x50 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x100 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x400 €</td>
@@ -213,34 +213,34 @@
 		<tr style='border-bottom:1px dashed black;'>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'><b>6  </td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'> x5 €</td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x12 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x10 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x10 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding:10px; margin: 20px; border-bottom: 1px dashed black;'>x25 €</td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x115 € </td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x100 € </td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x500 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'></td>
 			
 		</tr>
 		<tr style='border-bottom:1px dashed black;'>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'><b>5  </td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'> x2 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x2 €</td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x5 €</td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x12€</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x2 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x3 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x10€</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x15 € </td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding:10px; margin: 20px; border-bottom: 1px dashed black;'>x26 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding:10px; margin: 20px; border-bottom: 1px dashed black;'>x25 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x225 €</td>
 			
 		</tr>
 		<tr style='border-bottom:1px dashed black;'>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'><b>4  </td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'></td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'></td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'></td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x2€</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x1 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x1 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x1 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x2 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x5 € </td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x5 €</td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x12 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x10 €</td>
 			
 		</tr>
 		<tr style='border-bottom:1px dashed black;'>
@@ -250,8 +250,8 @@
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'></td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px;; margin: 20px; border-bottom: 1px dashed black;'></td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'> </td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x1 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x2 €</td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x3 €</td>
 			
 		</tr>
 		<tr style='border-bottom:1px dashed black;'>
@@ -281,10 +281,10 @@
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x2 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x2 €</td>
 			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x2 €</td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'></td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'> </td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'></td>
-			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'></td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x1 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x1 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x1 €</td>
+			<td style='font-size: 16px; text-align: center; color: #4d4d4d; padding: 10px; margin: 20px; border-bottom: 1px dashed black;'>x1 €</td>
 			
 		</tr>
 		</table>

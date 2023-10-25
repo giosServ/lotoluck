@@ -1,7 +1,7 @@
 tinymce.init({
   selector: '#textoBanner',
   language: 'es',
-  plugins: 'fullscreen mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+  plugins: 'fullscreen anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount ',
   toolbar: 'fullscreen | undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | alignleft aligncenter alignright | lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
   file_picker_types: 'image',
   file_picker_callback: function(callback, value, meta) {
@@ -13,7 +13,19 @@ tinymce.init({
 tinymce.init({
   selector: '#comentario',
   language: 'es',
-  plugins: 'fullscreen mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+  plugins: 'fullscreen anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount ',
+      toolbar: 'fullscreen |undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+  file_picker_types: 'image',
+  file_picker_callback: function(callback, value, meta) {
+    cargarImagen(callback);
+  },
+  resize:'both',
+});
+
+tinymce.init({
+  selector: '#textoComprobador',
+  language: 'es',
+  plugins: 'fullscreen anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount ',
       toolbar: 'fullscreen |undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
   file_picker_types: 'image',
   file_picker_callback: function(callback, value, meta) {

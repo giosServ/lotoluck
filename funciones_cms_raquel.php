@@ -1458,6 +1458,50 @@
 	/******************************************************************************************************************/
 	/***			FUNCIONES QUE PERMITEN OBTENER I MANIPULAR LOS DATOS DE LOS JUEGOS DE LAE  						***/
 	/******************************************************************************************************************/
+	
+	function activarComprobador($idSorteo, $tipoJuego, $activarCompr){
+		
+		$consulta= "SELECT * FROM comprobador_selae WHERE idSorteo = $idSorteo;";
+		
+		if ($resultado = $GLOBALS["conexion"]->query($consulta)) {
+			if ($resultado->num_rows > 0) {
+				
+				$consulta = "UPDATE comprobador_selae SET activo = $activarCompr WHERE idSorteo = $idSorteo";
+				if ($result = $GLOBALS["conexion"]->query($consulta)) {
+					return 0;
+				}else{
+					return -1;
+				}
+				
+			} else {
+				
+				$consulta = "INSERT INTO comprobador_selae(idSorteo, tipo_de_juego, activo)VALUES($idSorteo, $tipoJuego, $activarCompr)";
+				if ($result = $GLOBALS["conexion"]->query($consulta)) {
+					return 0;
+				}else{
+					return -1;
+				}
+			}
+		}
+	}
+	function estadoComprobador($idSorteo){
+		
+		$consulta= "SELECT activo FROM comprobador_selae WHERE idSorteo = $idSorteo;";
+		$activo = 0;
+		if ($resultado = $GLOBALS["conexion"]->query($consulta)) {
+			list($activo) = $resultado->fetch_row();
+
+			echo "<input type='checkbox' id='actv_compr' style='font-size:22px;'";
+			if($activo == 1){
+				echo "checked";
+			}
+			echo "></input>&nbsp;&nbsp;
+				<label style='font-size:22px;color:green;'><strong>Activar Comprobador de Premios:</strong></label>";
+		}
+	}
+	
+	
+
 	function ObtenerNumeroLAE($idSorteo, $idTipoSorteo, $idCategoria)
 	{
 		if ($idTipoSorteo==1)
@@ -1880,22 +1924,6 @@
 	}
 	
 	
-	function devolverTerminaciones($idSorteo){
-		$consulta = "SELECT numero, premio, posicion FROM loteriaNacional WHERE idSorteo=$idSorteo AND descripcion = 'Terminación'  ORDER BY cast(posicion as unsigned) ASC";
-		// Comprovamos si la consulta ha devuelto valores
-		if ($resultado = $GLOBALS["conexion"]->query($consulta))
-		{
-			// Se han devuelto valores, mostramos las categorias por pantalla
-			$terminaciones = [];
-			while (list( $numero, $premio) = $resultado->fetch_row())
-			{
-				$terminacion = $numero.'|'.$premio;
-				array_push($terminaciones, $terminacion);
-			}
-			return $terminaciones;
-		}
-		return -1;
-	}
 
 	function ObtenerNTerminaciones($idSorteo)
 	{
@@ -6955,18 +6983,117 @@
 	
 	function MostrarAdministracion($idAdministracion)
 	{
-		
-		
-		$consulta = "SELECT idadministraciones, numero, nReceptor, nOperador, nombreAdministracion, slogan, titularJ, nombre, apellidos,  direccion, direccion2, cod_pos, telefono, telefono2, correo, web, provincia, poblacion, comentarios, agente, familia, cliente, news, activo, lat, lon, web_lotoluck, web_actv, web_externa, web_externa_actv, web_ext_texto, quiere_web, vip, status, fecha_alta FROM administraciones WHERE idadministraciones = $idAdministracion";
+		$idadministraciones = "";
+		$numero = "";
+		$numero_actv = "";
+		$nReceptor = "";
+		$nOperador = "";
+		$nombreadministracion = "";
+		$nombreadmin_actv = "";
+		$slogan = "";
+		$slogan_actv = "";
+		$titularJ = "";
+		$nombre = "";
+		$apellidos = "";
+		$direccion = "";
+		$direccion_actv = "";
+		$direccion2 = "";
+		$direccion2_actv = "";
+		$cod_pos = "";
+		$cod_pos_actv = "";
+		$telefono = "";
+		$telefono_actv = "";
+		$telefono2 = "";
+		$telefono2_actv = "";
+		$correo = "";
+		$correo_actv = "";
+		$web = "";
+		$provincia = -1;
+		$provincia_actv = "";
+		$poblacion = "";
+		$poblacion_actv = "";
+		$comentarios = "";
+		$agente = "";
+		$familia = "";
+		$cliente = "";
+		$news = "";
+		$activo = "";
+		$latitud = "";
+		$longitud = "";
+		$web_lotoluck = "";
+		$web_actv = "";
+		$web_externa = "";
+		$web_externa_actv = "";
+		$web_ext_texto = "";
+		$quiere_web = "";
+		$vip = "";
+		$status = "";
+		$fecha_alta = "";
+		$consulta = "SELECT idadministraciones, numero, numero_actv, nReceptor, nOperador, nombreAdministracion, nombreAdmin_actv, slogan, slogan_actv, titularJ, nombre, apellidos,  direccion, direccion_actv, 
+							direccion2, direccion2_actv, cod_pos, cod_pos_actv, telefono, telefono_actv, telefono2, telefono2_actv, correo, correo_actv,  web, provincia, provincia_actv, poblacion, poblacion_actv, comentarios, agente, familia, cliente, news, activo, lat, lon, web_lotoluck, web_actv, 
+							web_externa, web_externa_actv, web_ext_texto, quiere_web, vip, status, fecha_alta 
+							FROM administraciones 
+							WHERE idadministraciones = $idAdministracion";
 		
 		// Comprovamos si la consulta ha devuelto valores
 		if ($resultado = $GLOBALS["conexion"]->query($consulta))
 		{
 			// Se han devuelto valores, los mostramos por pantalla
-			while (list($idadministraciones, $numero, $nReceptor, $nOperador, $nombreadministracion, $slogan, $titularJ, $nombre, $apellidos, $direccion, $direccion2, $cod_pos, $telefono, $telefono2, $correo, $web, $provincia, $poblacion, $comentarios, $agente, $familia, $cliente, $news, $activo,$latitud, $longitud, $web_lotoluck, $web_actv, $web_externa, $web_externa_actv, $web_ext_texto, $quiere_web, $vip, $status, $fecha_alta) = $resultado->fetch_row())
+			while (list($idadministraciones1, $numero1, $numero_actv1, $nReceptor1, $nOperador1, $nombreadministracion1, $nombreadmin_actv1,$slogan1, 
+			$slogan_actv1, $titularJ1, $nombre1, $apellidos1, $direccion1, $direccion_actv1, $direccion21, $direccion2_actv1, $cod_pos1, $cod_pos_actv1,
+			$telefono1, $telefono_actv1, $telefono21, $telefono2_actv1, $correo1, $correo_actv1, $web1, $provincia1, $provincia_actv1, $poblacion1, $poblacion_actv1, $comentarios1, $agente1, $familia1, $cliente1, $news1, $activo1,$latitud1,
+			$longitud1, $web_lotoluck1, $web_actv1, $web_externa1, $web_externa_actv1, $web_ext_texto1, $quiere_web1, $vip1, $status1, $fecha_alta1) = $resultado->fetch_row())
 			{
+				$idadministraciones = $idadministraciones1;
+				$numero = $numero1;
+				$numero_actv = $numero_actv1;
+				$nReceptor = $nReceptor1;
+				$nOperador = $nOperador1;
+				$nombreadministracion = $nombreadministracion1;
+				$nombreadmin_actv = $nombreadmin_actv1;
+				$slogan = $slogan1 ; 
+				$slogan = $slogan_actv1 ; 
+				$titularJ = $titularJ1;
+				$nombre = $nombre1;
+				$apellidos = $apellidos1;
+				$direccion = $direccion1;
+				$direccion_actv = $direccion_actv1;
+				$direccion2 = $direccion21;
+				$direccion2_actv = $direccion2_actv1;
+				$cod_pos = $cod_pos1;
+				$cod_pos_actv = $cod_pos_actv1;
+				$telefono = $telefono1; 
+				$telefono_actv = $telefono_actv1; 
+				$telefono2 = $telefono21;
+				$telefono2_actv = $telefono2_actv1;
+				$correo = $correo1;
+				$correo_actv = $correo_actv1;
+				$web = $web1;
+				$provincia = $provincia1;
+				$provincia_actv = $provincia_actv1;
+				$poblacion = $poblacion1;
+				$poblacion_actv = $poblacion_actv1;
+				$comentarios = $comentarios1;
+				$agente = $agente1;
+				$familia = $familia1; 
+				$cliente = $cliente1; 
+				$news = $news1;
+				$activo =$activo1;
+				$latitud = $latitud1;
+				$longitud = $longitud1;
+				$web_lotoluck = $web_lotoluck1;
+				$web_actv = $web_actv1; 
+				$web_externa = $web_externa1;
+				$web_externa_actv = $web_externa_actv1; 
+				$web_ext_texto = $web_ext_texto1; 
+				$quiere_web = $quiere_web1;
+				$vip = $vip1;
+				$status = $status1;
+				$fecha_alta = $fecha_alta1;
+			}
+				echo "<table>";
 				echo "<tr> <td>";
-				echo "<label class='cms'> Activo: </label>";
+				echo "<label class='cms'> Activo: </label><br>";
 				echo "<select class='sorteo' id='activo' name='activo' style='width:80px;'>";
 				echo "<option value disabled selected> </option>";
 				
@@ -6985,16 +7112,16 @@
 				echo "</td><td> ";
 
 				
-				echo "<label class='cms'> Status del PPV: </label>";
+				echo "<label class='cms'> Status del PPV: </label><br>";
 				echo "<select class='cms' id='status' name='status' style='width50%;'>";
 				echo "<option value='0'"; if($status==0){echo "selected";} echo"> Existe antes de Alta Web </option>";
 				echo "<option value='1'"; if($status==1){echo "selected";} echo"> Creado por Alta Web </option>";
 				echo "<option value='2'"; if($status==2){echo "selected";} echo"> PPVV Cliente </option>";
 										
 				echo "</select>";
-				echo "</td><td></td>";
-				echo "<td>";
-				echo "<label class='cms'> Enviar Newsletter: </label> ";
+				echo "</td>";
+				echo "<td style='max-width:10em;'>";
+				echo "<label class='cms'> Enviar Newsletter: </label><br> ";
 				echo "<select class='sorteo' id='newsletter' name='newsletter' style='width:80px;'>";
 				echo "<option value disabled selected> </option>";
 				
@@ -7010,8 +7137,8 @@
 				}
 				
 				echo "</select>";
-				echo "</td> <td> </td> <td> ";
-				echo "<label class='cms'> Es cliente: </label> ";
+				echo "</td> <td style='text-align:left;'> ";
+				echo "<label class='cms'> Es cliente: </label><br> ";
 				echo "<select class='sorteo' id='cliente' name='cliente' style='width:80px;'>";
 				echo "<option value disabled selected> </option>";
 				
@@ -7027,22 +7154,21 @@
 				}
 			
 				echo "</select>";
-				echo "</td> </tr> <tr> <td>";
-				echo "<label class='cms'>Agente </label>";
-				echo "</td>	<td>";
+				echo "</td> </tr> <tr></table>";
+				echo "<table><tr><td>";
+				echo "<label class='cms'>Agente </label><br>";
 				echo "<select class='sorteo' id='agente' name='agente' style='width:150px;'>";
-				echo "<option value disabled selected> </option>";
-							
+				
 				MostrarAgentes($agente);
 					
 				echo "</select>";
-				echo "</td> <td></td><td> ";
-				echo "<label class='cms'> Alta </label>";
+				echo "</td><td> ";
+				echo "<label class='cms'> Alta </label><br>";
 				$fecha_alta = substr($fecha_alta, 0, 10);
             	echo "<input class='cms' type='date' id='fechaAlta' name='fechaAlta' value='$fecha_alta' style='width:150px;'>";
 				echo "</td>	</tr> <tr> <td>";
-				echo "<label class='cms'>Familia </label>";
-				echo "</td> <td>";
+				echo "<label class='cms'>Familia </label><br>";
+				
 				echo "<select class='sorteo' id='familias' name='familias' style='width:150px;'>";
 				echo "<option value disabled selected> </option>";
 							
@@ -7050,82 +7176,174 @@
 				
 				echo "</select>";
 				echo "</td> </tr> <tr> <td> ";
-				echo "<label class='cms'> Numero de administración: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Numero de administración: </label><br>";
 				echo "<input class='cms' id='numero' name='numero' value='$numero' style='width:150px;'>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='numero_actv'"; if($numero_actv==1){echo "checked";} echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td>	<td>";
-				echo "<label class='cms'> Nº Receptor: </label>";
-				echo "</td> <td>";
+				echo "<label class='cms'> Nº Receptor: </label><br>";
+				//echo "</td> <td>";
 				echo "<input class='cms' id='nReceptor' name='nReceptor' value='$nReceptor'>";
 				echo "</td>	<td> ";
-				echo "<label class='cms'> Nº Operador </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Nº Operador </label><br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='nOperador' name='nOperador' value='$nOperador'>";
 				echo "</td>	</tr> <tr> <td> ";
-				echo "<label class='cms'> Nombre administración: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Nombre administración: </label><br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='nombreAdministracion' name='nombreAdministracion' value='$nombreadministracion'>";
-				echo "</td>	</tr> <tr> <td> ";
-				echo "<label class='cms'> Slogan: </label>";
-				echo "</td>	<td>";
-				echo "<input class='cms' id='slogan' name='slogan' value='$slogan'>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='nombreAdmin_actv'"; if($nombreadmin_actv==1){echo "checked";}echo">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
+				echo "</td>	</tr> <tr> <td colspan='2'> ";
+				echo "<label class='cms'> Slogan: </label><br>";
+				echo "<input class='cms' id='slogan' name='slogan' style='width:600px;' value='$slogan'>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='slogan_actv'"; if($slogan_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td>	</tr> <tr> <td>";
-				echo "<label class='cms'> Titular Jurídico: </label> ";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Titular Jurídico: </label> <br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='titularj' name='titularj' value='$titularJ'>";
 				echo "</td>	<td>";
-				echo "<label class='cms'> Nombre: </label> ";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Nombre: </label><br> ";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='nombre' name='nombre' value='$nombre'>";
 				echo "</td>	<td>";
-				echo "<label class='cms'> Apellidos: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Apellidos: </label><br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='apellidos' name='apellidos' value='$apellidos'>";
 				echo "</td>	</tr> <tr>	<td>";
-				echo "<label class='cms'> Dirección: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Dirección: </label><br>";
+				
 				echo "<input class='cms' id='direccion' name='direccion' value='$direccion'>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='direccion_actv'"; if($direccion_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td>	<td> ";
-				echo "<label class='cms'> Dirección 2: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Dirección 2: </label><br>";
 				echo "<input class='cms' id='direccion2' name='direccion2' value='$direccion2'> ";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='direccion2_actv'"; if($direccion2_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td>	<td>";
-				echo "<label class='cms'> Codigo postal: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Codigo postal: </label><br>";
+				
 				echo "<input class='cms' id='codigoPostal' name='codigoPostal' value='$cod_pos' style='width:120px;'>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='cod_pos_actv'"; if($cod_pos_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td>	</tr> <tr> <td>";
-				echo "<label class='cms'> Población: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Población: </label><br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='poblacion' name='poblacion' value='$poblacion'>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='poblacion_actv'"; if($poblacion_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td> <td>";
-				echo "<label class='cms'> Provincia: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Provincia: </label><br>";
 				echo "<select class='sorteo' id='provincia' name='provincia'>";
 				echo "<option value disabled selected> </option>";
 				
 				MostrarProvincias($provincia);
 
 				echo "</select>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='provincia_actv'"; if($provincia_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td> </tr> <tr> <td>";
-				echo "<label class='cms'> Telefono: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Telefono: </label><br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='telefono' name='telefono' value='$telefono'>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='telefono_actv'"; if($telefono_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td>	<td>";
-				echo "<label class='cms'> Telefono 2: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Telefono 2: </label><br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='telefono2' name='telefono2' value='$telefono2'>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='telefono2_actv'"; if($telefono2_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td></tr><tr><td> ";
-				echo "<label class='cms'> Correo: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Correo: </label><br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='correo' name='correo' value='$correo'> ";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='correo_actv'"; if($correo_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
 				echo "</td> </tr><tr><td> ";
-				echo "<label class='cms'> Web: </label>";
-				echo "</td>	<td>";
+				echo "<label class='cms'> Web: </label><br>";
+				//echo "</td>	<td>";
 				echo "<input class='cms' id='web' name='web' value='$web'>";
-				echo "</td> </tr> <tr> <td>";
-				echo "<label class='cms'> Comentarios: </label>";
-				echo "</td>	<td colspan='4'>";
-				echo "<textarea class='cms' name='comentarios' id='comentarios' style='margin-top: 6px; width:600px; height:200px;' >$comentarios</textarea>";
+				/*******/
+				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+				echo "<label class='switch'>
+						  <input type='checkbox' id='toggleSwitch'"; if($web_externa_actv==1){echo "checked";}echo ">
+						  <span class='slider'></span>
+					  </label>";
+				echo "</div>";
+				/*******/
+				echo "</td> </tr> <tr> <td colspan='2'>";
+				echo "<label class='cms'> Comentarios: </label><br>";
+				//echo "</td>	<td colspan='4'>";
+				echo "<textarea class='cms' name='comentarios' id='comentarios' style='margin-top: 6px; width:600px; height:200px;border:solid 0.5px;' >$comentarios</textarea>";
 				echo "</td></tr>";		
 				echo "<tr><td colspan='10'><br><hr><hr><br><td></tr>
 					</div>
@@ -7155,33 +7373,43 @@
 							
 							<tr>
 								<td> 
-									<label class='cms'> URL Interna LotoLuck: </label>
-								</td>
-								<td>					
-									<input class='cms' id='web_lotoluck'value='$web_lotoluck'>
-									
-								</td>
-								<td class=''>
-								<!-- Checkbox -->
-									<input type='checkbox' name='' id='web_actv' "; if($web_actv==1){echo "checked";} echo" >
-									
-								</td>
+									<label class='cms'> URL Interna LotoLuck: </label><br>				
+									<input class='cms' id='web_lotoluck'value='$web_lotoluck'>";
+									/*******/
+									echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+									echo "<label class='switch'>
+											  <input type='checkbox' id='web_actv'"; if($web_actv==1){echo "checked";} echo" >
+											  <span class='slider'></span>
+										  </label>";
+									echo "</div>";
+									/*******/
+								echo "</td>
 								<td> 
-									<label class='cms'> Web del Cliente:</label>
-								</td>
+									<label class='cms'> Web del Cliente:</label><br>
+									<input class='cms' id='web_externa' value='$web_externa'>";
+									/*******/
+									echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+									echo "<label class='switch'>
+											  <input type='checkbox' id='web_externa_actv'  "; if($web_externa_actv==1){echo "checked";} echo" >
+											  <span class='slider'></span>
+										  </label>";
+									echo "</div>";
+									/*******/
+								echo "</td>
+								
 								<td> 
-									<input class='cms' id='web_externa' value='$web_externa'>
-								</td>
-								<td class='switch-button'>
-								<!-- Checkbox -->
-									<input type='checkbox' name='' id='web_externa_actv'  "; if($web_externa_actv==1){echo "checked";} echo" >
-								</td>
-								<td> 
-									<label class='cms'> Web del Cliente Texto: </label>
-								</td>
-								<td> 
-									<input class='cms' id='web_ext_texto' value='$web_ext_texto'>
-								</td>
+									<label class='cms'> Web del Cliente Texto: </label><br>
+								 
+									<input class='cms' id='web_ext_texto' value='$web_ext_texto'>";
+									/*******/
+									echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
+									echo "<label class='switch'>
+											  <input type='checkbox' id='toggleSwitch'>
+											  <span class='slider'></span>
+										  </label>";
+									echo "</div>";
+									/*******/
+								echo "</td>
 							</tr>
 						</table>
 						<table>
@@ -7212,7 +7440,7 @@
 						</table>
 			
 			";
-			}
+			
 		}
 	}
 	
@@ -7488,7 +7716,7 @@
 	/******************************************************************************************************/
 	/***				FUNCIONES QUE PERMITE INSERTAR LAS ADMINISTRACIONES 							***/
 	/******************************************************************************************************/
-	function InsertarAdministracion($idadministraciones, $familia, $activo, $cliente, $agente, $news, $fecha_alta, $provincia, $poblacion, $cod_pos, $direccion, $direccion2, $nReceptor, $nOperador, $numero, $nombreAdministracion, $slogan, $titularJ, $nombre, $apellidos, $telefono, $telefono2, $correo, $web, $comentarios, $lat, $lon, $web_lotoluck, $web_actv, $web_externa, $web_externa_actv, $web_ext_texto, $quiere_web, $vip, $status)
+	function InsertarAdministracion($idadministraciones, $familia, $activo, $cliente, $agente, $news, $fecha_alta, $provincia, $provincia_actv, $poblacion, $poblacion_actv, $cod_pos, $direccion, $direccion2, $nReceptor, $nOperador, $numero, $nombreAdministracion, $slogan, $titularJ, $nombre, $apellidos, $telefono, $telefono2, $correo, $web, $comentarios, $lat, $lon, $web_lotoluck, $web_actv, $web_externa, $web_externa_actv, $web_ext_texto, $quiere_web, $vip, $status)
 	{
 		// Función que permite insertar una nueva administración
 
@@ -7496,9 +7724,9 @@
 		if ($idadministraciones==-1){
 		
 			
-			$consulta = $GLOBALS["conexion"]->prepare("INSERT INTO administraciones (familia, activo, cliente, agente, news, fecha_alta, provincia, poblacion, cod_pos, direccion, direccion2, nReceptor, nOperador, numero, nombreAdministracion, slogan, titularJ, nombre, apellidos, telefono, telefono2, correo, web, comentarios, lat, lon, web_lotoluck, web_actv, web_externa, web_externa_actv, web_ext_texto, quiere_web, vip, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+			$consulta = $GLOBALS["conexion"]->prepare("INSERT INTO administraciones (familia, activo, cliente, agente, news, fecha_alta, provincia, provincia_actv, poblacion, poblacion_actv,cod_pos, direccion, direccion2, nReceptor, nOperador, numero, nombreAdministracion, slogan, titularJ, nombre, apellidos, telefono, telefono2, correo, web, comentarios, lat, lon, web_lotoluck, web_actv, web_externa, web_externa_actv, web_ext_texto, quiere_web, vip, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 			
-			$consulta->bind_param( 'iiiiisissssssssssssssssssssisisiii', $familia, $activo, $cliente, $agente, $news, $fecha_alta, $provincia, $poblacion, $cod_pos, $direccion, $direccion2, $nReceptor, $nOperador, $numero, $nombreAdministracion, $slogan, $titularJ, $nombre, $apellidos, $telefono, $telefono2, $correo, $web, $comentarios, $lat, $lon, $web_lotoluck, $web_actv, $web_externa, $web_externa_actv, $web_ext_texto, $quiere_web, $vip, $status);
+			$consulta->bind_param( 'iiiiisiisisssssssssssssssssssisisiii', $familia, $activo, $cliente, $agente, $news, $fecha_alta, $provincia, $provincia_actv, $poblacion, $poblacion_actv, $cod_pos, $direccion, $direccion2, $nReceptor, $nOperador, $numero, $nombreAdministracion, $slogan, $titularJ, $nombre, $apellidos, $telefono, $telefono2, $correo, $web, $comentarios, $lat, $lon, $web_lotoluck, $web_actv, $web_externa, $web_externa_actv, $web_ext_texto, $quiere_web, $vip, $status);
 			
 			if ($consulta->execute()) {
             $nuevoID = $GLOBALS["conexion"]->insert_id;
@@ -7511,15 +7739,19 @@
 		}
 		else
 		{
-			$consulta = "UPDATE administraciones SET familia=$familia, activo=$activo, cliente=$cliente, agente=$agente, news=$news, fecha_alta='$fecha_alta', provincia=$provincia, poblacion='$poblacion', cod_pos='$cod_pos', direccion='$direccion', direccion2='$direccion2', nReceptor='$nReceptor', nOperador='$nOperador', numero='$numero', nombreAdministracion='$nombreAdministracion', slogan='$slogan', titularJ='$titularJ', nombre='$nombre', apellidos='$apellidos', telefono='$telefono', telefono2='$telefono2', correo='$correo', web='$web', comentarios='$comentarios', lat='$lat', lon='$lon', web_lotoluck='$web_lotoluck', web_actv=$web_actv, web_externa='$web_externa', web_externa_actv=$web_externa_actv, web_ext_texto='$web_ext_texto', quiere_web=$quiere_web, vip=$vip, status=$status WHERE idAdministraciones=$idadministraciones;";
+			$consulta = "UPDATE administraciones SET familia=$familia, activo=$activo, cliente=$cliente, agente=$agente, news=$news, fecha_alta='$fecha_alta', provincia=$provincia, provincia_actv=$provincia_actv, poblacion='$poblacion', poblacion_actv =$poblacion_actv, cod_pos='$cod_pos', direccion='$direccion', direccion2='$direccion2', nReceptor='$nReceptor', nOperador='$nOperador', numero='$numero', nombreAdministracion='$nombreAdministracion', slogan='$slogan', titularJ='$titularJ', nombre='$nombre', apellidos='$apellidos', telefono='$telefono', telefono2='$telefono2', correo='$correo', web='$web', comentarios='$comentarios', lat='$lat', lon='$lon', web_lotoluck='$web_lotoluck', web_actv=$web_actv, web_externa='$web_externa', web_externa_actv=$web_externa_actv, web_ext_texto='$web_ext_texto', quiere_web=$quiere_web, vip=$vip, status=$status WHERE idAdministraciones=$idadministraciones;";
 		}
 		echo($consulta);
 		if (mysqli_query($GLOBALS["conexion"], $consulta))
 		{	
+			
 			return $idadministraciones;	
 		}
 		else
-		{		return -1;		}
+		{
+			
+			return -1;		
+		}
 	}
 	
 	function ExistePaginaAdministracion($idAdministracion)
@@ -7659,7 +7891,7 @@
 		}
 		
 		echo "<label><strong>Texto: </strong></label><br>";
-		echo "<textarea class='comentario' rows='20' cols='130' id='texto1'  style='margin-top: 6px;'>$bodytext</textarea><br>";
+		echo "<textarea id='comentario' style='margin-top: 6px;width:70%;'>$bodytext</textarea><br>";
 		echo "<label><strong>LOGO de la administración (Mínimo 130 x 130 px.):</strong></label><br>";
 		//selector de imagen/archivo
 		echo "<input type='file' name='img' id='imgLogo' accept='.pdf,.jpg,.png' multiple onchange='vista_preliminarLogo(event)' />";				
@@ -7746,6 +7978,29 @@
 						return -1;
 					}
 				}
+				elseif ($tipoComentario==3)
+				{
+					// Es un comentario, comprovamos si supera la longitud del campo
+					if (strlen($texto) < 255)
+					{
+						// Se puede insertar en un unico registro
+						if (ExisteComentario($idSorteo) == -1)
+						{
+							$consulta = "INSERT INTO texto_comprobador (idSorteo, comentarios, posicion) VALUES ($idSorteo, '$texto', 1)";
+							if (mysqli_query($GLOBALS["conexion"], $consulta))
+							{	return 0;		}
+							else
+							{	return -1;		}
+						}
+						else
+						{		return ActualizarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
+					}
+					else
+					{
+						// Se ha de fraccionar en varios registros
+						return -1;
+					}
+				}
 			}
 		}
 	}
@@ -7808,9 +8063,35 @@
 						return -1;
 					}
 				}
+				elseif ($tipoComentario==3)
+				{
+					// Es un comentario, comprovamos si supera la longitud del campo
+					if (strlen($texto) < 255)
+					{
+						// Se puede insertar en un unico registro
+						$n = ExisteComentario($idSorteo);
+						if ($n != -1)
+						{
+							$consulta = "UPDATE texto_comprobador SET comentarios='$texto' WHERE idSorteo=$idSorteo";
+							if (mysqli_query($GLOBALS["conexion"], $consulta))
+							{	return 0;		}
+							else
+							{	return -1;		}
+						}
+						else
+						{		return InsertarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
+					}
+					else
+					{
+						// Se ha de fraccionar en varios registros
+						return -1;
+					}
+				}
 			}
 		}
 	}
+	
+	
 
 	function ExisteBanner($idSorteo)
 	{
@@ -7832,6 +8113,23 @@
 	function ExisteComentario($idSorteo)
 	{
 		$consulta = "SELECT idSorteo FROM comentarios WHERE idSorteo=$idSorteo";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores
+			while (list($idSorteo) = $resultado -> fetch_row())
+			{
+				return $idSorteo;
+			}
+		}
+
+		return -1;
+	}
+	
+	function ExisteTextoComprobador($idSorteo)
+	{
+		$consulta = "SELECT idSorteo FROM texto_comprobador WHERE idSorteo=$idSorteo";
 
 		// Comprovamos si la consulta ha devuelto valores
 		if ($resultado = $GLOBALS["conexion"]->query($consulta))
@@ -7913,6 +8211,40 @@
 
 		echo "<textarea id='comentario' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
 	}
+	
+	function MostrarTextoComprobador($idSorteo)
+	{
+		// Función que permite mostrar por pantalla los comentarios introducidos des del CMS
+
+		if ($idSorteo == -1)
+		{
+			$consulta = "SELECT idSorteos FROM sorteos WHERE idTipoSorteo=1 ORDER BY fecha DESC LIMIT 1";
+
+			// Comprovamos si la consulta ha devuelto valores
+			if ($res = $GLOBALS["conexion"]->query($consulta))
+			{
+				// Se han devuelto valores, buscamos el último sorteo
+				while(list($idSorteos) = $res->fetch_row())
+				{
+					$idSorteo=$idSorteos;
+				}
+			}
+		}
+
+		$consulta = "SELECT comentarios FROM texto_comprobador WHERE idSorteo=$idSorteo ORDER BY posicion";
+
+		$cad = '';
+
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			while (list($texto) = $resultado->fetch_row())
+			{
+				$cad .= $texto;
+			}
+		}
+
+		echo "<textarea id='textoComprobador' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
+	}
 
 	function EliminarTextoBanner($idSorteo)
 	{
@@ -7938,6 +8270,21 @@
 
 		// Eliminamos el registro
 		$consulta = "DELETE FROM comentarios WHERE idSorteo=$idSorteo";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{	return 0;		}
+		else
+		{	return -1;		}
+	}
+	
+	function EliminarTextoComprobador($idSorteo)
+	{
+		// Función que permite eliminar un juego de la tabla comentarios
+
+		// Parametros de entrada: identificador del sorteo que se ha de elminar
+		// Parametros de salida: 0 si el sorteo se ha eliminado correctamente, -1 si ha habido error
+
+		// Eliminamos el registro
+		$consulta = "DELETE FROM texto_comprobador WHERE idSorteo=$idSorteo";
 		if (mysqli_query($GLOBALS["conexion"], $consulta))
 		{	return 0;		}
 		else

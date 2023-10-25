@@ -8789,200 +8789,376 @@ function EliminarSorteoQuintuple($idSorteo){
 /******************************************************************************************************/
 /***				FUNCIONES QUE PERMITE INSERTAR LOS BANNERS Y COMENTARIOS						***/
 /******************************************************************************************************/
-function InsertarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto) {
-	$GLOBALS["conexion"]->set_charset("utf8");
-	// Función que permite insertar el texto banner o comentario
-
-	// Comprovamos que se haya pasado correctamente el identificador del sorteo
-	if ($idSorteo != '')
+function InsertarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto)
 	{
-		if ($idSorteo != -1)
+		// Función que permite insertar el texto banner o comentario
+
+		// Comprovamos que se haya pasado correctamente el identificador del sorteo
+		if ($idSorteo != '')
 		{
-			// Es un identificador válido, definimos la sentencia
-			if ($tipoComentario==1)
+			if ($idSorteo != -1)
 			{
-				// Es un texto banner, comprovamos si supera la longitud del campo
-					// Se puede insertar en un unico registro
-					if (ExisteBanner($idSorteo)==-1)
+				// Es un identificador válido, definimos la sentencia
+				if ($tipoComentario==1)
+				{
+					// Es un texto banner, comprovamos si supera la longitud del campo
+					if (strlen($texto) < 255)
 					{
-						$consulta = "INSERT INTO textobanner (idSorteo, texto, posicion) VALUES ($idSorteo, '$texto', 1)";
-		
-						if (mysqli_query($GLOBALS["conexion"], $consulta))
-						{	return 0;		}
+						// Se puede insertar en un unico registro
+						if (ExisteBanner($idSorteo)==-1)
+						{
+							$consulta = "INSERT INTO textobanner (idSorteo, texto, posicion) VALUES ($idSorteo, '$texto', 1)";
+							echo($consulta);
+							if (mysqli_query($GLOBALS["conexion"], $consulta))
+							{	return 0;		}
+							else
+							{	return -1;		}
+						}
 						else
-						{	return -1;		}
+						{		return ActualizarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
 					}
 					else
-					{		return ActualizarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
-
-			}
-			elseif ($tipoComentario==2)
-			{
-				// Es un comentario, comprovamos si supera la longitud del campo
-				if (strlen($texto) < 255)
-				{
-					// Se puede insertar en un unico registro
-					if (ExisteComentario($idSorteo) == -1)
 					{
-						$consulta = "INSERT INTO comentarios (idSorteo, comentarios, posicion) VALUES ($idSorteo, '$texto', 1)";
-						if (mysqli_query($GLOBALS["conexion"], $consulta))
-						{	return 0;		}
+						// Se ha de fraccionar en varios registros
+						return -1;
+					}
+				}
+				elseif ($tipoComentario==2)
+				{
+					// Es un comentario, comprovamos si supera la longitud del campo
+					if (strlen($texto) < 255)
+					{
+						// Se puede insertar en un unico registro
+						if (ExisteComentario($idSorteo) == -1)
+						{
+							$consulta = "INSERT INTO comentarios (idSorteo, comentarios, posicion) VALUES ($idSorteo, '$texto', 1)";
+							if (mysqli_query($GLOBALS["conexion"], $consulta))
+							{	return 0;		}
+							else
+							{	return -1;		}
+						}
 						else
-						{	return -1;		}
+						{		return ActualizarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
 					}
 					else
-					{		return ActualizarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
+					{
+						// Se ha de fraccionar en varios registros
+						return -1;
+					}
 				}
-				else
+				elseif ($tipoComentario==3)
 				{
-					// Se ha de fraccionar en varios registros
-					return -1;
-				}
-			}
-		}
-	}
-}
-
-function ActualizarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto) {
-	// Función que permite actualizar el texto banner o comentario
-
-	// Comprovamos que se haya pasado correctamente el identificador del sorteo
-	if ($idSorteo != '')
-	{
-		if ($idSorteo != -1)
-		{
-			// Es un identificador válido, definimos la sentencia
-			if ($tipoComentario==1)
-			{
-				// Es un texto banner, comprovamos si supera la longitud del campo
-				// Se puede insertar en un unico registro
-				$n=ExisteBanner($idSorteo);
-				if ($n !=-1) {
-					$consulta = "UPDATE textobanner SET texto='$texto' WHERE idSorteo=$idSorteo";
-			
-					if (mysqli_query($GLOBALS["conexion"], $consulta))
-					{	return 0;		}
+					// Es un comentario, comprovamos si supera la longitud del campo
+					if (strlen($texto) < 255)
+					{
+						// Se puede insertar en un unico registro
+						if (ExisteTextoComprobador($idSorteo) == -1)
+						{
+							$consulta = "INSERT INTO texto_comprobador (idSorteo, comentarios, posicion) VALUES ($idSorteo, '$texto', 1)";
+							if (mysqli_query($GLOBALS["conexion"], $consulta))
+							{	return 0;		}
+							else
+							{	return -1;		}
+						}
+						else
+						{		return ActualizarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
+					}
 					else
-					{	return -1;		}
-				} else {		
-					return InsertarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);
+					{
+						// Se ha de fraccionar en varios registros
+						return -1;
+					}
 				}
 			}
-			elseif ($tipoComentario==2)
+		}
+	}
+
+	function ActualizarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto)
+	{
+		// Función que permite actualizar el texto banner o comentario
+
+		// Comprovamos que se haya pasado correctamente el identificador del sorteo
+		if ($idSorteo != '')
+		{
+			if ($idSorteo != -1)
 			{
-				// Se puede insertar en un unico registro
-				$n = ExisteComentario($idSorteo);
-				if ($n != -1) {
-					$consulta = "UPDATE comentarios SET comentarios='$texto' WHERE idSorteo=$idSorteo";
-					if (mysqli_query($GLOBALS["conexion"], $consulta))
-					{	return 0;		}
+				// Es un identificador válido, definimos la sentencia
+				if ($tipoComentario==1)
+				{
+					// Es un texto banner, comprovamos si supera la longitud del campo
+					if (strlen($texto) < 255)
+					{
+						// Se puede insertar en un unico registro
+						$n=ExisteBanner($idSorteo);
+						if ($n !=-1)
+						{
+							$consulta = "UPDATE textobanner SET texto='$texto' WHERE idSorteo=$idSorteo";
+							if (mysqli_query($GLOBALS["conexion"], $consulta))
+							{	return 0;		}
+							else
+							{	return -1;		}
+						}
+						else
+						{		return InsertarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
+					}
 					else
-					{	return -1;		}
-				} else {
-					return InsertarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		
+					{
+						// Se ha de fraccionar en varios registros
+						return -1;
+					}
+				}
+				elseif ($tipoComentario==2)
+				{
+					// Es un comentario, comprovamos si supera la longitud del campo
+					if (strlen($texto) < 255)
+					{
+						// Se puede insertar en un unico registro
+						$n = ExisteComentario($idSorteo);
+						if ($n != -1)
+						{
+							$consulta = "UPDATE comentarios SET comentarios='$texto' WHERE idSorteo=$idSorteo";
+							if (mysqli_query($GLOBALS["conexion"], $consulta))
+							{	return 0;		}
+							else
+							{	return -1;		}
+						}
+						else
+						{		return InsertarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
+					}
+					else
+					{
+						// Se ha de fraccionar en varios registros
+						return -1;
+					}
+				}
+				elseif ($tipoComentario==3)
+				{
+					// Es un comentario, comprovamos si supera la longitud del campo
+					if (strlen($texto) < 255)
+					{
+						// Se puede insertar en un unico registro
+						$n = ExisteTextoComprobador($idSorteo);
+						if ($n != -1)
+						{
+							$consulta = "UPDATE texto_comprobador SET comentarios='$texto' WHERE idSorteo=$idSorteo";
+							if (mysqli_query($GLOBALS["conexion"], $consulta))
+							{	return 0;		}
+							else
+							{	return -1;		}
+						}
+						else
+						{		return InsertarComentario($idSorteo, $tipoSorteo, $tipoComentario, $texto);		}
+					}
+					else
+					{
+						// Se ha de fraccionar en varios registros
+						return -1;
+					}
 				}
 			}
 		}
 	}
-}
+	
+	
 
-function ExisteBanner($idSorteo) {
-	$consulta = "SELECT idSorteo FROM textobanner WHERE idSorteo=$idSorteo";
-
-	// Comprovamos si la consulta ha devuelto valores
-	if ($resultado = $GLOBALS["conexion"]->query($consulta))
+	function ExisteBanner($idSorteo)
 	{
-		// Se han devuelto valores
-		while (list($idSorteo) = $resultado->fetch_row())
-		{
-			return $idSorteo;
-		}
-	}
-
-	return -1;
-}
-
-function ExisteComentario($idSorteo) {
-	$consulta = "SELECT idSorteo FROM comentarios WHERE idSorteo=$idSorteo";
-
-	// Comprovamos si la consulta ha devuelto valores
-	if ($resultado = $GLOBALS["conexion"]->query($consulta))
-	{
-		// Se han devuelto valores
-		while (list($idSorteo) = $resultado -> fetch_row())
-		{
-			return $idSorteo;
-		}
-	}
-
-	return -1;
-}
-
-function MostrarTextoBanner($idSorteo) {
-	// Función que permite mostrar por pantalla los comentarios introducidos des del CMS
-
-	if ($idSorteo == -1)
-	{
-		$consulta = "SELECT idSorteos FROM sorteos WHERE idTipoSorteo=1 ORDER BY fecha DESC LIMIT 1";
+		$consulta = "SELECT idSorteo FROM textobanner WHERE idSorteo=$idSorteo";
 
 		// Comprovamos si la consulta ha devuelto valores
-		if ($res = $GLOBALS["conexion"]->query($consulta))
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
 		{
-			// Se han devuelto valores, buscamos el último sorteo
-			while(list($idSorteos) = $res->fetch_row())
+			// Se han devuelto valores
+			while (list($idSorteo) = $resultado->fetch_row())
 			{
-				$idSorteo=$idSorteos;
+				return $idSorteo;
 			}
 		}
+
+		return -1;
 	}
 
-	$consulta = "SELECT texto FROM textobanner WHERE idSorteo=$idSorteo ORDER BY posicion";
-
-	$cad = '';
-
-	if ($resultado = $GLOBALS["conexion"]->query($consulta))
+	function ExisteComentario($idSorteo)
 	{
-		while (list($texto) = $resultado->fetch_row())
-		{
-			$cad .= $texto;
-		}
-	}
-
-	echo "<textarea id='textoBanner' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
-}
-
-function MostrarComentarios($idSorteo) {
-	// Función que permite mostrar por pantalla los comentarios introducidos des del CMS
-
-	if ($idSorteo == -1)
-	{
-		$consulta = "SELECT idSorteos FROM sorteos WHERE idTipoSorteo=1 ORDER BY fecha DESC LIMIT 1";
+		$consulta = "SELECT idSorteo FROM comentarios WHERE idSorteo=$idSorteo";
 
 		// Comprovamos si la consulta ha devuelto valores
-		if ($res = $GLOBALS["conexion"]->query($consulta))
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
 		{
-			// Se han devuelto valores, buscamos el último sorteo
-			while(list($idSorteos) = $res->fetch_row())
+			// Se han devuelto valores
+			while (list($idSorteo) = $resultado -> fetch_row())
 			{
-				$idSorteo=$idSorteos;
+				return $idSorteo;
 			}
 		}
+
+		return -1;
 	}
-
-	$consulta = "SELECT comentarios FROM comentarios WHERE idSorteo=$idSorteo ORDER BY posicion";
-
-	$cad = '';
-
-	if ($resultado = $GLOBALS["conexion"]->query($consulta))
+	
+	function ExisteTextoComprobador($idSorteo)
 	{
-		while (list($comentarios) = $resultado->fetch_row())
+		$consulta = "SELECT idSorteo FROM texto_comprobador WHERE idSorteo=$idSorteo";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
 		{
-			$cad .= $comentarios;
+			// Se han devuelto valores
+			while (list($idSorteo) = $resultado -> fetch_row())
+			{
+				return $idSorteo;
+			}
 		}
+
+		return -1;
 	}
 
-	echo "<textarea id='comentario' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
-}
+	function MostrarTextoBanner($idSorteo)
+	{
+		// Función que permite mostrar por pantalla los comentarios introducidos des del CMS
+
+		if ($idSorteo == -1)
+		{
+			$consulta = "SELECT idSorteos FROM sorteos WHERE idTipoSorteo=1 ORDER BY fecha DESC LIMIT 1";
+
+			// Comprovamos si la consulta ha devuelto valores
+			if ($res = $GLOBALS["conexion"]->query($consulta))
+			{
+				// Se han devuelto valores, buscamos el último sorteo
+				while(list($idSorteos) = $res->fetch_row())
+				{
+					$idSorteo=$idSorteos;
+				}
+			}
+		}
+
+		$consulta = "SELECT texto FROM textobanner WHERE idSorteo=$idSorteo ORDER BY posicion";
+
+		$cad = '';
+
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			while (list($texto) = $resultado->fetch_row())
+			{
+				$cad .= $texto;
+			}
+		}
+
+		echo "<textarea id='textoBanner' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
+	}
+
+	function MostrarComentarios($idSorteo)
+	{
+		// Función que permite mostrar por pantalla los comentarios introducidos des del CMS
+
+		if ($idSorteo == -1)
+		{
+			$consulta = "SELECT idSorteos FROM sorteos WHERE idTipoSorteo=1 ORDER BY fecha DESC LIMIT 1";
+
+			// Comprovamos si la consulta ha devuelto valores
+			if ($res = $GLOBALS["conexion"]->query($consulta))
+			{
+				// Se han devuelto valores, buscamos el último sorteo
+				while(list($idSorteos) = $res->fetch_row())
+				{
+					$idSorteo=$idSorteos;
+				}
+			}
+		}
+
+		$consulta = "SELECT comentarios FROM comentarios WHERE idSorteo=$idSorteo ORDER BY posicion";
+
+		$cad = '';
+
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			while (list($comentarios) = $resultado->fetch_row())
+			{
+				$cad .= $comentarios;
+			}
+		}
+
+		echo "<textarea id='comentario' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
+	}
+	
+	function MostrarTextoComprobador($idSorteo)
+	{
+		// Función que permite mostrar por pantalla los comentarios introducidos des del CMS
+
+		if ($idSorteo == -1)
+		{
+			$consulta = "SELECT idSorteos FROM sorteos WHERE idTipoSorteo=1 ORDER BY fecha DESC LIMIT 1";
+
+			// Comprovamos si la consulta ha devuelto valores
+			if ($res = $GLOBALS["conexion"]->query($consulta))
+			{
+				// Se han devuelto valores, buscamos el último sorteo
+				while(list($idSorteos) = $res->fetch_row())
+				{
+					$idSorteo=$idSorteos;
+				}
+			}
+		}
+
+		$consulta = "SELECT comentarios FROM texto_comprobador WHERE idSorteo=$idSorteo ORDER BY posicion";
+
+		$cad = '';
+
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			while (list($texto) = $resultado->fetch_row())
+			{
+				$cad .= $texto;
+			}
+		}
+
+		echo "<textarea id='textoComprobador' style='margin-top: 10px; width:950px;height:270px;'>$cad</textarea>";
+	}
+
+	function EliminarTextoBanner($idSorteo)
+	{
+		// Función que permite eliminar un juego de la tabla Textobanner
+
+		// Parametros de entrada: identificador del sorteo que se ha de elminar
+		// Parametros de salida: 0 si el sorteo se ha eliminado correctamente, -1 si ha habido error
+
+		// Eliminamos el registro
+		$consulta = "DELETE FROM textobanner WHERE idSorteo=$idSorteo";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{	return 0;		}
+		else
+		{	return -1;		}
+	}
+
+	function EliminarComentario($idSorteo)
+	{
+		// Función que permite eliminar un juego de la tabla comentarios
+
+		// Parametros de entrada: identificador del sorteo que se ha de elminar
+		// Parametros de salida: 0 si el sorteo se ha eliminado correctamente, -1 si ha habido error
+
+		// Eliminamos el registro
+		$consulta = "DELETE FROM comentarios WHERE idSorteo=$idSorteo";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{	return 0;		}
+		else
+		{	return -1;		}
+	}
+	
+	function EliminarTextoComprobador($idSorteo)
+	{
+		// Función que permite eliminar un juego de la tabla comentarios
+
+		// Parametros de entrada: identificador del sorteo que se ha de elminar
+		// Parametros de salida: 0 si el sorteo se ha eliminado correctamente, -1 si ha habido error
+
+		// Eliminamos el registro
+		$consulta = "DELETE FROM texto_comprobador WHERE idSorteo=$idSorteo";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{	return 0;		}
+		else
+		{	return -1;		}
+	}
+
 function ActualizarFichero($idSorteo, $nombreFichero, $urlFicheroPDF, $urlFicheroTXT, $borrarFicheroPDF, $borrarFicheroTXT) {
 	$consulta = "SELECT idSorteo FROM ficheros WHERE idSorteo=$idSorteo";
 	$idSorteoBD = NULL;

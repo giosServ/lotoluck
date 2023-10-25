@@ -29,8 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$correo = $_POST["correo"] ?? "";
 	$web = $_POST["web"] ?? "";
 	$poblacion = $_POST["poblacion"] ?? "";
+	$poblacion_actv = $_POST["poblacion_actv"] ?? "";
 	$comentarios = $_POST["comentarios"] ?? "";
 	$provincia = $_POST["provincia"] ?? "";
+	$provincia_actv = $_POST["provincia_actv"] ?? "";
 	$cliente = $_POST["cliente"] ?? "";
 	$agente = $_POST["agente"] ?? "";
 	$familia = $_POST["familia"] ?? "";
@@ -75,9 +77,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		move_uploaded_file($imagenTmpName, "../imagenes/imgAdministraciones/" . $imagenFileName);
 	}
 
-	if($imagenFileName==null){
+	if(isset($imagenFileName)){
+		if($imagenFileName==null){
 		$imagenFileName = $txt_imgImagen;
+		}
 	}
+	
    
 } else {
     // Si no se reciben datos por POST, envía un mensaje de error.
@@ -94,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		case '1':
 			
 			// Se quiere insertar la administración
-			$id_admin = InsertarAdministracion($idadministraciones, $familia, $activo, $cliente, $agente, $news, $fecha_alta, $provincia, $poblacion, $cod_pos, $direccion, $direccion2, $nReceptor, $nOperador, $numero, $nombreAdministracion, $slogan, $titularJ, $nombre, $apellidos, $telefono, $telefono2, $correo, $web, $comentarios, $lat, $lon, $web_lotoluck, $web_actv, $web_externa, $web_externa_actv, $web_ext_texto, $quiere_web, $vip, $status);
+			$id_admin = InsertarAdministracion($idadministraciones, $familia, $activo, $cliente, $agente, $news, $fecha_alta, $provincia, $provincia_actv, $poblacion, $poblacion_actv, $cod_pos, $direccion, $direccion2, $nReceptor, $nOperador, $numero, $nombreAdministracion, $slogan, $titularJ, $nombre, $apellidos, $telefono, $telefono2, $correo, $web, $comentarios, $lat, $lon, $web_lotoluck, $web_actv, $web_externa, $web_externa_actv, $web_ext_texto, $quiere_web, $vip, $status);
 			if($id_admin!=-1){
 				if($web_actv ==1){
 					$id_pagina = insertarDatosAdministracionPagina($id_admin, $texto, $logoFileName, $imagenFileName, $tituloSEO, $palabrasClaveSEO, $descripcionSEO);

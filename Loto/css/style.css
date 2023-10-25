@@ -2285,4 +2285,56 @@ p.titol_once
 
 @media only screen and (min-device-width:320px) and (max-device-width:768px){
 }
- 
+.hidden{
+	display:none;
+}
+.enhorabuena{
+	display:block;
+	text-align:center;
+	font-size:22px;
+	color:#655e5e;
+	font-weight:bold;
+	margin-top:1em;
+	margin-bottom:0px;
+} 
+.liComprueba{
+		display:inline-block;
+	
+	}
+.botonComprueba{
+	background-color:white ;
+	font-size:24px;
+	font-weight:bold;
+	padding:0.5em;
+	border: solid 0.5px;
+}
+.bnacional{
+	color: #0D7DAC;
+}
+.bnavidad{
+	color: #d2200c;
+}
+.bnino{
+	color: #cc9023;
+}
+
+@media only screen and (min-device-width:320px) and (max-device-width:768px){
+	.liComprueba{
+		display:block;
+		margin-bottom:2em;
+	}
+	.botonComprueba{
+		
+		background-color:white ;
+		color: #cc9023;
+		font-size:18px;
+		font-weight:bold;
+		padding:0.5em;
+		border: solid 0.5px;
+		margin-bottom: 60px;
+		
+	}
+	
+}
+	
+}

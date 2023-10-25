@@ -150,7 +150,9 @@
 					<br>
 					<hr><hr>
 					
-					<input type='checkbox' style='font-size:22px;'></input>&nbsp;&nbsp;<label style='font-size:22px;color:green;'><strong>Activar Comprobador de Premios:</strong></label>
+					<?php
+						estadoComprobador($idSorteo);
+					?>
 					
 					<hr><hr>
 					<br>
@@ -310,6 +312,7 @@
 		
 		<div style="margin-top:20px;">
 			<label class="cms"> Texto banner resultado del juego </label>
+			<p><i>Texto que aparecerá sobre el banner central en la página de resultados</i></p>
 			<br>
 			<?php
 				if ($idSorteo <> -1) {
@@ -322,6 +325,7 @@
 		</div>
 		<div style="margin-top:20px;">
 			<label class="cms"> Comentario </label>
+			<p><i>Texto comentario que aparecerá al final de la página de resultados del juego</i></p>
 			<br>
 			<?php
 				if ($idSorteo <> -1) {
@@ -331,6 +335,19 @@
 				}
 			?>
 		</div>
+		<div style="margin-top:20px;">
+			<label class="cms"> Texto comprobador </label>
+			<p><i>Texto que aparecerá justo debajo del comprobador de premios en la página de resultados</i></p>
+			<br>
+			<?php
+				if ($idSorteo <> -1) {
+					MostrarTextoComprobador($idSorteo);
+				} else {
+					echo '<textarea id="textoComprobador" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_textoComprobador(1); echo '</textarea>';
+				}
+			?>
+		</div>
+		<br><br>
 	</div>	
 	</div>	
 
@@ -404,6 +421,7 @@
 					
 					try {
 					var idSorteo2=await GuardarPremio(idSorteo);
+					await guardarEstadoComprobador();
 					//alert(idSorteo2)
 					window.location.href='loteriaNacional_dades.php?idSorteo='+idSorteo2+'&sorteoNuevo=1';
 						
@@ -588,7 +606,78 @@
 					});
 
 				}
+				
+				var textoComprobador = tinymce.get('textoComprobador').getContent();
+				// Comprovamos si se ha puesto algun comentario
+				if (comentarioHtml != '')
+				{
+					// var datos = [idSorteo, 2, 2, JSON.stringify(comentarioHtml)];
+					$.ajax(
+					{
+						// Definimos la url
+						url: "../formularios/comentarios.php",
+						data: {
+							idSorteo: idSorteo,
+							type: 3,
+							texto: textoComprobador,
+
+						},
+						// Indicamos el tipo de petición, como queremos insertar es POST
+						type: "POST",
+
+						success: function(res)
+						{
+							if (res == -1)
+							{
+								alert("No se han podido guardar los comentarios de la casilla comentario, prueba de nuevo");
+							}
+
+						}
+
+					});
+
+				}
 			}
+			
+			
+			async function guardarEstadoComprobador()
+			{
+				// Función que permite guardar los comentarios adicionales del sorteo
+
+				var idSorteo =document.getElementById("r_id").value
+				var actvCompr; 
+				if(document.getElementById('actv_compr').checked){
+					
+					actvCompr = 1;
+				}else{
+					actvCompr = 0;
+				}
+
+				$.ajax(
+				{
+					// Definimos la url
+					url: "../formularios/comprobador_selae.php",
+					data: {
+						idSorteo: idSorteo,
+						tipoJuego: 1,
+						actvCompr: actvCompr,
+
+					},
+					// Indicamos el tipo de petición, como queremos insertar es POST
+					type: "POST",
+
+					success: function(res)
+					{
+						if (res == -1)
+						{
+							console.log("Error al guardar el estado del comprobador");
+						}
+
+					}
+
+				});
+			}
+			
 			function GuardarTerminaciones(nt, terminaciones, terminaciones_premios, idSorteo, fecha)
 			{
 

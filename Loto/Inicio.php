@@ -163,9 +163,10 @@
 	<?php
 		if (SorteoActivo(1) == true && !in_array(1, $config))
 		{
-			echo "<article class='resultadosselae'>";
-			echo "<img src='Imagenes\logos\Logo loteria nacional.png' alt='logo loteria nacional'class='logoresultados' />";
-        		
+			
+			echo "<article class='resultadosselae' style='text-align:center;'>";
+			echo "<img src='Imagenes\logos\Logo loteria nacional.png' alt='logo loteria nacional'class='logoresultados'/>";
+        	
 			MostrarUltimoLoteriaNacional();
 		
 			echo "<div class='pieresultadolae'>";
@@ -187,7 +188,7 @@
 	<?php
 		if (SorteoActivo(2) == true && !in_array(2, $config))
 		{
-			echo "<article class='resultadosselae'>";
+			echo "<article class='resultadosselae' style='text-align:center;'>";
 			echo "<img src='Imagenes\logos\Logo Loteria Navidad.png' alt='loteria navidad' class='logoresultados' />";
 
 			MostrarUltimoLoteriaNavidad();
@@ -210,8 +211,8 @@
 	<?php
 		if (SorteoActivo(3) == true && !in_array(3, $config))
 		{
-			echo "<article class='resultadosselae'>";
-			echo "<img src='Imagenes\logos\Logo Loteria Niño.png' alt='' class='logoresultados' />";
+			echo "<article class='resultadosselae' style='text-align:center;'>";
+			echo "<img src='Imagenes\logos\Logo Loteria Niño.png' alt='' class='logoresultados' style='margin-bottom:3%;'/>";
 
 			MostrarUltimoNino();
 			

@@ -277,9 +277,27 @@
 				}
 			?>
 		</div>
+		<div style="margin-top:20px;">
+			<label class="cms"> Texto comprobador </label>
+			<p><i>Texto que aparecerá justo debajo del comprobador de premios en la página de resultados</i></p>
+			<br>
+			<?php
+				if ($idSorteo <> -1) {
+					MostrarTextoComprobador($idSorteo);
+				} else {
+					echo '<textarea id="textoComprobador" style="margin-top: 10px; width:950px;height:270px;">';  echo obtener_ultimo_textoComprobador(3); echo '</textarea>';
+				}
+			?>
+		</div>
 		</div>
 		<br>
-			<?php include "../filtro_formato.php"; ?>
+		<hr><hr>
+			<?php
+
+			estadoComprobador($idSorteo);
+			echo "<hr><hr><br>";			
+			include "../filtro_formato_navidad.php";
+			?>
 		<br><br><br><br>
 	</div>
 
@@ -362,7 +380,7 @@
 					// Dentro de la función success de GuardarPremio
 					try {
 					var idSorteo2=await GuardarPremio(idSorteo);
-					//alert(idSorteo2)
+					await guardarEstadoComprobador();
 					window.location.href='nino_dades.php?idSorteo='+idSorteo2+'&sorteoNuevo=1';
 						
 					} catch (error) {
@@ -538,8 +556,36 @@
 
 					});
 
-				} else {
-					resolve(true); // No se proporcionó ningún comentario, resolver inmediatamente
+				}
+				var textoComprobador = tinymce.get('textoComprobador').getContent();
+				// Comprovamos si se ha puesto algun comentario
+				if (comentarioHtml != '')
+				{
+					// var datos = [idSorteo, 2, 2, JSON.stringify(comentarioHtml)];
+					$.ajax(
+					{
+						// Definimos la url
+						url: "../formularios/comentarios.php",
+						data: {
+							idSorteo: idSorteo,
+							type: 3,
+							texto: textoComprobador,
+
+						},
+						// Indicamos el tipo de petición, como queremos insertar es POST
+						type: "POST",
+
+						success: function(res)
+						{
+							if (res == -1)
+							{
+								alert("No se han podido guardar los comentarios de la casilla comentario, prueba de nuevo");
+							}
+
+						}
+
+					});
+
 				}
 			}
 			
@@ -789,6 +835,43 @@
 					});
 				console.log($('#listadoPDF').prop('files').length != 0)
 				
+			}
+			async function guardarEstadoComprobador()
+			{
+				// Función que permite guardar los comentarios adicionales del sorteo
+
+				var idSorteo =document.getElementById("r_id").value
+				var actvCompr; 
+				if(document.getElementById('actv_compr').checked){
+					
+					actvCompr = 1;
+				}else{
+					actvCompr = 0;
+				}
+
+				$.ajax(
+				{
+					// Definimos la url
+					url: "../formularios/comprobador_selae.php",
+					data: {
+						idSorteo: idSorteo,
+						tipoJuego: 1,
+						actvCompr: actvCompr,
+
+					},
+					// Indicamos el tipo de petición, como queremos insertar es POST
+					type: "POST",
+
+					success: function(res)
+					{
+						if (res == -1)
+						{
+							console.log("Error al guardar el estado del comprobador");
+						}
+
+					}
+
+				});
 			}
 			
 		</script>

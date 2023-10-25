@@ -848,3 +848,53 @@ a.active {
   /* Otros estilos para resaltar la pestaña activa */
 }
 
+/* Estilos base para el switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  margin-left:1em;
+}
+
+/* Estilo del input checkbox (ocultar) */
+.switch input {
+  display: none;
+}
+
+/* Estilo del slider (el interruptor en sí) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: red; /* Color de fondo cuando está desactivado */
+  transition: .3s;
+  border-radius: 30px; /* Forma redondeada del interruptor */
+  
+}
+
+/* Estilo del slider cuando está activado */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 2px;
+  background-color: #ccc; /* Color de fondo cuando está desactivado */
+  transition: .3s;
+  border-radius: 50%; /* Forma redondeada del botón */
+}
+
+/* Cambia el color de fondo cuando el interruptor está activado */
+input:checked + .slider {
+  background-color: green; /* Color de fondo cuando está activado */
+}
+
+/* Mueve el botón a la derecha cuando el interruptor está activado */
+input:checked + .slider:before {
+  transform: translateX(26px);
+}

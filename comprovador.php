@@ -1,5 +1,5 @@
 <?php
-    include "funciones.php";
+    //include "Loto/funciones.php";
 ?>
 
 <html>
@@ -25,7 +25,7 @@
 
             <?php
 
-                $tipo = ObtenerTipoSorteo($idSorteo);
+               // $tipo = ObtenerTipoSorteo($idSorteo);
 
                 switch ($tipo) 
                 {
@@ -59,7 +59,7 @@
                         break;
                  }
 
-                 $fecha = ObtenerFechaSorteo($idSorteo);
+                 //$fecha = ObtenerFechaSorteo($idSorteo);
 
                  echo "$fecha";
 

@@ -7,7 +7,7 @@
 	
 	
 ?>
-
+<!DOCTYPE html>
 <html>
 
 	<head>
@@ -25,8 +25,8 @@
 			  crossorigin="anonymous">
 		</script>
 		<!--Script para mostrar el editor de texto>	 --> 
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/default.min.css" />
-		<script src="https://cdn.jsdelivr.net/npm/sceditor@3/minified/sceditor.min.js"></script>	
+		<script src="https://cdn.tiny.cloud/1/pt8yljxdfoe66in9tcbr6fmh0vaq2yk4lu0ibxllsvljedgh/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+		<script src="../js/tinyMCE.js"></script>	
 		
 		<style>
 		/* Style the tab */
@@ -74,6 +74,11 @@
 		  border-top: 1px dotted black;
 		  width: 100%;
 		  margin-top: 10px; 
+		}
+		td{
+			padding-bottom: 1em;
+			min-width:400px;
+			/*border:solid 1px;
 		}
 		
 	</style>
@@ -133,377 +138,19 @@
 							editorWebAdministracioes($idAdmin);
 						?>
 					</div> 
-					<script>
-		
-						var texto1 = document.getElementById('texto1');
-						sceditor.create(texto1, {
-							format: 'bbcode',
-							style: 'https://cdn.jsdelivr.net/npm/sceditor@3/minified/themes/content/default.min.css'
-						});
-						
-					</script>
+					
 
 			</div>
 			<!-------------Pestaña 1 (Fichas)-------------->		
 	
-			<div id="adicional_1" class="tabcontent1" style=" display:block;width:100%;padding:1%;">
-				<div class="adicional_1" align='left' style="margin:10px;">
-					<div style='margin-left:50px'>
-
-						<table>
-
-							<?php
-
-								if ($idAdmin != -1)
-								{		MostrarAdministracion($idAdmin);		}
-								else
-								{
-							?>
-							
-							<tr>
-								<td> 
-									<label class="cms"> Activo: </label>
-									<select class='cms' id='activo' name='activo' style="width:80px;">
-										<option value='0'> No </option>
-										<option value='1'> Sí </option>
-										
-									</select>
-								</td>
-								
-								<td> 
-									<label class="cms"> Status del PPV: </label>
-									<select class='cms' id='status' name='status' style="width50%;">
-										<option value='0'> Existe antes de Alta Web </option>
-										<option value='1'> Creado por Alta Web </option>
-										<option value='2'> PPVV Cliente </option>
-										
-										
-									</select>
-								</td>
-								<td></td>
-								<td> 
-									<label class="cms"> Enviar Newsletter: </label> 
-									<select class='cms' id='newsletter' name='newsletter' style="width:80px;">
-										
-										<option value='1'> Sí </option>
-										<option value='0'> No </option>
-									</select>
-								</td>
-
-								<td> 
-									<label class="cms"> Es cliente: </label> 
-									<select class='cms' id='cliente' name='cliente' style="width:80px;">
-										<option value='1'> Sí </option>
-										<option value='0'> No </option>
-									</select>
-								</td>
-								
-							</tr>
-							
-							<tr>
-								<td>
-									<label class="cms">Agente </label>
-								</td>
-								<td>
-								 
-									<select class='cms' id='agente' name='agente' style="width:150px;">
-										
-										
-										<?php	
-											MostrarAgentes(-1);
-										?>
-										
-									</select>
-								</td>
-								<td></td>
-								<td > 
-									<label class="cms"> Alta </label>
-									<input class="cms" type="date" id="fechaAlta" name="fechaAlta" style="width:150px;">
-								</td>
-								
-							</tr>					
-							
-							<tr>
-								<td> 
-									<label class="cms">Familia </label>
-								</td>
-								<td>						
-									<select class='cms' id='familias' name='familias' style="width:150px;">
-										
-										
-										<?php	
-											MostrarFamilias(-1);
-										?>
-										
-									</select>
-								</td>
-							</tr>
-							
-							<tr> 
-								<td> 
-									<label class="cms"> Numero de administración: </label>
-								</td>
-								<td>
-									<input class="cms" id="numero" name="numero" value="" style="width:150px;">
-								</td>
-								
-								<td>
-									<label class="cms"> Nº Receptor: </label>
-								</td>
-								<td>
-									<input class="cms" id="nReceptor" name="nReceptor" value="">
-								</td>
-								<td></td>
-								<td> 
-									<label class="cms"> Nº Operador </label>
-								
-									<input class="cms" id="nOperador" name="nOperador" value=""> 
-								</td>	
-							</tr>
-							
-							<tr>
-								<td> 
-									<label class="cms"> Nombre administración: </label>
-								</td>
-								<td>
-									<input class="cms" id="nombreAdministracion" name="nombreAdministracion" value="">
-								</td>		
-							</tr>
-							
-							<tr>
-								<td> 
-									<label class="cms"> Slogan: </label>
-								</td>
-								<td>
-									<input class="cms" id="slogan" name="slogan" value="">
-								</td>		
-							</tr>
-							
-							<tr>
-								<td>
-									<label class="cms"> Titular Jurídico: </label> 
-								</td>
-								<td>
-									<input class="cms" id="titularj" name="titularj" value="">
-								</td>
-
-
-								<td>
-									<label class="cms"> Nombre: </label> 
-								</td>
-								<td>
-									<input class="cms" id="nombre" name="nombre" value="" autocomplete='off'>
-								</td>			
-								<td></td>
-								<td>
-									<label class="cms"> Apellidos: </label>						
-									<input class="cms" id="apellidos" name="apellidos" value="" autocomplete='off'>
-								</td>	
-							</tr>					
-								
-								
-							<tr>
-								<td>
-									<label class="cms"> Dirección: </label> 
-								</td>
-								<td>
-									<input class="cms" id="direccion" name="direccion" value="" autocomplete='off'>
-								</td>
-								
-								<td> 
-									<label class="cms"> Dirección 2: </label>
-								</td>
-								<td>
-									<input class="cms" id="direccion2" name="direccion2" value="" autocomplete='off'> 
-								</td>	
-								<td></td>
-								<td>
-									<label class="cms"> Codigo postal: </label>						
-									<input class="cms" id="codigoPostal" name="codigoPostal" value="" style="width:120px;">
-								</td>
-								
-							</tr>
-							
-							<tr>
-								<td> 
-									<label class="cms"> Población: </label>
-								</td>
-								<td>					
-									<input class="cms" id="poblacion" name="poblacion" value="" autocomplete='off'>
-								</td>
-								
-								<td> 
-									<label class="cms"> Provincia: </label>
-								</td>
-								<td>
-									<select class='cms' id='provincia' name='provincia' autocomplete='off'>
-										
-
-										<?php
-											MostrarProvincias(-1);
-										?>
-
-									</select>
-								</td>
-							</tr>
-
-
-							<tr>
-								<td>
-									<label class="cms"> Telefono: </label>
-								</td>
-								<td>
-									<input class="cms" id="telefono" name="telefono" value="" autocomplete='off'>
-								</td>
-								
-								<td>
-									<label class="cms"> Telefono 2: </label>
-								</td>
-								<td>
-									<input class="cms" id="telefono2" name="telefono2" value="" autocomplete='off' >
-								</td>
-							</tr>
-
-							<tr>
-								<td> 
-									<label class="cms"> Correo: </label>
-								</td>
-								<td>
-									<input class="cms" id="correo" name="correo" value=""autocomplete='off'> 
-								</td>
-							</tr>
-
-							<tr>
-								<td> 
-									<label class="cms"> Web: </label>
-								</td>
-								<td>
-									<input class="cms" id="web" name="web" value="" autocomplete='off'>
-								</td>
-							</tr>
-							
-							
-							<!--
-							<tr>
-								<td>
-									<label class="cms"> Tiene Web y le gustaría recibir visitas desde la página de LotoLuck </label>
-								</td>
-							</tr>
-							<tr>					
-								<td>
-									<label class="cms"> NO Tiene Web y le interesaria estar en intrernet con página de LotoLuck </label>
-								</td>
-							</tr>
-							<tr>					
-								<td>
-									<label class="cms"> Quiere salir en los primeros lugares del buscador </label>
-								</td>
-							</tr>-->
-							
-							<tr>
-								<td>
-									<label class="cms"> Comentarios: </label>
-								</td>
-								<td colspan='4'>
-									<textarea class="cms" name="comentarios" id="comentarios" style="margin-top: 6px; width:600px; height:200px; "></textarea>
-								</td>
-							</tr>
-						</table>
-							<br><hr><hr><br>
-							
-						<table style='margin-left:3em;'>
-							
-								<tr height='10px'></tr>   
-								<tr>
-								 <td>
-									<label><strong>Latitud::</strong></label>
-									<input type='text' id='txtLat' class='cms'>
-								</td>
-								<td style='width:3em'></td>
-								 <td>
-									<label><strong>Longitud:</strong></label>
-								   <input type='text' id='txtLng' class='cms'>
-								</td>	
-								</tr>
-								<tr height='20px'></tr>
-						  
-						</table>
-							
-							
+			<div id="adicional_1" class="tabcontent1" style=" display:block;padding:1%;width:100%;">
+				<div class="" align='left' style="margin:10px;">
 				
-						
+						<?php
 
-						<label id="lb_error" name="lb_error" class='cms_error' style='margin-top: 20px;'> Revisa que se esten introduciendo todos los valores!!! </label>
-					
-						
-						<div id="map_canvas" style="height:350px; width:400px;margin-left:3em;">
-						</div>
-						<br><hr><hr><br>
-						<table>
+							MostrarAdministracion($idAdmin);	
 							
-							<tr>
-								<td> 
-									<label class="cms"> URL Interna LotoLuck: </label>
-								</td>
-								<td>					
-									<input class="cms" id="web_lotoluck"value="">
-									
-								</td>
-								<td class="">
-								<!-- Checkbox -->
-									<input type="checkbox" name="" id="web_actv" class="">
-									
-								</td>
-								<td> 
-									<label class="cms"> Web del Cliente:</label>
-								</td>
-								<td> 
-									<input class="cms" id="web_externa" value="">
-								</td>
-								<td class="switch-button">
-								<!-- Checkbox -->
-									<input type="checkbox" name="" id="web_externa_actv" class="" >
-								</td>
-								<td> 
-									<label class="cms"> Web del Cliente Texto: </label>
-								</td>
-								<td> 
-									<input class="cms" id="web_ext_texto" value="">
-								</td>
-							</tr>
-						</table>
-						<table>
-							<tr style="height:3em;">
-							<td  class="switch-button">
-								<!-- Checkbox -->
-									<input type="checkbox" name="" id="" class="">
-									<label style="margin-left:1em;"><strong>Tiene Web y le gustaría recibir visitas desde la página de LotoLuck</strong></label>
-								</td >
-								
-							</tr>
-						
-							<tr style="height:3em;">
-							<td colspan='10' class="switch-button">
-								<!-- Checkbox -->
-									<input type="checkbox" name="" id="quiere_web" class="">
-									<label style="margin-left:1em;"><strong>NO Tiene Web y le interesaria estar en internet con página de LotoLuck</strong></label>
-								</td>
-							</tr>
-							<tr  style="height:3em;">
-								<td colspan='10'class="switch-button">
-								<!-- Checkbox -->
-									<input type="checkbox" name="" id="vip" class="">
-									<label style="margin-left:1em;"><strong>Quiere salir en los primeros lugares del buscador</strong></label>
-								</td>
-							</tr>
-							
-						</table>
-						
-							<?php
-
-								}
-							?>
-
+						?>
 						<br><hr><hr><br>
 						<?php
 
@@ -512,23 +159,12 @@
 							MostrarPremiosVendidos($idAdmin);
 						}
 						?>		
-					</div>
-										
 					
 				</div>
 			</div>
 			
 		</div>
 		
-		
-
-			
-
-		
-	
-		
-		
-
 		<!----Script de la API de Google Maps. Necesario para mostrar geolocalización en mapa indicando dirección postal.--->
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRAQsI1Gz2uX2zkKhW1iIhORAikXLolDA"></script>
 		<script>
@@ -588,8 +224,7 @@
 		  // Agregar evento de click al botón o enlace
 		  $("#enviarFormulario").on("click", function() {
 			// Capturar los valores de los elementos del formulario
-			var editor = sceditor.instance(texto1);
-			var texto = editor.val();
+			var texto = tinymce.get('comentario').getContent();
 			var tituloSEO = $("#titulo_seo").val();
 			var palabrasClaveSEO = $("#key_word_seo").val();
 			var descripcionSEO = $("#descripcion_seo").val();
@@ -640,6 +275,19 @@
 			var web_lotoluck = document.getElementById("web_lotoluck").value;
 			var txt_imgLogo = document.getElementById("txt_imgLogo").value;
 			var txt_imgImagen = document.getElementById("txt_imgImagen").value;
+			
+			var provincia_actv;
+			if (document.getElementById("provincia_actv").checked) {
+			  provincia_actv = 1;
+			} else {
+			  provincia_actv = 0;
+			}
+			var poblacion_actv;
+			if (document.getElementById("poblacion_actv").checked) {
+			  poblacion_actv = 1;
+			} else {
+			  poblacion_actv = 0;
+			}
 
 			var web_actv;
 			if (document.getElementById("web_actv").checked) {
@@ -702,8 +350,10 @@
 			formData.append("correo", correo);
 			formData.append("web", web);
 			formData.append("poblacion", poblacion);
+			formData.append("poblacion_ac", poblacion_actv);
 			formData.append("comentarios", comentarios);
 			formData.append("provincia", provincia);
+			formData.append("provincia_actv", provincia_actv);
 			formData.append("cliente", cliente);
 			formData.append("agente", agente);
 			formData.append("familia", familia);

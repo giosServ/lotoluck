@@ -1,5 +1,5 @@
 <?php
-	
+	$idSorteo = $_GET['idSorteo'];
 	include "funciones.php";
 ?>
 
@@ -28,20 +28,22 @@
 		  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
 		  crossorigin="anonymous">
 	</script>
-	
+	<style>
+	.compr-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 50%; /* El 50% del ancho de la ventana */
+		margin: 0 auto;
+		margin-top:20px;
+	}
+	</style>
   </head>
 
 <style type='text/css'>
 
 </style>
   <body style=''>
-  
-  <?php
-		// Obtenemos el sorteo que se ha de mostrar
-		$idSorteo = $_GET['idSorteo'];
-	?>
-
-	
     <header>
 	
       <?php
@@ -128,7 +130,9 @@
 				}
 			?>			
 		</div>
-		
+		<?php
+			include "../comprobador.php";
+		?>
 		<div align='center' style='padding-top: 5px;'>
 		<b>
 			<?php
