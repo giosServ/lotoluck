@@ -1,10 +1,8 @@
 <?php
 include "../funciones.php";
+var response = grecaptcha.getResponse();
 
-$captcha = new Captcha();
-
-if($captcha->checkCaptcha($_POST['h-captcha-response']))
-{
+if (response.length != 0) {
 	$nombre =  $_POST['nombre'];
 	$apellido = $_POST['Apellidos'];
 	$fecha_nac = $_POST['fecha_nac'];

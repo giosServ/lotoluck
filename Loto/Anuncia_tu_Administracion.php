@@ -16,12 +16,19 @@
     <link rel='stylesheet' type='text/css' href='css/localiza_administracion.css'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
 
 <style type='text/css'>
 
-</style>
-  <body style=''>
+ .invalid {
+    border-color: red;
+	box-shadow: 0 0 5px red; /* Cambia el color de la sombra */
+	}
+
+
+</style> 
+  <body>
     <header>
 	
 	<?php
@@ -49,168 +56,169 @@
       <h2 class='cabeceras2'>Anuncia gratis tu Administración o punto de venta</h2>
       <br>
       <article class='formularios'>
-        <form>
+        <form id='form_registro'>
 
           <span class='boxform'>
           <label for='name'>Tengo un Punto de Venta</label><br>
-              <select name='Tengo un Punto de Venta' id='' style='width:77%; 'class='cajaform'/>
-              <option value=''>Operador</option>
-              <option value='Masculino'>LAE</option>
-              <option value='Femenino'>ONCE</option>
-              <option value='Masculino'>Lot. Cataluña</option>
+              <select name='familia' style='width:77%;' class='cajaform' id='familia' onchange="limpiarInvalidClass(this)"/>
+              <option value='0'>Operador</option>
+              <option value='1'>LAE</option>
+              <option value='2'>ONCE</option>
+              <option value='3'>Lot. Cataluña</option>
               </select>
           </span>
           <span class='boxform'>
           <label for='name'>Provincia</label><br>
-              <select name='Provincia' id='' style='width:77%; 'class='cajaform'/>
-              <option value=''>Seleccionar la provincia</option>
-              <option value='Álava'>Álava</option>
-<option value='Albacete'>Albacete</option>
-<option value='Alicante'>Alicante</option>
-<option value='Almeria'>Almeria</option>
-<option value='Asturias'>Asturias</option>
-<option value='Ávila'>Ávila</option>
-<option value='Badajoz'>Badajoz</option>
-<option value='Barcelona'>Barcelona</option>
-<option value='Burgos'>Burgos</option>
-<option value='Cáceres'>Cáceres</option>
-<option value='Cádiz'>Cádiz</option>
-<option value='Cantabria'>Cantabria</option>
-<option value='Castellón'>Castellón</option>
-<option value='Ceuta'>Ceuta</option>
-<option value='Ciudad Real'>Ciudad Real</option>
-<option value='Córdoba'>Córdoba</option>
-<option value='Cuenca'>Cuenca</option>
-<option value='Gerona'>Gerona</option>
-<option value='Granada'>Granada</option>
-<option value='Guadalajara'>Guadalajara</option>
-<option value='Guipúzcoa'>Guipúzcoa</option>
-<option value='Huelva'>Huelva</option>
-<option value='Huesca'>Huesca</option>
-<option value='Islas Baleares'>Islas Baleares</option>
-<option value='Jaén'>Jaén</option>
-<option value='La Coruña'>La Coruña</option>
-<option value='La Rioja'>La Rioja</option>
-<option value='Las Palmas'>Las Palmas</option>
-<option value='León'>León</option>
-<option value='Lerida'>Lerida</option>
-<option value='Lugo'>Lugo</option>
-<option value='Madrid'>Madrid</option>
-<option value='Málaga'>Málaga</option>
-<option value='Melilla'>Melilla</option>
-<option value='Murcia'>Murcia</option>
-<option value='Navarra'>Navarra</option>
-<option value='Orense'>Orense</option>
-<option value='Palencia'>Palencia</option>
-<option value='Pontevedra'>Pontevedra</option>
-<option value='S.C. Tenerife'>S.C. Tenerife</option>
-<option value='Salamanca'>Salamanca</option>
-<option value='Segovia'>Segovia</option>
-<option value='Sevilla'>Sevilla</option>
-<option value='Soria'>Soria</option>
-<option value='Tarragona'>Tarragona</option>
-<option value='Teruel'>Teruel</option>
-<option value='Toledo'>Toledo</option>
-<option value='Valencia'>Valencia</option>
-<option value='Valladolid'>Valladolid</option>
-<option value='Vizcaya'>Vizcaya</option>
-<option value='Zamora'>Zamora</option>
-<option value='Zaragoza'>Zaragoza</option>
+              <select name='provincia' id='provincia' style='width:77%; 'class='cajaform' onchange="limpiarInvalidClass(this)"/>
+				<option value='0'>Seleccionar la provincia</option>
+				<option value='1'>Álava</option>
+				<option value='2'>Albacete</option>
+				<option value='3'>Alicante</option>
+				<option value='4'>Almeria</option>
+				<option value='5'>Asturias</option>
+				<option value='6'>Ávila</option>
+				<option value='7'>Badajoz</option>
+				<option value='8'>Barcelona</option>
+				<option value='9'>Burgos</option>
+				<option value='10'>Cáceres</option>
+				<option value='11'>Cádiz</option>
+				<option value='12'>Cantabria</option>
+				<option value='13'>Castellón</option>
+				<option value='14'>Ceuta</option>
+				<option value='15'>Ciudad Real</option>
+				<option value='16'>Córdoba</option>
+				<option value='17'>Cuenca</option>
+				<option value='18'>Gerona</option>
+				<option value='18'>Granada</option>
+				<option value='19'>Guadalajara</option>
+				<option value='20'>Guipúzcoa</option>
+				<option value='21'>Huelva</option>
+				<option value='22'>Huesca</option>
+				<option value='23'>Islas Baleares</option>
+				<option value='24'>Jaén</option>
+				<option value='25'>La Coruña</option>
+				<option value='26'>La Rioja</option>
+				<option value='27'>Las Palmas</option>
+				<option value='28'>León</option>
+				<option value='29'>Lerida</option>
+				<option value='30'>Lugo</option>
+				<option value='31'>Madrid</option>
+				<option value='32'>Málaga</option>
+				<option value='33'>Melilla</option>
+				<option value='34'>Murcia</option>
+				<option value='35'>Navarra</option>
+				<option value='36'>Orense</option>
+				<option value='37'>Palencia</option>
+				<option value='38'>Pontevedra</option>
+				<option value='39'>S.C. Tenerife</option>
+				<option value='40'>Salamanca</option>
+				<option value='41'>Segovia</option>
+				<option value='42'>Sevilla</option>
+				<option value='43'>Soria</option>
+				<option value='44'>Tarragona</option>
+				<option value='45'>Teruel</option>
+				<option value='46'>Toledo</option>
+				<option value='47'>Valencia</option>
+				<option value='48'>Valladolid</option>
+				<option value='49'>Vizcaya</option>
+				<option value='50'>Zamora</option>
+				<option value='51'>Zaragoza</option>
               </select>
           </span>
 
           <span class='boxform'>
-          <label for='name'>Localidad</label><br>
-              <input type='text' name='Localidad' id='' style='width:70%;' class='cajaform'/>
+          <label for='poblacion'>Localidad</label><br>
+              <input type='text' name='poblacion' id='poblacion' style='width:70%;' class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
           <span class='boxform'>
           <label for='name'>Código Postal</label><br>
-              <input type='text' name='Código Postal' id='' style='width:70%;' class='cajaform'/>
+              <input type='text' name='cod_pos' id='cod_pos' style='width:70%;' class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
           <label for='name'>Dirección Principal</label><br>
-              <input type='text' name='Dirección Principal' id='' style='width:85%; 'class='cajaform'/> &nbsp; 
+              <input type='text' name='direccion' id='direccion' style='width:85%; 'class='cajaform' onchange="limpiarInvalidClass(this)"/> &nbsp; 
           <p class='textform'> Ponga solamente la calle y el Nº para aparecer en el mapa geolocalizador </p>
           <label for='name'>Dirección Complementaria</label><br>
-              <input type='text' name='Dirección Complementaria' id='' style='width:85%; 'class='cajaform'/> &nbsp; 
+              <input type='text' name='direccion2' id='direccion2' style='width:85%; 'class='cajaform' onchange="limpiarInvalidClass(this)"/> &nbsp; 
           <p class='textform'> Datos como: Esquina Gran Vía, C.C. El Campo Tienda 4 L4; Bajos 2ºB; etc. </p>
 
           <span class='boxform'>
           <label for='name'>Nombre y Apellidos del titular</label><br>
-              <input type='text' name='Nombre' id='' style='width:70%; 'class='cajaform'/>
+              <input type='text' name='titular' id='titular' style='width:70%; 'class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
           <span class='boxform'>
           <label for='name'>Tel. del Punto de Venta</label><br>
-              <input type='text' name='telefono' id='' style='width:70%; 'class='cajaform'/>
+              <input type='text' name='telefono' id='telefono' style='width:70%; 'class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
 
           <span class='boxform'>
           <label for='name'>Telefono 2</label><br>
-              <input type='text' name='Telefono 2' id='' style='width:70%; 'class='cajaform'/>
+              <input type='text' name='telefono2' id='telefono2' style='width:70%; 'class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
           <span class='boxform'>
           <label for='name'>Fax</label><br>
-              <input type='text' name='Fax' id='' style='width:70%; 'class='cajaform'/>
+              <input type='text' name='Fax' id='' style='width:70%; 'class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
 
           <span class='boxform'>
           <label for='name'>Nº Adm. Local</label><br>
-              <input type='text' name='Nº Adm. Local' id='' style='width:70%;' class='cajaform'/>
+              <input type='text' name='admin_num' id='admin_num' style='width:70%;' class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
           <span class='boxform'>
           <label for='name'>Código receptor</label><br>
-              <input type='text' name='Código receptor' id='' style='width:70%;' class='cajaform' />
+              <input type='text' name='desp_receptor_num' id='desp_receptor_num' style='width:70%;' class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
 
           <span class='boxform'>
           <label for='name'>Código LAE</label><br>
-              <input type='text' name='Provincia' id='' style='width:70%;' class='cajaform' value='9 cifras'/>
+              <input type='text' name='' id='' style='width:70%;' class='cajaform' value='9 cifras' onchange="limpiarInvalidClass(this)"/>
           </span>
           <span class='boxform'>
           <label for='name'>Nombre del Punto de Venta</label><br>
-              <input type='text' name='Nombre del Punto de Venta' id='' style='width:70%;' class='cajaform' value='Ej: Administración Nº4 Cartajena'/>
+              <input type='text' name='nombre' id='nombre' style='width:70%;' class='cajaform' value='Ej: Administración Nº4 Cartajena' onchange="limpiarInvalidClass(this)"/>
           </span>
 
           <label for='name'>¿Tiene un Slogan?</label><br>
-              <input type='text' name='Slogan' id='' style='width:85%; 'class='cajaform' value='Ej: La suerte del Barrio'/><br><br>
+              <input type='text' name='slogan' id='slogan' style='width:85%; 'class='cajaform' placeholder='Ej: La suerte del Barrio' onchange="limpiarInvalidClass(this)"'/><br><br>
 
           <span class='boxform'>
           <label for='name'>Correo Electronico</label><br>
-              <input type='text' name='Correo Electronico' id='' style='width:70%;' class='cajaform'/>
+              <input type='text' name='email' id='email' style='width:70%;' class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
           <span class='boxform'>
           <label for='name'>Confirmar correo</label><br>
-              <input type='text' name='Confirmar correo' id='' style='width:70%;' class='cajaform' />
+              <input type='text' name='email_confirm' id='email_confirm' style='width:70%;' class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
           <span class='boxform'>
           <label for='name'>Tengo esta web</label><br>
-              <input type='text' name='Nombre del Punto de Venta' id='' style='width:70%;' class='cajaform' />
+              <input type='text' name='web_externa' id='web_externa' style='width:70%;' class='cajaform' onchange="limpiarInvalidClass(this)"/>
           </span>
 
           <span class='boxform'>
           <label for='name'>Envío Décimos a domicilio</label><br>
-              <select name='Género' id='' style='width:77%; 'class='cajaform'/>
-              <option value=''>Seleccionar</option>
-              <option value='Masculino'>No</option>
-              <option value='Femenino'>Si</option>
+              <select name='envia' id='' style='width:77%; 'class='cajaform' onchange="limpiarInvalidClass(this)"/>
+              <option value='0'>Seleccionar</option>
+              <option value='0'>No</option>
+              <option value='1'>Si</option>
               </select>
           </span><br>
           
           <p class='textform'> <i>Para ofrecerle un mejor servicio, por favor marque las opciones que le interesen de las siguientes. </i></p>
 
-          <input name='boletín' type='checkbox' id=''/>
+          <input name='newsletter' type='checkbox' class='miCheckbox'>
           <label class='checkform'>Tengo mi web y me gustaría recibir visitas de compradores desde una página de LotoLuck</label><br>
-          <input name='boletín' type='checkbox' id=''/>
+          <input name='quiere_web_lotoluck' type='checkbox' class='miCheckbox'/>
           <label class='checkform'>No tengo web pero me gustaría estar en internet con una página de LotoLuck</label><br>
-          <input name='boletín' type='checkbox' id=''/>
+          <input name='quiere_vip' type='checkbox' class='miCheckbox'/>
           <label class='checkform'> Quiero que mi Punto de Venta aparezca en los primeros lugares del Buscador </label><br>
-          <input name='boletín' type='checkbox' id='' />
+          <input name='acepta_con' id='acepta_condiciones' type='checkbox' class='miCheckbox' />
           <label class='checkform'>He leído y Acepto las <a href=''>Condiciones de Uso</a> y <a href=''>la Política de Privacidad</a></strong></label><br><br>
-
+		       
+		  <input name='status' type='hidden' value='2'/>
 
           <p class='textform'> <strong>Extracto de la Politica de Privacidad</strong><br>
           Los Datos que se recogen a través de los formularios correspondientes sólo contienen los campos imprescindibles para poder prestar el servicio o información requerida por el Usuario y serán incorporados y tratados en un fichero automatizado, propiedad de LotoLuck, cuya finalidad es la gestión de atención a clientes y usuarios y acciones de comunicación comercial. El interesado podrá ejercer sus derechos de oposición, acceso, rectificación y cancelación, o dirigir su consulta a este respecto mediante correo a la dirección electrónica legal[arroba]lotoluck.com o por correo postal dirigido a LotoLuck, Poeta Verdaguer 1, 12002 Castellón de la Plana, con la referencia: Legal.</p>
-
-          <button class='boton'>Enviar</button>
+		  <div class="g-recaptcha" data-sitekey="6LeIXyYlAAAAANGF2VABrCePs2bBv7PLkZgEoTue"></div>
+          <button type='button' onclick='guardar()' class='boton'>Enviar</button>
         </form>
 
       </article><br><br><br>
@@ -323,7 +331,127 @@
     <!--Script de la carga de JS del SLIDER-->
     <script type='text/javascript' src='js/slider.js'></script>
 	<script>
+	
+			
+			function guardar() {
+				if (validar()) {
+					var checkbox = document.querySelector('.miCheckbox');
+					var valorCheckbox = checkbox.checked ? 1 : 0;
+					var formulario = $('#form_registro'); // Convertir el formulario en un objeto jQuery
+					// Obtener los datos del formulario
+					var formData = formulario.serialize(); // Captura todos los campos del formulario
 
+					var response = grecaptcha.getResponse();
+
+					if (response.length == 0) {
+						alert("Por favor, completa el reCAPTCHA.");
+					} else 
+					{
+							$.ajax({
+							type: "POST",
+							url: "../administracion.action.externo.php",
+							data: formData, // Los datos del formulario serializados
+							success: function (response) {
+								console.log("Respuesta del servidor: " + response);
+								
+								window.location.href = 'Inicio.php';
+	
+							},
+							error: function (xhr, status, error) {
+								// Manejar errores en la solicitud Ajax (si es necesario)
+								console.error("Error en la solicitud: " + error);
+								alert("Se ha producido un error al guardar, por favor, inténtalo de nuevo más tarde");
+								//window.location.href = 'Inicio.php';
+							}
+						});	
+					}
+					
+					
+				}
+			}
+
+		
+		function validar(){
+			
+			var familia= document.getElementById('familia');
+			if(familia.value == 0){
+				familia.focus();
+				familia.classList.add('invalid');
+				return false;
+			}
+			
+			var provincia= document.getElementById('provincia');
+			if(provincia.value == 0){
+				provincia.focus();
+				provincia.classList.add('invalid');
+				return false;
+			}
+			
+			var poblacion= document.getElementById('poblacion');
+			if(poblacion.value == ""){
+				poblacion.focus();
+				poblacion.classList.add('invalid');
+				return false;
+			}
+			
+			var cod_pos= document.getElementById('cod_pos');
+			if(cod_pos.value == ""){
+				cod_pos.classList.add('invalid');
+				return false;
+			}
+			
+			var direccion= document.getElementById('direccion');
+			if(direccion.value == ""){
+				direccion.classList.add('invalid');
+				return false;
+			}
+
+			var titular= document.getElementById('titular');
+			if(titular.value == ""){
+				titular.classList.add('invalid');
+				return false;
+			}
+			
+			var telefono= document.getElementById('telefono');
+			if(telefono.value == ""){
+				telefono.classList.add('invalid');
+				return false;
+			}
+			
+			var admin_num= document.getElementById('admin_num');
+			if(admin_num.value == ""){
+				admin_num.classList.add('invalid');
+				return false;
+			}
+			var email= document.getElementById('email');
+			var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+			var email_confirm= document.getElementById('email_confirm');
+			if(email.value != "" && regex.test(email.value)){
+				if(email.value != email_confirm.value){
+					email.classList.add('invalid');
+					email_confirm.classList.add('invalid');
+					return false;
+				}
+				
+			}else{
+				alert('Introduce un email válido');
+				email.classList.add('invalid');
+				return false;
+			}
+			var acepta_condiciones= document.getElementById('acepta_condiciones');
+			if(!acepta_condiciones.checked){
+				alert('Debes de leer y aceptar los términos y condiciones de uso');
+				acepta_condiciones.focus();
+				return false;
+			}
+			return true;	
+		}
+		
+		 function limpiarInvalidClass(elemento) {
+			elemento.classList.remove('invalid');
+		}
+		
+		
 		function cerrarBannerConfirmacion(){
 			
 			window.parent.document.getElementById('confirmacion_suscripciones').classList.remove('visible');

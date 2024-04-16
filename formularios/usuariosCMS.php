@@ -14,6 +14,7 @@
 	{
 		// Comprovamos si existe el usuario
 		$idUsuario = VerificarUsuario($usuario, $pwd);
+
 		if($idUsuario!=-2){
 			session_start();
 			$_SESSION['idUsuario'] = $idUsuario;

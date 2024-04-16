@@ -7,15 +7,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
    
     // Llamar a la función ExisteUsuario() con los datos recogidos
    $idUsuario = VerificarUsuario($usuario, $contrasena);
-		
-		if($idUsuario!=-2 || $idUsuario!=-1 ){
-		
-			header('location: https://lotoluck.es/Loto/Inicio.php');
+		if($idUsuario!=-2 && $idUsuario!=-1 ){
+				session_start();
+				$_SESSION['idUsuario'] = $idUsuario;
+				header('location: https://lotoluck.es/Loto/Inicio.php');
 			exit;
 		}
 		else
 	{
-		echo $idUsuario;
+		header('location: https://lotoluck.es');
 	}
 	
 	

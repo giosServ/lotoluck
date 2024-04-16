@@ -4,6 +4,11 @@
 	include "../funciones_cms_raquel.php";
 	// Obtemos el id de la administración que se ha de mostrar
 	$idAdmin = $_GET['idAdmin'];
+	$guardado = '';
+	if(isset($_GET['guardado'])){
+		
+		$guardado = $_GET['guardado'];
+	}
 	
 	
 ?>
@@ -29,6 +34,14 @@
 		<script src="../js/tinyMCE.js"></script>	
 		
 		<style>
+		
+		.comentariosAlGuardar {
+			max-width:800px;
+			border: solid 0.5px;
+			padding: 1%;
+			margin: 2%;
+			background-color: ghostwhite;
+		}
 		/* Style the tab */
 		.tab {
 		overflow: hidden;
@@ -98,33 +111,29 @@
 		<main>
 		<div class='titulo'>
 
-			<table>
+			<table width='100%'>
 				<tr>
 					<td class='titulo'> Administración </td>
+					<td class='titulo' style='text-align:right'> ID: <?php echo $idAdmin; ?> </td>
 				</tr>
 			</table>
 
 		</div>
-
-		<div style='text-align: right'>
-			<button class='botonGuardar' id='enviarFormulario'> Guardar </button>
-			<button class='botonAtras'> <a class='cms_resultados' href='administraciones.php'> Atrás </a> </button>
-		</div>
-
-		<div>
-			<table style='margin-top:20px; margin-left:70%'>
-				<tr>
-					<td>
-						<span id="tick_guardado" name="tick_guardado" style="font-family: wingdings; font-size: 200%; display: none;">&#252;</span>
-					</td>
-					<td>
-						<label class='cms_guardado' id='lb_guardado' name='lb_guardado' style="display:none; width: 200px;"> Guardado ok </label>
-					</td>
-				</tr>
-			</table>
-		</div>
-	
+		<form id="miFormulario" action="#" method="post">
 			
+			
+		<div style='text-align: right'>
+		<input type='hidden' value='<?php echo $guardado ?>' id='guardado'>
+			<div id='label_guardado' style='display:none'>
+				<span id="tick_guardado" name="tick_guardado" style="font-family: wingdings; font-size: 200%;">&#252;</span>	
+				<label class='cms_guardado' id='lb_guardado' name='lb_guardado' > Guardado ok </label>
+			</div>
+		
+			<button class='botonGuardar' type="submit" id='enviarFormulario'> Guardar </button>
+			<a class='cms_resultados' href='administraciones.php'><button class='botonAtras' type='button'> Atrás</button> </a> 
+		</div>
+
+		
 		<div id="tabsParaAdicionales"align='left'>
 			<div class="tab" style="width:100%;">
 				<button class="tablinks active" type='button' onclick="openTab(event, 'adicional_1')"><span class='btnPestanyas' id='btnPestanyas'>FICHAS</span></button>
@@ -135,7 +144,7 @@
 			<div id="adicional_2" class="tabcontent1" style="width:100%;display:block;">
 					<div class="adicional_2" align='left' style="margin:10px;">
 						<?php
-							//editorWebAdministracioes($idAdmin);
+							editorWebAdministracioes($idAdmin);
 						?>
 					</div> 
 					
@@ -145,21 +154,30 @@
 	
 			<div id="adicional_1" class="tabcontent1" style=" display:block;padding:1%;width:100%;">
 				<div class="" align='left' style="margin:10px;">
-				
+					
+					<div class='comentariosAlGuardar'>
 						<?php
-
+							include "../coincidenciasPPVV.php";
+							$datos_administracion = datosPPVV($idAdmin);
+							$datosCoincidentes =buscar_coincididencias_administraciones($datos_administracion, $idAdmin);
+							imprimirDatosPPVVDuplicado($datosCoincidentes);
+						?>
+					</div>		
+						<?php
+						
 							MostrarAdministracion($idAdmin);	
 							
 						?>
+					
 						<br><hr><hr><br>
 						<?php
 
-						if ($idAdmin != -1)
-						{
-							//MostrarPremiosVendidos($idAdmin);
-						}
+							if ($idAdmin != -1)
+							{
+								MostrarPremiosVendidos($idAdmin);
+							}
 						?>		
-					
+					</form>	
 				</div>
 			</div>
 			
@@ -220,8 +238,15 @@
 		
 		// Función que permite mostrar la tabla que permite insertar el nuevo punto de venta/administración donde se ha vendido el premio
 				
-		<script>
 			$(document).ready(function() {
+				var guardado = document.getElementById('guardado').value;
+				if(guardado=='ok'){
+					document.getElementById('label_guardado').style.display='contents';
+				}
+				$('.checkbox-activacion').change(function() {
+					var valor = $(this).is(':checked') ? 1 : 0;
+					$(this).val(valor);
+				});
 				// Capturar el formulario por su ID
 				var formulario = $("#miFormulario");
 
@@ -240,6 +265,9 @@
 						success: function(response) {
 							// Manejar la respuesta del servidor (si es necesario)
 							console.log("Respuesta del servidor: " + response);
+							var id_administracion = JSON.parse(response);
+							window.location.href="admin_dades.php?idAdmin="+ id_administracion + "&guardado=ok";
+							
 						},
 						error: function(xhr, status, error) {
 							// Manejar errores en la solicitud Ajax (si es necesario)
@@ -309,7 +337,18 @@
 				
 			}
 		
-			
+			function mostrarEsconder() {
+				var boton = document.getElementById('mostrar_esconder');
+				var resultados = document.getElementById('resultadoPPVVDuplicado');
+
+				if (boton.innerHTML == 'MOSTRAR') {
+					boton.innerHTML = 'ESCONDER';
+					resultados.style.display='contents';
+				} else {
+					boton.innerHTML = 'MOSTRAR';
+					resultados.style.display='none';
+				}
+			}	
 		</script>
 	</main>
 	</div>

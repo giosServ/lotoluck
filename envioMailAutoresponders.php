@@ -18,7 +18,6 @@ $sender = 'pruebaslotoluck@gios-services.com';//mail validado en amazon SES
 $senderName = 'Lotoluck'; //Nombre que queremos que aparezca como remitente
 
 $recipient = ($_GET['email']); //dirección del destinatario
-//$recipient = 'pelfmail@gmail.com'; //dirección del destinatario
 
 $nombre = ($_GET['nombre']); //nombre del destinatario
 //$nombre = 'nombre'; //nombre del destinatario

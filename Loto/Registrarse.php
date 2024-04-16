@@ -17,7 +17,7 @@
 		  crossorigin="anonymous">
 		 </script>
 		 <script type="text/javascript" src="../Loto/js/registro_suscriptores.js"></script>
-		  <script src="https://hcaptcha.com/1/api.js" async defer></script>
+		 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 		  
 		
         <script src="https://kit.fontawesome.com/140fdfe6eb.js" crossorigin="anonymous"></script>
@@ -29,6 +29,14 @@
 
   <body style=''>
     <header>
+    <?php
+	  	if (session_status() === PHP_SESSION_NONE) {
+			session_start();
+		}
+		  if(!isset($_SESSION['idUsuario'])){
+			header('location: https://lotoluck.es');
+		  }
+      ?>
       <nav class='nav'>
          <div><a href='Inicio.php'><img src='logo.png' alt='lotoluck' class='logo' /></a></div>
         <ul class='desplegable'>
@@ -223,7 +231,7 @@
 				  <tr>
 				  
 				  <td><button name="submitForm"class=" boton" id="botonSubmit" type="button">Crear usuario</button></td>
-					<td><div class="h-captcha" data-sitekey="dbf06ec2-52c6-4de4-b32c-73651ac20248"></td>
+					<td><div class="g-recaptcha" data-sitekey="6LeIXyYlAAAAANGF2VABrCePs2bBv7PLkZgEoTue"></div></td>
 					
 					</tr>
 				   </table>

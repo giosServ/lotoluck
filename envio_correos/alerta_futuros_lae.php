@@ -24,8 +24,8 @@ if($futurosNacional<5){
 	$senderName = 'Lotoluck'; //Nombre que queremos que aparezca como remitente
 
 	//$recipient = ($_GET['email']); //dirección del destinatario
-	$recipient = 'pelfmail@gmail.com'; //dirección del destinatario
-	//$recipient = 'comercial@lotoluck.es //dirección del destinatario
+	
+	$recipient = 'comercial@lotoluck.es'; //dirección del destinatario
 	
 
 

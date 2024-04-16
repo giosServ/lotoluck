@@ -1,4 +1,5 @@
 <?php
+
 /*
 if ($_SERVER['REQUEST_URI'] === '/Loto/Inicio.php') {
     header('location: /');

@@ -6940,46 +6940,36 @@
 	}
 	
 	
-	function MostrarDadesAdministraciones()
-	{
-		// Función que permite mostrar todas las administraciones de la BBDD
-		$GLOBALS["conexion"]->set_charset("utf8");
-		
-		$consulta = "SELECT id_administracion, cliente, admin_num, nombre, provincia, poblacion, agente_comercial, familia FROM iw_puntos_de_venta ORDER BY id_administracion DESC";
-		
-		// Comprovamos si la consulta ha devuelto valores
-		if ($resultado = $GLOBALS["conexion"]->query($consulta))
-		{
-			$i=1;
-			// Se han devuelto valores, los mostramos por pantalla
-			while (list($idadministraciones, $cliente, $numero, $nombre, $provincia, $poblacion, $agente, $familia) = $resultado->fetch_row())
-			{
-				echo "<tr>";
-				echo "<td class='resultados' style='text-align:center;width:6em;'> $idadministraciones </td>";
-				$nombreAgente = ObtenerNombreAgente($agente);
-				echo "<td class='resultados'> $nombreAgente </td>";
-				
-				if ($cliente==0)
-				{	echo "<td class='resultados'> No </td>";	}
-				else
-				{	echo "<td class='resultados'> Sí </td>";	}
-			
-				$nombreFamilia = ObtenerNombreFamilia($familia);
-				echo "<td class='resultados'> $nombreFamilia </td>";
-				$nombreProvincia = ObtenerNombreProvincia($provincia);
-				echo "<td class='resultados'> $nombreProvincia </td>";
-				echo "<td class='resultados'> $poblacion </td>";
-				echo "<td class='resultados'> $nombre </td>";
-				echo "<td class='resultados'> $numero </td>";			
-				
-				echo "<td class='resultados' style='text-align:center;width:5em;'> <button class='botonEditar'> <a class='cms_resultados' href='admin_dades.php?idAdmin=$idadministraciones'> Editar </a> </button> </td>";
-				
-				echo "<td class='resultados' style='text-align:center;width:5em;'> <button class='botonEliminar' onclick='EliminarAdministracion($idadministraciones)'> X </button> </td>";
-				echo "</tr>";
-			}
-		}			
-						
-	}
+function MostrarDadesAdministraciones()
+{
+    // Función que permite mostrar todas las administraciones de la BBDD
+    $GLOBALS["conexion"]->set_charset("utf8");
+
+    $consulta = "SELECT id_administracion, cliente, admin_num, nombre, provincia, poblacion, agente_comercial, familia FROM iw_puntos_de_venta ORDER BY id_administracion DESC";
+    $array = array();
+    // Comprovamos si la consulta ha devuelto valores
+    if ($resultado = $GLOBALS["conexion"]->query($consulta)) {
+        // Se han devuelto valores, los mostramos por pantalla
+        while (list($idadministraciones, $cliente, $numero, $nombre, $provincia, $poblacion, $agente, $familia) = $resultado->fetch_row()) {
+            $fila = array();
+            $fila['ID'] = $idadministraciones;
+            $fila['Agente'] = $agente;
+            $fila['Cliente'] = $cliente;
+            $fila['Fam'] = $familia;
+            $fila['Provincia'] = $provincia;
+            $fila['Poblacion'] = $poblacion;
+            $fila['AdmNombre'] = $nombre;
+            $fila['AdmN'] = $numero;
+            $fila['Editar'] = '<a href="admin_dades.php?idAdmin=$idAdministraciones"><button class="botonEditar">Editar<button></a>';
+            $fila['Eliminar'] = '<button class="botonEliminar" onclick="EliminarAdministracion($idAdministraciones)">X</button>';
+
+            $array[] = $fila;
+        }
+        return $array;
+    }
+}
+
+
 	
 	function MostrarAdministracion($idAdministracion)
 	{
@@ -7046,7 +7036,7 @@
 				$nombreadministracion =  $row['nombre'];
 				$nombreadmin_actv =  $row['nombre_actv'];
 				$slogan =  $row['slogan'];
-				$slogan =  $row['slogan_actv'];
+				$slogan_actv =  $row['slogan_actv'];
 				$titularJ =  $row['titular'];
 				//$nombre = $nombre1;
 				//$apellidos = $apellidos1;
@@ -7083,9 +7073,9 @@
 				$web_ext_texto =  $row['web_ext_titulo'];
 				$quiere_web =  $row['quiere_web_lotoluck'];
 				//$vip = $vip1;
-				//$status = $status1;
-				//$fecha_alta = $fecha_alta1;*/
-			
+				$status = $row['status'];
+				$fecha_alta = $row['fecha_alta'];
+				echo "<input name='id_administracion' value='$idadministraciones' type='hidden'/>";
 				echo "<table>";
 				echo "<tr> <td>";
 				echo "<label class='cms'> Activo: </label><br>";
@@ -7152,7 +7142,7 @@
 				echo "</td> </tr> <tr></table>";
 				echo "<table><tr><td>";
 				echo "<label class='cms'>Agente </label><br>";
-				echo "<select class='sorteo' id='agente' name='agente' style='width:150px;'>";
+				echo "<select class='sorteo' id='agente' name='agente_comercial' style='width:150px;'>";
 				
 				MostrarAgentes($agente);
 					
@@ -7160,11 +7150,11 @@
 				echo "</td><td> ";
 				echo "<label class='cms'> Alta </label><br>";
 				$fecha_alta = substr($fecha_alta, 0, 10);
-            	echo "<input class='cms' type='date' id='fechaAlta' name='fechaAlta' value='$fecha_alta' style='width:150px;'>";
+            	echo "<input class='cms' type='date' id='fechaAlta' name='fecha_alta' value='$fecha_alta' style='width:150px;'>";
 				echo "</td>	</tr> <tr> <td>";
 				echo "<label class='cms'>Familia </label><br>";
 				
-				echo "<select class='sorteo' id='familias' name='familias' style='width:150px;'>";
+				echo "<select class='sorteo' id='familias' name='familia' style='width:150px;'>";
 				echo "<option value disabled selected> </option>";
 							
 				MostrarFamilias($familia);
@@ -7172,11 +7162,11 @@
 				echo "</select>";
 				echo "</td> </tr> <tr> <td> ";
 				echo "<label class='cms'> Numero de administración: </label><br>";
-				echo "<input class='cms' id='numero' name='numero' value='$numero' style='width:150px;'>";
+				echo "<input class='cms' id='numero' name='admin_num' value='$numero' style='width:150px;'>";
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='numero_actv'"; if($numero_actv==1){echo "checked";} echo ">
+						  <input type='checkbox' name='admin_num_actv' id='numero_actv' class='checkbox-activacion'"; if($numero_actv==1){echo " value='1' checked ";} echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
@@ -7184,46 +7174,39 @@
 				echo "</td>	<td>";
 				echo "<label class='cms'> Nº Receptor: </label><br>";
 				//echo "</td> <td>";
-				echo "<input class='cms' id='nReceptor' name='nReceptor' value='$nReceptor'>";
+				echo "<input class='cms' id='nReceptor' name='desp_receptor_num' value='$nReceptor'>";
 				echo "</td>	<td> ";
 				echo "<label class='cms'> Nº Operador </label><br>";
 				//echo "</td>	<td>";
-				echo "<input class='cms' id='nOperador' name='nOperador' value='$nOperador'>";
+				echo "<input class='cms' id='nOperador' name='desp_operador_num' value='$nOperador'>";
 				echo "</td>	</tr> <tr> <td> ";
 				echo "<label class='cms'> Nombre administración: </label><br>";
 				//echo "</td>	<td>";
-				echo "<input class='cms' id='nombreAdministracion' name='nombreAdministracion' value='$nombreadministracion'>";
+				echo "<input class='cms' id='nombreAdministracion' name='nombre' value='$nombreadministracion'>";
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='nombreAdmin_actv'"; if($nombreadmin_actv==1){echo "checked";}echo">
+						  <input type='checkbox' name='nombre_actv' id='nombre_actv' class='checkbox-activacion'"; if($nombreadmin_actv==1){echo "value='1' checked";}echo">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
 				/*******/
 				echo "</td>	</tr> <tr> <td colspan='2'> ";
 				echo "<label class='cms'> Slogan: </label><br>";
-				echo "<input class='cms' id='slogan' name='slogan' style='width:600px;' value='$slogan'>";
+				echo "<input class='cms' name='slogan' style='width:600px;' value='$slogan'>";
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='slogan_actv'"; if($slogan_actv==1){echo "checked";}echo ">
+						  <input class='checkbox-activacion' type='checkbox' name='slogan_actv'  "; if($slogan_actv==1){echo " value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
 				/*******/
-				echo "</td>	</tr> <tr> <td>";
+				echo "</td>	</tr> <tr> <td colspan='2'>";
 				echo "<label class='cms'> Titular Jurídico: </label> <br>";
 				//echo "</td>	<td>";
-				echo "<input class='cms' id='titularj' name='titularj' value='$titularJ'>";
+				echo "<input class='cms' id='titularj' name='titular' value='$titularJ' style='width:600px;'>";
 				echo "</td>	<td>";
-				echo "<label class='cms'> Nombre: </label><br> ";
-				//echo "</td>	<td>";
-				echo "<input class='cms' id='nombre' name='nombre' value='$nombre'>";
-				echo "</td>	<td>";
-				echo "<label class='cms'> Apellidos: </label><br>";
-				//echo "</td>	<td>";
-				echo "<input class='cms' id='apellidos' name='apellidos' value='$apellidos'>";
 				echo "</td>	</tr> <tr>	<td>";
 				echo "<label class='cms'> Dirección: </label><br>";
 				
@@ -7231,7 +7214,7 @@
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='direccion_actv'"; if($direccion_actv==1){echo "checked";}echo ">
+						  <input type='checkbox' name='direccion_actv' id='direccion_actv' class='checkbox-activacion'"; if($direccion_actv==1){echo " value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
@@ -7242,7 +7225,7 @@
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='direccion2_actv'"; if($direccion2_actv==1){echo "checked";}echo ">
+						  <input type='checkbox' name='direccion2_actv' id='direccion2_actv' class='checkbox-activacion'"; if($direccion2_actv==1){echo "value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
@@ -7250,11 +7233,11 @@
 				echo "</td>	<td>";
 				echo "<label class='cms'> Codigo postal: </label><br>";
 				
-				echo "<input class='cms' id='codigoPostal' name='codigoPostal' value='$cod_pos' style='width:120px;'>";
+				echo "<input class='cms' id='codigoPostal' name='cod_pos' value='$cod_pos' style='width:120px;'>";
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='cod_pos_actv'"; if($cod_pos_actv==1){echo "checked";}echo ">
+						  <input type='checkbox' name ='cod_pos_actv' id='cod_pos_actv' class='checkbox-activacion'"; if($cod_pos_actv==1){echo "value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
@@ -7266,7 +7249,7 @@
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='poblacion_actv'"; if($poblacion_actv==1){echo "checked";}echo ">
+						  <input type='checkbox' name='poblacion_actv' id='poblacion_actv' class='checkbox-activacion'"; if($poblacion_actv==1){echo "value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
@@ -7282,7 +7265,7 @@
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='provincia_actv'"; if($provincia_actv==1){echo "checked";}echo ">
+						  <input type='checkbox' name='provincia_actv' id='provincia_actv'  class='checkbox-activacion'"; if($provincia_actv==1){echo "value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
@@ -7294,7 +7277,7 @@
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='telefono_actv'"; if($telefono_actv==1){echo "checked";}echo ">
+						  <input type='checkbox' name='telefono_actv' id='telefono_actv'  class='checkbox-activacion'"; if($telefono_actv==1){echo "value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
@@ -7306,7 +7289,7 @@
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='telefono2_actv'"; if($telefono2_actv==1){echo "checked";}echo ">
+						  <input type='checkbox' name='telefono2_actv' id='telefono2_actv'  class='checkbox-activacion'"; if($telefono2_actv==1){echo "value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
@@ -7314,28 +7297,17 @@
 				echo "</td></tr><tr><td> ";
 				echo "<label class='cms'> Correo: </label><br>";
 				//echo "</td>	<td>";
-				echo "<input class='cms' id='correo' name='correo' value='$correo'> ";
+				echo "<input class='cms' id='correo' name='email' value='$correo'> ";
 				/*******/
 				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 				echo "<label class='switch'>
-						  <input type='checkbox' id='correo_actv'"; if($correo_actv==1){echo "checked";}echo ">
+						  <input type='checkbox' id='correo_actv' name='email_actv'  class='checkbox-activacion'"; if($correo_actv==1){echo "value='1' checked";}echo ">
 						  <span class='slider'></span>
 					  </label>";
 				echo "</div>";
 				/*******/
-				echo "</td> </tr><tr><td> ";
-				echo "<label class='cms'> Web: </label><br>";
-				//echo "</td>	<td>";
-				echo "<input class='cms' id='web' name='web' value='$web'>";
-				/*******/
-				echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
-				echo "<label class='switch'>
-						  <input type='checkbox' id='toggleSwitch'"; if($web_externa_actv==1){echo "checked";}echo ">
-						  <span class='slider'></span>
-					  </label>";
-				echo "</div>";
-				/*******/
-				echo "</td> </tr> <tr> <td colspan='2'>";
+				echo "</td> </tr>";
+				echo "<tr> <td colspan='2'>";
 				echo "<label class='cms'> Comentarios: </label><br>";
 				//echo "</td>	<td colspan='4'>";
 				echo "<textarea class='cms' name='comentarios' id='comentarios' style='margin-top: 6px; width:600px; height:200px;border:solid 0.5px;' >$comentarios</textarea>";
@@ -7358,7 +7330,7 @@
 				<tr height='20px'></tr>
               
             </table>
-			<label id='lb_error' name='lb_error' class='cms_error' style='margin-top: 20px;'> Revisa que se esten introduciendo todos los valores!!! </label>
+			<label id='lb_error'  class='cms_error' style='margin-top: 20px;'> Revisa que se esten introduciendo todos los valores!!! </label>
 					
 						
 						<div id='map_canvas' style='height:350px; width:400px;margin-left:3em;'>
@@ -7369,11 +7341,11 @@
 							<tr>
 								<td> 
 									<label class='cms'> URL Interna LotoLuck: </label><br>				
-									<input class='cms' id='web_lotoluck'value='$web_lotoluck'>";
+									<input class='cms' name='web' id='web_lotoluck'value='$web_lotoluck'>";
 									/*******/
 									echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 									echo "<label class='switch'>
-											  <input type='checkbox' id='web_actv'"; if($web_actv==1){echo "checked";} echo" >
+											  <input type='checkbox' name='web_actv' id='web_actv'  class='checkbox-activacion'"; if($web_actv==1){echo "value='1' checked";} echo" >
 											  <span class='slider'></span>
 										  </label>";
 									echo "</div>";
@@ -7381,11 +7353,11 @@
 								echo "</td>
 								<td> 
 									<label class='cms'> Web del Cliente:</label><br>
-									<input class='cms' id='web_externa' value='$web_externa'>";
+									<input class='cms' id='web_externa' name='web_externa' value='$web_externa'>";
 									/*******/
 									echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 									echo "<label class='switch'>
-											  <input type='checkbox' id='web_externa_actv'  "; if($web_externa_actv==1){echo "checked";} echo" >
+											  <input type='checkbox' name='web_externa_actv'  id='web_externa_actv'  class='checkbox-activacion' "; if($web_externa_actv==1){echo "value='1' checked";} echo" >
 											  <span class='slider'></span>
 										  </label>";
 									echo "</div>";
@@ -7395,7 +7367,7 @@
 								<td> 
 									<label class='cms'> Web del Cliente Texto: </label><br>
 								 
-									<input class='cms' id='web_ext_texto' value='$web_ext_texto'>";
+									<input class='cms' name='web_ext_titulo' id='web_ext_titulo' value='$web_ext_texto'>";
 									/*******/
 									echo "<div class='switch-container' style='display: inline-block; vertical-align: middle;'>";
 									echo "<label class='switch'>
@@ -7411,7 +7383,7 @@
 							<tr style='height:3em;'>
 							<td  class='switch-button'>
 								<!-- Checkbox -->
-									<input type='checkbox' name='' id='' class=''>
+									<input type='checkbox' name='pagina_compradores' id='pagina_compradores'class='checkbox-activacion' "; if($web_externa_actv==1){echo "value='1' checked";} echo" >
 									<label style='margin-left:1em;'><strong>Tiene Web y le gustaría recibir visitas desde la página de LotoLuck</strong></label>
 								</td >
 								
@@ -7420,14 +7392,14 @@
 							<tr style='height:3em;'>
 							<td colspan='10' class='switch-button'>
 								<!-- Checkbox -->
-									<input type='checkbox' name='' id='quiere_web' class=''>
+									<input type='checkbox' name='quiere_web_lotoluck' id='quiere_web_lotoluck' class='checkbox-activacion' "; if($web_externa_actv==1){echo "value='1' checked";} echo" >
 									<label style='margin-left:1em;'><strong>NO Tiene Web y le interesaria estar en internet con página de LotoLuck</strong></label>
 								</td>
 							</tr>
 							<tr  style='height:3em;'>
 								<td colspan='10'class='switch-button'>
 								<!-- Checkbox -->
-									<input type='checkbox' name='' id='vip' class=''>
+									<input type='checkbox' name='quiere_vip' id='quiere_vip' class='checkbox-activacion' "; if($web_externa_actv==1){echo "value='1' checked";} echo" >
 									<label style='margin-left:1em;'><strong>Quiere salir en los primeros lugares del buscador</strong></label>
 								</td>
 							</tr>

@@ -1,4 +1,5 @@
 <?php 
+//include '../config.php';
 /*
 *Archivo que permite el envío de emails mediante amazon SES y PHPMailer. Se debe de tener préviamente
 instalado composer y PHPMailer en la carpeta raiz del proyecto mediante la ejecución en la consola
@@ -9,8 +10,8 @@ de Windows "composer require phpmailer/phpmailer"
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
+require __DIR__ . '/../vendor/autoload.php';
 
-require '../vendor/autoload.php';
 //include "../Loto/funciones.php";
 
 function enviar_autorespondoer($correo,$asunto,$clave,$bodytext){
@@ -20,11 +21,11 @@ function enviar_autorespondoer($correo,$asunto,$clave,$bodytext){
 	$senderName = 'Lotoluck'; //Nombre que queremos que aparezca como remitente
 
 	$recipient = $correo;
-	//$recipient = 'pelfmail@gmail.com'; //dirección del destinatario
+	
 
-	$nombre = obtenerNombrePorCorreo($correo);
+	//$nombre = obtenerNombrePorCorreo($correo);
 	//$nombre = ($_GET['nombre']); //nombre del destinatario
-	//$nombre = 'nombre'; //nombre del destinatario
+	$nombre = 'nombre'; //nombre del destinatario
 
 	$confirm_key = '';
 	//$confirm_key = ($_GET['activacion']); //nombre del destinatario

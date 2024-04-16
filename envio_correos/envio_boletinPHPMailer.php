@@ -20,7 +20,6 @@ function enviar_boletin($correo,$asunto,$bodytext){
 	$senderName = 'Lotoluck'; //Nombre que queremos que aparezca como remitente
 
 	$recipient = $correo;
-	//$recipient = 'pelfmail@gmail.com'; //dirección del destinatario
 
 	$nombre = obtenerNombrePorCorreo($correo);
 	//$nombre = ($_GET['nombre']); //nombre del destinatario

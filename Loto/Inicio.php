@@ -2,6 +2,8 @@
 
 	include __DIR__ . '/funciones.php';
 	include '../config.php';
+	
+	
 ?>	
 
 
@@ -31,6 +33,12 @@
     <header>
 	
 	<?php
+	  	if (session_status() === PHP_SESSION_NONE) {
+			session_start();
+		}
+		  if(!isset($_SESSION['idUsuario'])){
+			header('location: https://lotoluck.es');
+		  }
 		generarBanners(30);
 		include __DIR__ . '/cabecera.php';
 		

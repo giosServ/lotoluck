@@ -11,4 +11,3 @@ var dataTable = new DataTable(tabla,{
 	
 }
 });
-

@@ -4,114 +4,7 @@
 include"../funciones_cms_raquel.php";
 
 
-// Define la tabla y la clave primaria
-$table = 'iw_puntos_de_venta';
-$primaryKey = 'id_administracion';
 
-// Define las columnas que deseas recuperar y mostrar en DataTables
-$columns = array(
-    array('db' => 'id_administracion', 'dt' => 0),
-    array('db' => 'agente_comercial', 'dt' => 1),
-    array('db' => 'cliente', 'dt' => 2),
-    array('db' => 'familia', 'dt' => 3),
-    array('db' => 'provincia', 'dt' => 4),
-    array('db' => 'poblacion', 'dt' => 5),
-    array('db' => 'nombre', 'dt' => 6),
-    array('db' => 'admin_num', 'dt' => 7),
-    array(
-        'db'        => 'id_administracion',
-        'dt'        => 8,
-        'formatter' => function($d, $row) {
-            return '<a href="admin_dades.php?idAdmin='.$d.'"><button class="botonEditar">Editar</button></a>';
-        }
-    ),
-    array(
-        'db'        => 'id_administracion',
-        'dt'        => 9,
-        'formatter' => function($d, $row) {
-            return '<button class="botonEliminar" onclick="EliminarAdministracion('.$d.')">X</button>';
-        }
-    ),
-);
-
-// Configuración de conexión a la base de datos
-$sql_details = array(
-    'user' => 'root',
-    'pass' => '',
-    'db'   => 'lotoluck_2',
-    'host' => '127.0.0.1'
-);
-
-// Incluye la clase ssp.class.php
-require('ssp.class.php');
-
-// Define el valor de draw
-$draw = isset($_POST['draw']) ? intval($_POST['draw']) : 0;
-
-// Inicializa las variables para evitar "Undefined" notices
-$total_registros = 0;
-
-// Obtén los parámetros de paginación y búsqueda de la solicitud DataTables
-$start = isset($_POST['start']) ? intval($_POST['start']) : 0; // Primer índice de fila a devolver
-$length = isset($_POST['length']) ? intval($_POST['length']) : 10; // Cantidad de filas por página
-
-// Llama a la función existente para obtener los datos con paginación
-$datos = obtenerDatosConPaginacion($start, $length);
-
-
-// Obtiene el total de registros en la tabla (sin paginación)
-$total_registros = obtenerTotalRegistros();
-
-// Imprime los datos JSON para DataTables
-/*
-$json_data = json_encode([
-    'draw' => $draw,
-    'recordsTotal' => intval($total_registros),
-    'recordsFiltered' => intval($total_registros),
-    'data' => $datos['data']
-]);
-*/
-
-// Aplicar utf8_encode solo a los valores del array
-$cleaned_data = array_map(function($value) {
-    return is_array($value) ? array_map('utf8_encode', $value) : utf8_encode($value);
-}, $datos['data']);
-
-// Codificar los datos en JSON
-$json_data = json_encode([
-    'draw' => $draw,
-    'recordsTotal' => intval($total_registros),
-    'recordsFiltered' => intval($total_registros),
-    'data' => $cleaned_data
-]);
-
-if (json_last_error() != JSON_ERROR_NONE) {
-    echo "Error encoding JSON: " . json_last_error_msg();
-} else {
-    echo $json_data;
-}
-function obtenerDatosConPaginacion($start, $length) {
-    global $table, $primaryKey, $columns, $sql_details;
-
-    // Llama a la función existente para obtener los datos con paginación
-    return SSP::simple($_POST, $sql_details, $table, $primaryKey, $columns);
-}
-
-function obtenerTotalRegistros() {
-    global $sql_details, $table, $primaryKey;
-
-    // Realiza una consulta para obtener el total de registros
-    $consulta = "SELECT COUNT(*) FROM $table";
-    
-    if ($resultado = $GLOBALS["conexion"]->query($consulta)) {
-        // Devuelve el resultado como un número entero
-        return (int) $resultado->fetch_row()[0];
-    }
-
-    // En caso de error o si no hay resultados
-    return 0;
-}
-/*
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// Recibir los datos por POST y asignar valores predeterminados si no están presentes
 	$accion = $_POST["accion"] ?? "";
@@ -236,5 +129,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 			echo json_encode(-1);
 			break;
 	}
-*/
+
 ?>

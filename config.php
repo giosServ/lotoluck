@@ -1,6 +1,7 @@
 <?php
 
 $_GLOBALS['dominio'] = "https://lotoluck.es/";
+define('ROOT_PATH', 'http://lotoluck.es/');
 
 /*
 if(isset($_POST['numItems'])){

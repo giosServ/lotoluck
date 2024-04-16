@@ -17,8 +17,7 @@ include "./funciones.php";
 $sender = 'pruebaslotoluck@gios-services.com';//mail validado en amazon SES
 $senderName = 'Lotoluck'; //Nombre que queremos que aparezca como remitente
 
-//$recipient = ($_GET['email']); //dirección del destinatario
-$recipient = 'pelfmail@gmail.com'; //dirección del destinatario
+$recipient = ($_GET['email']); //dirección del destinatario
 
 //$nombre = ($_GET['nombre']); //nombre del destinatario
 $nombre = 'Andreu'; //nombre del destinatario

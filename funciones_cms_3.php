@@ -49,6 +49,7 @@
 			// Se han devuelto valores, se ha de verificar si la contraseña es correcta
 			while (list($idUsuario, $contrasena) = $resultado->fetch_row())
 			{
+	
 				// Comprovamos la contraseña
 				if ($contrasena == $pwd)
 				{

@@ -1,5 +1,5 @@
 <!-- Página que permite acceder al CMS de Lotoluck para manipular los datos de la web -->
-
+<!DOCTYPE html>
 <html>
 
 	<head>
