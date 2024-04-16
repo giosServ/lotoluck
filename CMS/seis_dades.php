@@ -418,74 +418,7 @@
 				console.log($('#listadoPDF').prop('files').length != 0)
 				 });
 			}
-			function GuardarComentarios()
-			{
-				 return new Promise((resolve, reject) => {
-				// Función que permite guardar los comentarios adicionales del sorteo
-
-				var idSorteo =document.getElementById("r_id").value;
-				let textoBannerHtml = textoBanner._sceditor.val()
-				// Comprovamos si se ha puesto algun texto para el banner
-				if (textoBannerHtml != '')
-				{
-					// var datos = [idSorteo, 2, 1, textoBanner];
-					$.ajax(
-					{
-						// Definimos la url
-						url: "../formularios/comentarios.php",
-						data: {
-							idSorteo: idSorteo,
-							type: 1,
-							texto: textoBannerHtml,
-
-						},
-						// Indicamos el tipo de petición, como queremos insertar es POST
-						type: "POST",
-
-						success: function(res)
-						{
-							if (res == -1)
-							{
-								alert("No se han podido guardar los comentarios de la casilla texto banner, prueba de nuevo");
-							}
-
-						}
-
-					});
-					
-				}
-
-				let comentarioHtml = comentario._sceditor.val()
-				// Comprovamos si se ha puesto algun comentario
-				if (comentarioHtml != '')
-				{
-					// var datos = [idSorteo, 2, 2, comentario];
-					$.ajax(
-					{
-						// Definimos la url
-						url: "../formularios/comentarios.php",
-						data: {
-							idSorteo: idSorteo,
-							type: 2,
-							texto: comentarioHtml,
-						},
-						// Indicamos el tipo de petición, como queremos insertar es POST
-						type: "POST",
-
-						success: function (res) {
-							// ... manejo del éxito ...
-
-							resolve(true);
-						},
-						error: function () {
-							reject(new Error("Error al guardar los comentarios"));
-						}
-					});
-
-				}
-				resolve(true);
-			 });
-			}
+			
 			function Guardar()
 			{
 				var idSorteo = document.getElementById('id_sorteo').value;
@@ -894,8 +827,7 @@
 					var idSorteo = document.getElementById("r_id").value;
 					var textoBannerHtml = tinymce.get('textoBanner').getContent();
 
-					// Comprobamos si se ha puesto algún texto para el banner
-					if (textoBannerHtml != '') {
+				
 						$.ajax({
 							// Definimos la URL
 							url: "../formularios/comentarios.php",
@@ -919,12 +851,11 @@
 								reject(new Error("Error al subir el fichero"));
 							}
 						});
-					}
+					
 
 					var comentarioHtml = tinymce.get('comentario').getContent();
 
-					// Comprobamos si se ha puesto algún comentario
-					if (comentarioHtml != '') {
+					
 						
 						$.ajax({
 							// Definimos la URL
@@ -950,9 +881,7 @@
 								reject(new Error("Error al guardar los comentarios"));
 							}
 						});
-					} else {
-						resolve(true); // No se proporcionó ningún comentario, resolver inmediatamente
-					}
+					 
 				});
 			}
 

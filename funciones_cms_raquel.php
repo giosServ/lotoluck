@@ -6819,7 +6819,7 @@
 		// Función que permite mostrar todas las administraciones de la BBDD
 		
 
-		$consulta = "SELECT idadministraciones, cliente, numero, nombre, provincia, poblacion FROM administraciones";
+		$consulta = "SELECT idadministraciones, cliente, numero, nombre, provincia, poblacion FROM iw_puntos_de_venta";
 
 		// Comprovamos si la consulta ha devuelto valores
 		if ($resultado = $GLOBALS["conexion"]->query($consulta))
@@ -6945,7 +6945,7 @@
 		// Función que permite mostrar todas las administraciones de la BBDD
 		$GLOBALS["conexion"]->set_charset("utf8");
 		
-		$consulta = "SELECT idadministraciones, cliente, numero, nombre, provincia, poblacion, agente, familia FROM administraciones ORDER BY idadministraciones DESC";
+		$consulta = "SELECT id_administracion, cliente, admin_num, nombre, provincia, poblacion, agente_comercial, familia FROM iw_puntos_de_venta ORDER BY id_administracion DESC";
 		
 		// Comprovamos si la consulta ha devuelto valores
 		if ($resultado = $GLOBALS["conexion"]->query($consulta))
@@ -7029,68 +7029,63 @@
 		$vip = "";
 		$status = "";
 		$fecha_alta = "";
-		$consulta = "SELECT idadministraciones, numero, numero_actv, nReceptor, nOperador, nombreAdministracion, nombreAdmin_actv, slogan, slogan_actv, titularJ, nombre, apellidos,  direccion, direccion_actv, 
-							direccion2, direccion2_actv, cod_pos, cod_pos_actv, telefono, telefono_actv, telefono2, telefono2_actv, correo, correo_actv,  web, provincia, provincia_actv, poblacion, poblacion_actv, comentarios, agente, familia, cliente, news, activo, lat, lon, web_lotoluck, web_actv, 
-							web_externa, web_externa_actv, web_ext_texto, quiere_web, vip, status, fecha_alta 
-							FROM administraciones 
-							WHERE idadministraciones = $idAdministracion";
+		$consulta = "SELECT *
+							FROM iw_puntos_de_venta 
+							WHERE id_administracion = $idAdministracion";
 		
 		// Comprovamos si la consulta ha devuelto valores
 		if ($resultado = $GLOBALS["conexion"]->query($consulta))
 		{
-			// Se han devuelto valores, los mostramos por pantalla
-			while (list($idadministraciones1, $numero1, $numero_actv1, $nReceptor1, $nOperador1, $nombreadministracion1, $nombreadmin_actv1,$slogan1, 
-			$slogan_actv1, $titularJ1, $nombre1, $apellidos1, $direccion1, $direccion_actv1, $direccion21, $direccion2_actv1, $cod_pos1, $cod_pos_actv1,
-			$telefono1, $telefono_actv1, $telefono21, $telefono2_actv1, $correo1, $correo_actv1, $web1, $provincia1, $provincia_actv1, $poblacion1, $poblacion_actv1, $comentarios1, $agente1, $familia1, $cliente1, $news1, $activo1,$latitud1,
-			$longitud1, $web_lotoluck1, $web_actv1, $web_externa1, $web_externa_actv1, $web_ext_texto1, $quiere_web1, $vip1, $status1, $fecha_alta1) = $resultado->fetch_row())
-			{
-				$idadministraciones = $idadministraciones1;
-				$numero = $numero1;
-				$numero_actv = $numero_actv1;
-				$nReceptor = $nReceptor1;
-				$nOperador = $nOperador1;
-				$nombreadministracion = $nombreadministracion1;
-				$nombreadmin_actv = $nombreadmin_actv1;
-				$slogan = $slogan1 ; 
-				$slogan = $slogan_actv1 ; 
-				$titularJ = $titularJ1;
-				$nombre = $nombre1;
-				$apellidos = $apellidos1;
-				$direccion = $direccion1;
-				$direccion_actv = $direccion_actv1;
-				$direccion2 = $direccion21;
-				$direccion2_actv = $direccion2_actv1;
-				$cod_pos = $cod_pos1;
-				$cod_pos_actv = $cod_pos_actv1;
-				$telefono = $telefono1; 
-				$telefono_actv = $telefono_actv1; 
-				$telefono2 = $telefono21;
-				$telefono2_actv = $telefono2_actv1;
-				$correo = $correo1;
-				$correo_actv = $correo_actv1;
-				$web = $web1;
-				$provincia = $provincia1;
-				$provincia_actv = $provincia_actv1;
-				$poblacion = $poblacion1;
-				$poblacion_actv = $poblacion_actv1;
-				$comentarios = $comentarios1;
-				$agente = $agente1;
-				$familia = $familia1; 
-				$cliente = $cliente1; 
-				$news = $news1;
-				$activo =$activo1;
-				$latitud = $latitud1;
-				$longitud = $longitud1;
-				$web_lotoluck = $web_lotoluck1;
-				$web_actv = $web_actv1; 
-				$web_externa = $web_externa1;
-				$web_externa_actv = $web_externa_actv1; 
-				$web_ext_texto = $web_ext_texto1; 
-				$quiere_web = $quiere_web1;
-				$vip = $vip1;
-				$status = $status1;
-				$fecha_alta = $fecha_alta1;
-			}
+			$row = mysqli_fetch_assoc($resultado);
+			
+				$idadministraciones = $row['id_administracion'];
+				$numero = $row['admin_num'];
+				$numero_actv = $row['admin_num_actv'];
+				$nReceptor = $row['desp_receptor_num'];
+				$nOperador =  $row['desp_operador_num'];
+				$nombreadministracion =  $row['nombre'];
+				$nombreadmin_actv =  $row['nombre_actv'];
+				$slogan =  $row['slogan'];
+				$slogan =  $row['slogan_actv'];
+				$titularJ =  $row['titular'];
+				//$nombre = $nombre1;
+				//$apellidos = $apellidos1;
+				$direccion =  $row['direccion'];
+				$direccion_actv = $row['direccion_actv'];
+				$direccion2 = $row['direccion2'];
+				$direccion2_actv = $row['direccion2_actv'];
+				$cod_pos = $row['cod_pos'];
+				$cod_pos_actv = $row['cod_pos_actv'];
+				$telefono = $row['telefono'];
+				$telefono_actv = $row['telefono_actv'];
+				$telefono2 = $row['telefono'];
+				$telefono2_actv =  $row['telefono2_actv'];
+				$correo =  $row['email'];
+				$correo_actv =  $row['email_actv'];
+				$web =  $row['web_externa'];
+				$web_actv =  $row['web_externa_actv'];
+				$provincia =  $row['provincia'];
+				$provincia_actv = $row['provincia_actv'];
+				$poblacion = $row['poblacion'];
+				$poblacion_actv = $row['poblacion_actv'];
+				$comentarios = $row['comentarios'];
+				$agente = $row['agente_comercial'];
+				$familia = $row['familia'];
+				$cliente = $row['cliente'];
+				$news = $row['recibir_newsletter'];
+				$activo =$row['activo'];
+				$latitud = $row['lat'];
+				$longitud = $row['lon'];
+				$web_lotoluck = $row['web'];
+				$web_actv = $row['web_actv'];
+				$web_externa =  $row['web_externa'];
+				$web_externa_actv =  $row['web_externa_actv'];
+				$web_ext_texto =  $row['web_ext_titulo'];
+				$quiere_web =  $row['quiere_web_lotoluck'];
+				//$vip = $vip1;
+				//$status = $status1;
+				//$fecha_alta = $fecha_alta1;*/
+			
 				echo "<table>";
 				echo "<tr> <td>";
 				echo "<label class='cms'> Activo: </label><br>";

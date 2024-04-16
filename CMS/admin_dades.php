@@ -78,7 +78,7 @@
 		td{
 			padding-bottom: 1em;
 			min-width:400px;
-			/*border:solid 1px;
+			/*border:solid 1px;*/
 		}
 		
 	</style>
@@ -135,7 +135,7 @@
 			<div id="adicional_2" class="tabcontent1" style="width:100%;display:block;">
 					<div class="adicional_2" align='left' style="margin:10px;">
 						<?php
-							editorWebAdministracioes($idAdmin);
+							//editorWebAdministracioes($idAdmin);
 						?>
 					</div> 
 					
@@ -156,7 +156,7 @@
 
 						if ($idAdmin != -1)
 						{
-							MostrarPremiosVendidos($idAdmin);
+							//MostrarPremiosVendidos($idAdmin);
 						}
 						?>		
 					
@@ -220,191 +220,36 @@
 		
 		// Función que permite mostrar la tabla que permite insertar el nuevo punto de venta/administración donde se ha vendido el premio
 				
-		$(document).ready(function() {
-		  // Agregar evento de click al botón o enlace
-		  $("#enviarFormulario").on("click", function() {
-			// Capturar los valores de los elementos del formulario
-			var texto = tinymce.get('comentario').getContent();
-			var tituloSEO = $("#titulo_seo").val();
-			var palabrasClaveSEO = $("#key_word_seo").val();
-			var descripcionSEO = $("#descripcion_seo").val();
-			
-			 // Obtener los archivos del formulario
-			var logoFile = document.getElementById("imgLogo").files[0];
-			var imagenFile = document.getElementById("imgImagen").files[0];
+		<script>
+			$(document).ready(function() {
+				// Capturar el formulario por su ID
+				var formulario = $("#miFormulario");
 
-			var numero = document.getElementById("numero").value;
-			var nReceptor = document.getElementById("nReceptor").value;
-			var nOperador = document.getElementById("nOperador").value;
-			var nombreAdministracion = document.getElementById("nombreAdministracion").value;
-			var slogan = document.getElementById("slogan").value;
-			var titularJ = document.getElementById("titularj").value;
-			var fecha_alta = document.getElementById("fechaAlta").value;
+				// Manejar el evento de envío del formulario
+				formulario.on("submit", function(e) {
+					e.preventDefault(); // Evitar que se envíe el formulario de manera tradicional
 
-			if (fecha_alta == '') {
-			  fecha_alta = '<?php echo date("Y-m-d H:i:s"); ?>';
-			}
+					// Obtener los datos del formulario
+					var formData = formulario.serialize(); // Captura todos los campos del formulario
 
-			var nombre = document.getElementById("nombre").value;
-			var apellidos = document.getElementById("apellidos").value;
-			var direccion = document.getElementById("direccion").value;
-			var direccion2 = document.getElementById("direccion2").value;
-			var cod_pos = document.getElementById("codigoPostal").value;
-			var telefono = document.getElementById("telefono").value;
-			var telefono2 = document.getElementById("telefono2").value;
-			var correo = document.getElementById("correo").value;
-			var web = document.getElementById("web").value;
-			var poblacion = document.getElementById("poblacion").value;
-			var comentarios = document.getElementById("comentarios").value;
-			var select = document.getElementById("provincia");
-			var provincia = select.value;
-			select = document.getElementById("cliente");
-			var cliente = select.value;
-			select = document.getElementById("agente");
-			var agente = select.value;
-			select = document.getElementById("familias");
-			var familia = select.value;
-			select = document.getElementById("newsletter");
-			var news = select.value;
-			select = document.getElementById("activo");
-			var activo = select.value;
-			select = document.getElementById("status");
-			var status = select.value;
-			var lat = document.getElementById("txtLat").value;
-			var lon = document.getElementById("txtLng").value;
-			var web_lotoluck = document.getElementById("web_lotoluck").value;
-			var txt_imgLogo = document.getElementById("txt_imgLogo").value;
-			var txt_imgImagen = document.getElementById("txt_imgImagen").value;
-			
-			var provincia_actv;
-			if (document.getElementById("provincia_actv").checked) {
-			  provincia_actv = 1;
-			} else {
-			  provincia_actv = 0;
-			}
-			var poblacion_actv;
-			if (document.getElementById("poblacion_actv").checked) {
-			  poblacion_actv = 1;
-			} else {
-			  poblacion_actv = 0;
-			}
-
-			var web_actv;
-			if (document.getElementById("web_actv").checked) {
-			  web_actv = 1;
-			} else {
-			  web_actv = 0;
-			}
-			
-
-			var web_externa = document.getElementById("web_externa").value;
-
-			var web_externa_actv;
-			if (document.getElementById("web_externa_actv").checked) {
-			  web_externa_actv = 1;
-			} else {
-			  web_externa_actv = 0;
-			}
-			
-			var web_ext_texto = document.getElementById("web_ext_texto").value;
-
-			var quiere_web;
-			if (document.getElementById("quiere_web").checked) {
-			  quiere_web = 1;
-			} else {
-			  quiere_web = 0;
-			}
-
-			var vip;
-			if (document.getElementById("vip").checked) {
-			  vip = 1;
-			} else {
-			  vip = 0;
-			}
-
-			var idadministraciones = document.getElementById("idAdmin").value;
-
-			// Crear un objeto FormData para enviar los datos y archivos
-			var formData = new FormData();
-			formData.append("accion", 1);
-			formData.append("logoFile", logoFile);
-			formData.append("imagenFile", imagenFile);
-			formData.append("texto", texto);
-			formData.append("tituloSEO", tituloSEO);
-			formData.append("palabrasClaveSEO", palabrasClaveSEO);
-			formData.append("descripcionSEO", descripcionSEO);
-			formData.append("numero", numero);
-			formData.append("nReceptor", nReceptor);
-			formData.append("nOperador", nOperador);
-			formData.append("nombreAdministracion", nombreAdministracion);
-			formData.append("slogan", slogan);
-			formData.append("titularJ", titularJ);
-			formData.append("fecha_alta", fecha_alta);
-			formData.append("nombre", nombre);
-			formData.append("apellidos", apellidos);
-			formData.append("direccion", direccion);
-			formData.append("direccion2", direccion2);
-			formData.append("cod_pos", cod_pos);
-			formData.append("telefono", telefono);
-			formData.append("telefono2", telefono2);
-			formData.append("correo", correo);
-			formData.append("web", web);
-			formData.append("poblacion", poblacion);
-			formData.append("poblacion_ac", poblacion_actv);
-			formData.append("comentarios", comentarios);
-			formData.append("provincia", provincia);
-			formData.append("provincia_actv", provincia_actv);
-			formData.append("cliente", cliente);
-			formData.append("agente", agente);
-			formData.append("familia", familia);
-			formData.append("news", news);
-			formData.append("activo", activo);
-			formData.append("status", status);
-			formData.append("lat", lat);
-			formData.append("lon", lon);
-			formData.append("web_lotoluck", web_lotoluck);
-			formData.append("web_actv", web_actv);
-			formData.append("web_externa", web_externa);
-			formData.append("web_externa_actv", web_externa_actv);
-			formData.append("web_ext_texto", web_ext_texto);
-			formData.append("quiere_web", quiere_web);
-			formData.append("vip", vip);
-			formData.append("txt_imgLogo", txt_imgLogo);
-			formData.append("txt_imgImagen", txt_imgImagen);
-			formData.append("idadministraciones", idadministraciones);
-
-			// Enviar los datos mediante jQuery Ajax al archivo PHP
-			$.ajax({
-			  url: "../formularios/administraciones.php", 
-			  type: "POST",
-			  data: formData,
-			  processData: false,
-			  contentType: false,
-			  success: function(response) {
-				
-				window.location.href='administraciones.php';
-				console.log(response);
-			  },
-			  error: function(jqXHR, textStatus, errorThrown) {
-				// Manejar errores si los hay
-				console.log(textStatus, errorThrown);
-				window.location.href='administraciones.php';
-			  }
+					// Realizar la solicitud Ajax
+					$.ajax({
+						type: "POST",
+						url: "../AdministracionController.php",
+						data: formData, // Los datos del formulario serializados
+						success: function(response) {
+							// Manejar la respuesta del servidor (si es necesario)
+							console.log("Respuesta del servidor: " + response);
+						},
+						error: function(xhr, status, error) {
+							// Manejar errores en la solicitud Ajax (si es necesario)
+							console.error("Error en la solicitud: " + error);
+						}
+					});
+				});
 			});
-		  });
-		});
-		
-			
-			
-			function Reset()
-			{
-				var tick = document.getElementById("tick_guardado");
-				tick.style.display='none';
+</script>
 
-				var label = document.getElementById("lb_guardado");
-				label.style.display='none';
-			}
-			
 			
 		</script>
 		

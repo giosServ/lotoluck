@@ -810,8 +810,7 @@
 
 			var idSorteo =document.getElementById("r_id").value;
 			var textoBannerHtml = tinymce.get('textoBanner').getContent();
-			if (textoBannerHtml != '')
-			{
+			
 				// var datos = [idSorteo, 2, 1, textoBanner];
 				$.ajax(
 				{
@@ -837,12 +836,10 @@
 
 				});
 				
-			}
+			
 
 			var comentarioHtml = tinymce.get('comentario').getContent();
-			// Comprovamos si se ha puesto algun comentario
-			if (comentarioHtml != '')
-			{
+			
 				// var datos = [idSorteo, 2, 2, comentario];
 				$.ajax(
 				{
@@ -866,8 +863,7 @@
 					}
 				});
 
-			}
-			resolve(true);
+			
 		 });
 		}
 			</script>

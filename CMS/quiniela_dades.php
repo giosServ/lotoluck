@@ -604,7 +604,7 @@
 
 					var idSorteo = document.getElementById("r_id").value;
 					var textoBannerHtml = tinymce.get('textoBanner').getContent();
-					if (textoBannerHtml != '') {
+				
 						$.ajax({
 							// Definimos la URL
 							url: "../formularios/comentarios.php",
@@ -628,12 +628,11 @@
 								reject(new Error("Error al subir el fichero"));
 							}
 						});
-					}
+					
 
 					var comentarioHtml = tinymce.get('comentario').getContent();
 
-					// Comprobamos si se ha puesto algún comentario
-					if (comentarioHtml != '') {
+					
 						
 						$.ajax({
 							// Definimos la URL
@@ -659,9 +658,7 @@
 								reject(new Error("Error al guardar los comentarios"));
 							}
 						});
-					} else {
-						resolve(true); // No se proporcionó ningún comentario, resolver inmediatamente
-					}
+					
 				});
 			}
 			

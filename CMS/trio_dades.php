@@ -391,8 +391,7 @@
 
 					var idSorteo =document.getElementById("r_id").value
 					var textoBannerHtml = tinymce.get('textoBanner').getContent();
-					if (textoBannerHtml != '')
-					{
+					
 						// var datos = [idSorteo, 2, 1, textoBanner];
 						$.ajax(
 						{
@@ -418,12 +417,10 @@
 
 						});
 
-					}
+					
 
 					var comentarioHtml = tinymce.get('comentario').getContent();
-					// Comprovamos si se ha puesto algun comentario
-					if (comentarioHtml != '')
-					{
+				
 						// var datos = [idSorteo, 2, 2, comentario];
 						$.ajax(
 						{
@@ -447,7 +444,7 @@
 							}
 						});
 
-					}
+					
 				 });
 				}
 				function Guardar()
@@ -793,106 +790,7 @@
 						posicionElement.val(i)
 					})
 				})
-				// function EliminarPremioCategoria(idCategoria)
-				// {
-				// 	// Función que permite eliminar una categoria
-
-				// 	var datos = [2, 20, idCategoria, '', '', '', 0];
-
-				// 	$.ajax(
-				// 	{
-				// 		// Definimos la url
-				// 		url:"../formularios/premios_trio.php?datos=" + datos,
-				// 		// Indicamos el tipo de petición, como queremos eliminar es POST
-				// 		type:"POST",
-				// 		data: {'idPremio_trio' : idCategoria},
-				// 		success: function(data)
-				// 		{
-				// 			// La peticion devuelve 0 si se ha eliminado la categoria i -1 en caso de error
-				// 			if (data == '-1')
-				// 			{
-				// 				alert("No se ha podido eliminar la categoria. Prueba de nuevo.");
-				// 			}
-				// 			else
-				// 			{
-				// 				alert("Se ha eliminado la categoria");
-
-				// 				// Recargamos de nuevo la pagina
-				// 				location.reload();
-				// 			}
-				// 		}
-
-				// 	});
-
-				// }
-				function GuardarComentarios() {
-					return new Promise((resolve, reject) => {
-						// Función que permite guardar los comentarios adicionales del sorteo
-
-						var idSorteo = document.getElementById("r_id").value;
-						var textoBannerHtml = tinymce.get('textoBanner').getContent();
-
-						// Comprobamos si se ha puesto algún texto para el banner
-						if (textoBannerHtml != '') {
-							$.ajax({
-								// Definimos la URL
-								url: "../formularios/comentarios.php",
-								data: {
-									idSorteo: idSorteo,
-									type: 1,
-									texto: textoBannerHtml,
-								},
-								// Indicamos el tipo de petición, como queremos insertar es POST
-								type: "POST",
-
-								success: function (res) {
-									if (res == -1) {
-										alert("No se han podido guardar los comentarios de la casilla texto banner, prueba de nuevo");
-										reject(new Error("Error al guardar los comentarios"));
-									} else {
-										resolve(true);
-									}
-								},
-								error: function () {
-									reject(new Error("Error al subir el fichero"));
-								}
-							});
-						}
-
-						var comentarioHtml = tinymce.get('comentario').getContent();
-
-						// Comprobamos si se ha puesto algún comentario
-						if (comentarioHtml != '') {
-							
-							$.ajax({
-								// Definimos la URL
-								url: "../formularios/comentarios.php",
-								data: {
-									idSorteo: idSorteo,
-									type: 2,
-									texto: comentarioHtml,
-								},
-								// Indicamos el tipo de petición, como queremos insertar es POST
-								type: "POST",
-
-								success: function (res) {
-									
-									if (res == -1) {
-										alert("No se han podido guardar los comentarios de la casilla comentario, prueba de nuevo");
-										reject(new Error("Error al guardar los comentarios"));
-									} else {
-										resolve(true);
-									}
-								},
-								error: function () {
-									reject(new Error("Error al guardar los comentarios"));
-								}
-							});
-						} else {
-							resolve(true); // No se proporcionó ningún comentario, resolver inmediatamente
-						}
-					});
-				}
+				
 			
 				$(document).on('keyup','.numAnDSer',function(e){
 					

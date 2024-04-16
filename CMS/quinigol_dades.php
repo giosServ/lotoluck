@@ -603,8 +603,8 @@
 					// Función que permite guardar los comentarios adicionales del sorteo
 
 					var idSorteo = document.getElementById("r_id").value;
-				var textoBannerHtml = tinymce.get('textoBanner').getContent();
-					if (textoBannerHtml != '') {
+					var textoBannerHtml = tinymce.get('textoBanner').getContent();
+					
 						$.ajax({
 							// Definimos la URL
 							url: "../formularios/comentarios.php",
@@ -628,10 +628,10 @@
 								reject(new Error("Error al subir el fichero"));
 							}
 						});
-					}
+					
 
 					var comentarioHtml = tinymce.get('comentario').getContent();
-					if (comentarioHtml != '') {
+					
 						
 						$.ajax({
 							// Definimos la URL
@@ -657,9 +657,7 @@
 								reject(new Error("Error al guardar los comentarios"));
 							}
 						});
-					} else {
-						resolve(true); // No se proporcionó ningún comentario, resolver inmediatamente
-					}
+					
 				});
 			}
 
