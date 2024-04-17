@@ -1,6 +1,6 @@
 <?php
-	$idSorteo = $_GET['idSorteo'];
-	include "funciones.php";
+	$idSorteo = -1;
+	
 ?>
 
 <!DOCTYPE html>
@@ -44,29 +44,7 @@
 </style>
   <body style=''>
   
-    <header>
-	
-	<?php
-		
-		include "cabecera.php";
-	?>
-	
-<!------------------SUBNAV--------------------->    
-    <section>
-      <nav class='subnav'>
-        <ul class='subnavme'>
-          <li class='subnavmenu'><a href='Botes_en_juego.php' >Botes en juego</a></li>
-          <li class='subnavmenu'><a href='localiza_administracion.php' >Localiza la administración</a></li>
-          <li class='subnavmenu'><a href='encuentra_tu_numero.php' >Encuentra tu Nº Favorito</a></li>
-          <li class='subnavmenu'><a href='Anuncia_tu_Administracion.php' >Anuncia tu administración</a></li>
-          <li class='subnavmenu'><a href='Publicidad.php' >Publicidad</a></li>
-          <li class='subnavmenu'><a href='Contacta.php' >Contacta</a></li>
-        </ul>
-      </nav>  
-    </section>
-	<?php
-		generarBannersResultados(31,2);
-	?>
+   
 <!-------------------CONTENIDO------------------->
     <section>
       

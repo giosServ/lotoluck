@@ -1,4 +1,15 @@
-var _GET= function () 
+$(document).ready(function() {
+	// Manejador de clic para los botones del menú
+	$(".menubutton").click(function() {
+		// Obtener el pageid del botón clicado
+		var pageId = $(this).attr("pageid");
+		// Ocultar todos los divs con la clase lotoluck_page
+		$(".lotoluck_page").hide();
+		// Mostrar el div correspondiente al pageId
+		$("#" + pageId).show();
+	});
+});
+/*var _GET= function () 
 {
 	// This function is anonymous, is executed immediately and
 	// the return value is assigned to QueryString!
@@ -94,7 +105,7 @@ $(document).ready( function()
      $("#page_home .cuantumslidershow").click( nextHomeSlide );
 });
 
-function refit()
+/*function refit()
 {
     if( $("body")[0].clientWidth > 610)
     {
@@ -122,11 +133,11 @@ function refit()
 				$(".cuantumslider").css( 'zoom',  ($("body")[0].clientWidth / 1190).toString() );
       }
 
-}
+}*/
 
-$(document).ready( function() 
+/*$(document).ready( function() 
 { 
-    refit();
+    //refit();
 
 	if (_GET.hasOwnProperty('activepage'))
 		selectPage( _GET["activepage"] );
@@ -144,5 +155,5 @@ $(document).ready( function()
 
 $( window ).resize(function() 
 {
- refit();
-});
+ //refit();
+});*/
