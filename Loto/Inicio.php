@@ -152,19 +152,23 @@ include '../config.php';
 
 
 
-
+	<!----------------------------------------------CONTENIDO------------------------------------------------------------------->
 
 	<div id="lotoluckcontent" style='padding-left-left:0;'>
 
 		<!-----------------------------RESULTADOS------------------------------>
-		<div id="resultados" class="lotoluck_page"><?php include 'resultados.php'; ?></div>
+		<div id="resultados" class="lotoluck_page active_page"><?php include 'resultados.php'; ?></div>
+
+		
 		<!-----------------------------LOTERIA NACIONAL------------------------------>
 		<div id="loteria_nacional" class="lotoluck_page"><?php include 'loteria_nacional.php'; ?></div>
-		<!-----------------------------LOTERIA NAVIDAD------------------------------>
-		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
-		<!-----------------------------LOTERIA NIÑO------------------------------>
 		
+		
+		<!-----------------------------LOTERIA NACIONAL------------------------------>
+		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
+
 	</div>
+	
 
 
 
@@ -304,7 +308,7 @@ include '../config.php';
 
 		}
 	</script>
-	<script src="lotoluckmenu.js"></script>
+
 	<div id='confirmacion_suscripciones' class='overlayConfirm hidden'>
 
 		<div class="">
@@ -315,23 +319,7 @@ include '../config.php';
 		</div>
 	</div>
 	<script>
-		$(document).ready(function() {
-			// Ocultar todos los divs con la clase lotoluck_page, excepto el div de resultados
-			$(".lotoluck_page").not("#resultados").hide();
-
-			// Manejador de clic para los botones del menú
-			$(".menubutton").click(function() {
-				// Obtener el pageid del botón clicado
-				var pageId = $(this).attr("pageid");
-
-				// Ocultar todos los divs con la clase lotoluck_page
-				$(".lotoluck_page").hide();
-
-				// Mostrar el div correspondiente al pageId
-				$("#" + pageId).show();
-			});
-			F
-		});
+		
 
 		function clicks(id) {
 			var datos = {
@@ -359,6 +347,7 @@ include '../config.php';
 			});
 		}
 	</script>
+	<script src="lotoluckmenu.js"></script>
 </body>
 
 </html>
