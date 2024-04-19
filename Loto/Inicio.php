@@ -4,6 +4,7 @@ include __DIR__ . '/funciones.php';
 include '../config.php';
 
 
+
 ?>
 
 
@@ -166,6 +167,9 @@ include '../config.php';
 
 		<!-----------------------------LOTERIA NACIONAL------------------------------>
 		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
+
+		<!-----------------------------LOTERIA EL NIÑO------------------------------>
+		<div id="loteria_niño" class="lotoluck_page"><?php include 'loteria_niño.php'; ?></div>
 
 	</div>
 

@@ -120,7 +120,7 @@
         <ul>
           <li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_nacional"> <img src='\Loto\Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Naciona' alt='Lotería Nacional' width='35' height=''/></a></li>
           <li class='iconosnav'><a a href="#" class="menubutton" pageid="loteria_navidad"><img src='\Loto\Imagenes\iconos\Icono Loteria navidad.png' title='El Gordo de Navidad' alt='El Gordo de Navidad' width='35' height=''/></a></li>
-          <li class='iconosnav'><a href='\Loto\loteria_niño.php?idSorteo=-1'><img src='\Loto\Imagenes\iconos\icono Loteria del niño.png' title='El Niño'alt='El Niño' width='35' height=''/></a></li>
+          <li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_niño"><img src='\Loto\Imagenes\iconos\icono Loteria del niño.png' title='El Niño'alt='El Niño' width='35' height=''/></a></li>
           <li class='iconosnav'><a href='\Loto\euromillon.php?idSorteo=-1'><img src='\Loto\Imagenes\iconos\Icono euromillon.png' alt='Euromillones' title='Euromillones' width='35' height=''/></a></li>
           <li class='iconosnav'><a href='\Loto\primitiva.php?idSorteo=-1'><img src='\Loto\Imagenes\iconos\icono primitiva.png'  title='La Primitiva' alt='La Primitiva' width='35' height=''/></a></li>
           <li class='iconosnav'><a href='\Loto\bonoloto.php?idSorteo=-1'><img src='\Loto\Imagenes\iconos\Icono bonoloto.png' title='Bonoloto' alt='Bonoloto' width='35' height=''/></a></li>

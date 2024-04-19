@@ -1,7 +1,7 @@
 <?php
 
-	$idSorteo = $_GET['idSorteo'];
-	include "funciones.php";
+	$idSorteo = -1;
+	//include "funciones.php";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,8 @@
 	 <link rel='stylesheet' type='text/css' href='css/estilo_pop_up.css'>
     <link rel='stylesheet' type='text/css' href='css/localiza_administracion.css'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-	<script src="https://lotoluck.es/Loto/js/cookies_preferencia_visualizacion.js"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<style>
 	.compr-container {
 		display: flex;
@@ -44,9 +45,10 @@
   <body style=''>
 
     <header>
+		<h1>Hola desde loteria_niño.php</h1>
      <?php
 		
-		include "cabecera.php";
+		//include "cabecera.php";
 	?>
 <!------------------SUBNAV--------------------->    
     <section>
@@ -130,7 +132,7 @@
 			?>			
 		</div>
 		<?php
-			include "../comprobador.php";
+			//include "../comprobador.php";
 		?>
 		<div align='center' style='padding-top: 5px;'>
 		<b>
