@@ -154,7 +154,7 @@ include '../config.php';
 
 	<!----------------------------------------------CONTENIDO------------------------------------------------------------------->
 
-	<div id="lotoluckcontent" style='padding-left-left:0;'>
+	<div id="lotoluckcontent">
 
 		<!-----------------------------RESULTADOS------------------------------>
 		<div id="resultados" class="lotoluck_page active_page"><?php include 'resultados.php'; ?></div>
@@ -171,7 +171,7 @@ include '../config.php';
 
 	<script src='lotoluckmenu.js'></script>
 
-	
+
 
 
 
@@ -208,6 +208,8 @@ include '../config.php';
 	<footer>
 		<nav class='nav2'>
 			<ul>
+				
+				<li class='iconosnav'><a href="#" class="menubutton menuselected" pageid="resultados"> </a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_nacional"> <img src='Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Naciona' alt='Lotería Nacional' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_navidad"><img src='Imagenes\iconos\Icono Loteria navidad.png' title='El Gordo de Navidad' alt='El Gordo de Navidad' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_niño"><img src='Imagenes\iconos\icono Loteria del niño.png' title='El Niño' alt='El Niño' width='35' height='' /></a></li>
@@ -293,7 +295,7 @@ include '../config.php';
 
 
 
-	
+
 	<!--Script de la carga de JS del SLIDER-->
 	<script type='text/javascript' src='js/slider.js'></script>
 	<script type='text/javascript' src='js/captura_suscripciones.js'></script>
@@ -310,7 +312,7 @@ include '../config.php';
 
 		}
 	</script>
-	
+
 
 	<div id='confirmacion_suscripciones' class='overlayConfirm hidden'>
 
