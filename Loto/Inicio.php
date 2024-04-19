@@ -165,11 +165,13 @@ include '../config.php';
 
 
 		<!-----------------------------LOTERIA NACIONAL------------------------------>
-		<div id="loteria_navidad" class="lotoluck_page "><?php include 'loteria_navidad.php'; ?></div>
+		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
 
 	</div>
 
-	<script src="lotoluckmenu.js"></script>
+	<script src='lotoluckmenu.js'></script>
+
+	
 
 
 
@@ -291,7 +293,7 @@ include '../config.php';
 
 
 
-
+	
 	<!--Script de la carga de JS del SLIDER-->
 	<script type='text/javascript' src='js/slider.js'></script>
 	<script type='text/javascript' src='js/captura_suscripciones.js'></script>
@@ -308,6 +310,7 @@ include '../config.php';
 
 		}
 	</script>
+	
 
 	<div id='confirmacion_suscripciones' class='overlayConfirm hidden'>
 
