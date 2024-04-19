@@ -159,17 +159,17 @@ include '../config.php';
 		<!-----------------------------RESULTADOS------------------------------>
 		<div id="resultados" class="lotoluck_page active_page"><?php include 'resultados.php'; ?></div>
 
-		
+
 		<!-----------------------------LOTERIA NACIONAL------------------------------>
-		<div id="loteria_nacional" class="lotoluck_page"><?php include 'loteria_nacional.php'; ?></div>
-		
-		
+		<div id="loteria_nacional" class="lotoluck_page "><?php include 'loteria_nacional.php'; ?></div>
+
+
 		<!-----------------------------LOTERIA NACIONAL------------------------------>
-		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
+		<div id="loteria_navidad" class="lotoluck_page "><?php include 'loteria_navidad.php'; ?></div>
 
 	</div>
-	
 
+	<script src="lotoluckmenu.js"></script>
 
 
 
@@ -319,8 +319,6 @@ include '../config.php';
 		</div>
 	</div>
 	<script>
-		
-
 		function clicks(id) {
 			var datos = {
 				id: id,
@@ -347,7 +345,7 @@ include '../config.php';
 			});
 		}
 	</script>
-	<script src="lotoluckmenu.js"></script>
+
 </body>
 
 </html>
