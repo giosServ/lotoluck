@@ -171,7 +171,7 @@ $idSorteo = -1;
 
 
 	<!--Script de la carga de JS del SLIDER-->
-	<script type='text/javascript' src='js/slider.js'></script>
+
 
 	<script type='text/javascript'>
 		function Buscar() {

@@ -103,19 +103,26 @@ include '../config.php';
 
 
 		<!-----------------------------LOTERIA NACIONAL------------------------------>
-		<div id="loteria_nacional" class="lotoluck_page "><?php include 'loteria_nacional.php'; ?></div>
+		<div id="loteria_nacional" class="lotoluck_page"><?php include 'loteria_nacional.php'; ?></div>
+
+		<!-----------------------------LOTERIA EL NIÑO------------------------------->
+		<div id="loteria_niño" class="lotoluck_page"><?php include 'loteria_niño.php'; ?></div>
 
 
-		<!-----------------------------LOTERIA NACIONAL------------------------------>
+		<!-----------------------------EUROMILLON------------------------------------>
+		<div id="euromillon" class="lotoluck_page"><?php include 'euromillon.php'; 	?></div>
+
+
+		<!-----------------------------LOTERIA NAVIDAD------------------------------->
 		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
 
-		<!-----------------------------LOTERIA EL NIÑO-----------------------------
-		<div id="loteria_niño" class="lotoluck_page"><?php //include 'loteria_niño.php'; 
-														?></div>-->
 
-		<!-----------------------------EUROMILLON-----------------------------
-		<div id="euromillon" class="lotoluck_page"><?php //include 'euromillon.php'; 
-													?></div>-->
+		
+
+
+
+		
+
 
 	</div>
 
