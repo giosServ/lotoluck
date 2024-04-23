@@ -1,32 +1,34 @@
 <?php
 
 	$idSorteo = -1;
-	//include "funciones.php";
+	include "funciones.php";
 ?>
 
 <!DOCTYPE html>
 <html class='wide wow-animation' lang='en'>
   <head>
-    <title>Lotoluck | Loteria nacional de el Niño</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'&amp;gt;>
-    <meta name='searchtitle' content='Loteria nacional de el Niño. Pedrea y comprobador de premios' />
-    <meta name='description' content='Resultados y premios de la loteria del Niño. Terminaciones y premios menores y comprobador de numeros de la pedrea en nuestro buscador.' />
-    <meta name='keywords' content='resultados, premios, loteria del Niño, sorteo, resultados, premios, loteria, pedrea, lista' />
-
-	<!-- Agregamos script para peticiones ajax -->
-	<script
-		  src="https://code.jquery.com/jquery-3.6.0.min.js"
-		  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-		  crossorigin="anonymous">
-	</script> 
+    <title>Lotoluck | Loteria nacional del jueves y del sabado.</title>
+	<meta charset="UTF-8">
+    <!-- <meta name='viewport' content='width=device-width, initial-scale=1.0'&amp;gt;> -->
+    <meta name='searchtitle' content='Loteria nacional del jueves y del sabado.' />
+    <meta name='description' content='Resultados y premios de la loteria de jueves y sabado. Terminaciones y premios menores de la pedrea y comprobador de numeros de la pedrea en el buscador.' />
+    <meta name='keywords' content='Euromillones, Loteria nacional, Primitiva, Bonoloto, Quinielas,  Gordo, Gordo Navidad, El Niño, Cupon, Cuponazo, Sueldazo, Super Once, Trio, Loto, 6/49.' />
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
 	
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
     <link rel='stylesheet' type='text/css' href='css/style.css'>
-	 <link rel='stylesheet' type='text/css' href='css/estilo_pop_up.css'>
     <link rel='stylesheet' type='text/css' href='css/localiza_administracion.css'>
+	<link rel='stylesheet' type='text/css' href='css/estilo_pop_up.css'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="https://lotoluck.es/Loto/js/cookies_preferencia_visualizacion.js"></script>
+	
+      <!-- Agregamos script para peticiones ajax -->
+      <script
+		  src="https://code.jquery.com/jquery-3.6.0.min.js"
+		  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+		  crossorigin="anonymous">
+	</script>
 	<style>
 	.compr-container {
 		display: flex;

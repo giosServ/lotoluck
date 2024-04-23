@@ -40,7 +40,7 @@
     <header>
      <?php
 		
-		include "cabecera.php";
+		//include "cabecera.php";
 	?>
 
 <!------------------SUBNAV--------------------->    
@@ -57,7 +57,7 @@
       </nav>  
     </section>
 	<?php
-		generarBannersResultados(31,4);
+		//generarBannersResultados(31,4);
 	?>
 	
 <!-------------------CONTENIDO------------------->
