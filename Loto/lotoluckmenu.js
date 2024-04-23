@@ -25,8 +25,11 @@ function selectPage(pagename) {
     console.log("Seleccionando página: " + pagename);
 
 
-    // Oculta el div destacado
+    // Oculta el div destacado y slider
     $("#destacado").hide();
+    $("#slider").hide();
+
+    //Muestra el div de subnav
     $("#subnav").show();
 
     // Oculta todas las páginas
