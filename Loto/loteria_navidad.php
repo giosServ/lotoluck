@@ -44,9 +44,9 @@ $idSorteo = -1;
 
 <body style=''>
 
-
-
-
+	<?php
+	generarBannersResultados(31, 2);
+	?>
 	<!---------------------FRAME LOTERIA NAVIDAD ----------------->
 
 	<p style='font-size: 18px; text-align: center; color: #d2200c;'>
