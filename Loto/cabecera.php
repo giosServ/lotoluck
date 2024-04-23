@@ -118,7 +118,7 @@
 <!-----------------MENU JUEGOS-------------------------------> 
       <nav class='nav2'>
         <ul>
-          <li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_nacional"> <img src='\Loto\Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Naciona' alt='Lotería Nacional' width='35' height=''/></a></li>
+          <li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_nacional"> <img src='\Loto\Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Nacional' alt='Lotería Nacional' width='35' height=''/></a></li>
           <li class='iconosnav'><a a href="#" class="menubutton" pageid="loteria_navidad"><img src='\Loto\Imagenes\iconos\Icono Loteria navidad.png' title='El Gordo de Navidad' alt='El Gordo de Navidad' width='35' height=''/></a></li>
           <li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_niño"><img src='\Loto\Imagenes\iconos\icono Loteria del niño.png' title='El Niño'alt='El Niño' width='35' height=''/></a></li>
           <li class='iconosnav'><a href="#" class="menubutton" pageid="euromillon"><img src='\Loto\Imagenes\iconos\Icono euromillon.png' alt='Euromillones' title='Euromillones' width='35' height=''/></a></li>

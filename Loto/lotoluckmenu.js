@@ -2,14 +2,15 @@ $(document).ready(function () {
     // Ocultar todas las páginas excepto aquellas con la clase active_page
     $(".lotoluck_page").not(".active_page").hide();
     console.log("Documento listo");
+    
+    //Inicializamos el div de subnav oculto
+    $("#subnav").hide();
 
 
 
     $(".menubutton").click(function () {
         console.log("Clic en menubutton");
-        console.log($(".destacado"));
 
-       
 
         //Llama a la funcion selectPage para cambiar un div de Inicio.php por otro
         selectPage($(this).attr("pageid"));
@@ -23,9 +24,11 @@ $(document).ready(function () {
 function selectPage(pagename) {
     console.log("Seleccionando página: " + pagename);
 
-     // Ocultar el div de destacado
-     $(".destacado").hide();
-   
+
+    // Oculta el div destacado
+    $("#destacado").hide();
+    $("#subnav").show();
+
     // Oculta todas las páginas
     $(".lotoluck_page").hide();
 
@@ -39,6 +42,7 @@ function selectPage(pagename) {
     $(".menubutton").removeClass("menuselected");
     $(".menubutton[pageid='" + pagename + "']").addClass("menuselected");
 
+    
 
 
     // Llamamos a la función resize después de mostrar la página para que ajuste el tamaño

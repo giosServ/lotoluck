@@ -96,10 +96,14 @@ include '../config.php';
 
 	</div>
 
-	<!-------------------------------SECCION DESTACADOS Y BOTONES DESTACADOS---------------------------------------------------->
 
+	<!-------------------------------SECCION DESTACADOS Y BOTONES DESTACADOS/SUBNAV---------------------------------------------------->
+	<div id="lotoluckdestacado">
 
-	<div id="destacado" class="destacado"><?php include 'destacado.php'; ?></div>
+		<div id="destacado"><?php include 'destacado.php'; ?></div>
+		<div id="subnav"><?php include 'subnav.php'; ?></div>
+
+	</div>
 
 
 
@@ -128,7 +132,7 @@ include '../config.php';
 
 	</div>
 
-	
+
 
 
 
@@ -169,7 +173,7 @@ include '../config.php';
 			<ul>
 
 				<li class='iconosnav'><a href="#" class="menubutton menuselected" pageid="resultados"> </a></li>
-				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_nacional"> <img src='Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Naciona' alt='Lotería Nacional' width='35' height='' /></a></li>
+				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_nacional"> <img src='Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Nacional' alt='Lotería Nacional' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_navidad"><img src='Imagenes\iconos\Icono Loteria navidad.png' title='El Gordo de Navidad' alt='El Gordo de Navidad' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_niño"><img src='Imagenes\iconos\icono Loteria del niño.png' title='El Niño' alt='El Niño' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="euromillon"><img src='Imagenes\iconos\Icono euromillon.png' alt='Euromillones' title='Euromillones' width='35' height='' /></a></li>
