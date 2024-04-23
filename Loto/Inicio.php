@@ -96,60 +96,10 @@ include '../config.php';
 
 	</div>
 
-	<!------------------SECCION DESTACADO----------------------->
-
-	<section class='seccionheader'>
-		<!------------------BOTES EN JUEGO--------------------------->
-		<article class='articlebotes'>
-			<h2>BOTES EN JUEGO</h2>
-			<p style='background-color: #0D7DAC; color: white; padding: 9px; font-size: 13px;'>SELAE</p>
-			<!--<p>Lotto 6/49 | 3.140.000,00</p>-->
-			<?php
-			mostrarBotesPagPral(11);
-			?>
-			<p style='background-color: #319852; color: white; padding: 9px; font-size: 13px;'>ONCE</p>
-			<!--<p>Lototurf | 1.125.000,00</p>-->
-			<?php
-			mostrarBotesPagPral(14);
-			?>
-			<p style='background-color: #B94141; color: white; padding: 9px; font-size: 13px;'>LOTERIA DE CATALUÑA</p>
-			<!--<p style='margin-bottom: 30px;'>Eurojackpot | 32.000.000,00</p>-->
-			<?php
-			mostrarBotesPagPral(22);
-			?>
-			<br>
-			<a href='Botes_en_juego.php' class='boton' style='padding-right: 36%;padding-left: 36%;'>Ver todos</a>
-		</article>
-		<!------------------VENTA ONLINE--------------------------->
-		<article class='articledestacado'>
-			<img src='Destacado_elNegrito.jpg' alt='Ventaonline' class='imgdestacado' />
-			<h2 style='margin-top:-6px;'>VENTA ONLINE</h2>
-			<p>Administración oficial de loterias y apuestas del estado.</p><br>
-			<a href='https://www.loteriaelnegrito.com/?lotoluck=1' target='_blank' class='boton' style='padding-right: 36%; padding-left: 36%;'>Comprar</a>
-		</article>
-		<!------------------SUSCRIBETE--------------------------->
-		<article class='articledestacado'>
-			<img src='Destacado_suscribir.jpg' alt='suscribete' class='imgdestacado' />
-			<h2 style='margin-top:-6px;'>¡SUSCRÍBETE!</h2>
-			<p>¿No te gustaría estar informado de los juegos que más te interesan?</p><br>
-			<a href='#seccionsuscribirte' class='boton' style='padding-right: 36%;padding-left: 36%;'>Suscríbete</a>
-		</article>
-	</section>
+	<!-------------------------------SECCION DESTACADOS Y BOTONES DESTACADOS---------------------------------------------------->
 
 
-	<!------------------BOTONES DESTACADOS--------------------------->
-	<section class='destacados'>
-		<article class='botondestacados'>
-			<a href='localiza_administracion.php' class='botonheader'><i class='fa fa-map-marker fa-lg'>&nbsp;&nbsp;&nbsp;</i>Localiza tu administración</a>
-		</article>
-		<article class='botondestacados'>
-			<a href='encuentra_tu_numero.php' class='botonheader'><i class='fa fa-search fa-lg'>&nbsp;&nbsp;&nbsp;</i>Enucentra tu número</a>
-		</article>
-		<article class='botondestacados'>
-			<a href='Anuncia_tu_Administracion.php' class='botonheader'><i class='fa fa-home fa-lg'>&nbsp;&nbsp;&nbsp;</i>Anuncia tu administración</a>
-		</article>
-	</section>
-
+	<div id="destacado" class="destacado"><?php include 'destacado.php'; ?></div>
 
 
 
@@ -169,14 +119,16 @@ include '../config.php';
 		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
 
 		<!-----------------------------LOTERIA EL NIÑO-----------------------------
-		<div id="loteria_niño" class="lotoluck_page"><?php //include 'loteria_niño.php'; ?></div>-->
+		<div id="loteria_niño" class="lotoluck_page"><?php //include 'loteria_niño.php'; 
+														?></div>-->
 
 		<!-----------------------------EUROMILLON-----------------------------
-		<div id="euromillon" class="lotoluck_page"><?php //include 'euromillon.php'; ?></div>-->
+		<div id="euromillon" class="lotoluck_page"><?php //include 'euromillon.php'; 
+													?></div>-->
 
 	</div>
 
-	<script src='lotoluckmenu.js'></script>
+	
 
 
 
@@ -215,7 +167,7 @@ include '../config.php';
 	<footer>
 		<nav class='nav2'>
 			<ul>
-				
+
 				<li class='iconosnav'><a href="#" class="menubutton menuselected" pageid="resultados"> </a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_nacional"> <img src='Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Naciona' alt='Lotería Nacional' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_navidad"><img src='Imagenes\iconos\Icono Loteria navidad.png' title='El Gordo de Navidad' alt='El Gordo de Navidad' width='35' height='' /></a></li>
@@ -330,6 +282,7 @@ include '../config.php';
 			</div>
 		</div>
 	</div>
+	<script src='lotoluckmenu.js'></script>
 	<script>
 		function clicks(id) {
 			var datos = {
