@@ -112,6 +112,10 @@ include '../config.php';
 		<!-----------------------------EUROMILLON------------------------------------>
 		<div id="euromillon" class="lotoluck_page"><?php include 'euromillon.php'; 	?></div>
 
+		<!-----------------------------PRIMITIVA------------------------------------>
+		<div id="primitiva" class="lotoluck_page"><?php include 'primitiva.php'; ?></div>
+
+		
 
 		<!-----------------------------LOTERIA NAVIDAD------------------------------->
 		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
@@ -171,7 +175,7 @@ include '../config.php';
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_navidad"><img src='Imagenes\iconos\Icono Loteria navidad.png' title='El Gordo de Navidad' alt='El Gordo de Navidad' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_niño"><img src='Imagenes\iconos\icono Loteria del niño.png' title='El Niño' alt='El Niño' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="euromillon"><img src='Imagenes\iconos\Icono euromillon.png' alt='Euromillones' title='Euromillones' width='35' height='' /></a></li>
-				<li class='iconosnav'><a href='primitiva.php?idSorteo=-1'><img src='Imagenes\iconos\icono primitiva.png' title='La Primitiva' alt='La Primitiva' width='35' height='' /></a></li>
+				<li class='iconosnav'><a href="#" class="menubutton" pageid="primitiva"><img src='Imagenes\iconos\icono primitiva.png' title='La Primitiva' alt='La Primitiva' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href='bonoloto.php?idSorteo=-1'><img src='Imagenes\iconos\Icono bonoloto.png' title='Bonoloto' alt='Bonoloto' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href='el_gordo.php?idSorteo=-1'><img src='Imagenes\iconos\Icono el gordo.png' title='El Gordo' alt='El Gordo' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href='quiniela.php?idSorteo=-1'><img src='Imagenes\iconos\Icono Quiniela.png' title='La Quiniela' alt='La Quiniela' width='35' height='' /></a></li>
@@ -280,6 +284,8 @@ include '../config.php';
 			</div>
 		</div>
 	</div>
+	
+	<!--Script para manejar la carga de paginas del aninado-->
 	<script src='lotoluckmenu.js'></script>
 	<script>
 		function clicks(id) {

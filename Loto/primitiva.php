@@ -1,5 +1,6 @@
 <?php
-	include "funciones.php";
+	$idSorteo = -1;
+	//include "funciones.php";
 ?>
 
 <!DOCTYPE html>
@@ -31,17 +32,13 @@
 
 </style>
   <body style=''>
-  
-	<?php
-		// Obtenemos el sorteo que se ha de mostrar
-		$idSorteo = $_GET['idSorteo'];
-	?>
+	
 	
     <header>
 	
       <?php
 
-	   include "cabecera.php";
+	   //include "cabecera.php";
 	  ?>
 
 <!------------------SUBNAV--------------------->    

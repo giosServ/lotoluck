@@ -47,11 +47,11 @@ $idSorteo = -1;
 <body style=''>
 
 	<header>
-		
+
 		<?php
 
 		//include "cabecera.php";
-		?>		
+		?>
 
 		<!-------------------CONTENIDO------------------->
 		<section>
@@ -193,7 +193,7 @@ $idSorteo = -1;
 					<button class='boton' style='margin-top: 20%; width: 151px;' onclick='BuscarSorteos();'> Muy buena suerte! </button>
 				</div>
 		</section>
-		
+
 
 		<!--Script de la carga de JS del SLIDER-->
 		<script type='text/javascript' src='js/slider.js'></script>
