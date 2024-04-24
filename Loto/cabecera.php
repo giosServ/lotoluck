@@ -124,7 +124,7 @@
           <li class='iconosnav'><a href="#" class="menubutton" pageid="euromillon"><img src='\Loto\Imagenes\iconos\Icono euromillon.png' alt='Euromillones' title='Euromillones' width='35' height=''/></a></li>
           <li class='iconosnav'><a href="#" class="menubutton" pageid="primitiva"><img src='\Loto\Imagenes\iconos\icono primitiva.png'  title='La Primitiva' alt='La Primitiva' width='35' height=''/></a></li>
           <li class='iconosnav'><a href="#" class="menubutton" pageid="bonoloto"><img src='\Loto\Imagenes\iconos\Icono bonoloto.png' title='Bonoloto' alt='Bonoloto' width='35' height=''/></a></li>
-          <li class='iconosnav'><a href='\Loto\el_gordo.php?idSorteo=-1'><img src='\Loto\Imagenes\iconos\Icono el gordo.png' title='El Gordo' alt='El Gordo' width='35' height=''/></a></li>
+          <li class='iconosnav'><a href="#" class="menubutton" pageid="el_gordo"><img src='\Loto\Imagenes\iconos\Icono el gordo.png' title='El Gordo' alt='El Gordo' width='35' height=''/></a></li>
           <li class='iconosnav'><a href='\Loto\quiniela.php?idSorteo=-1'><img src='\Loto\Imagenes\iconos\Icono Quiniela.png' title='La Quiniela'alt='La Quiniela' width='35' height=''/></a></li>
           <li class='iconosnav'><a href='\Loto\quinigol.php?idSorteo=-1'><img src='\Loto\Imagenes\iconos\icono quinigol.png' title='El Quinigol' alt='El Quinigol' width='35' height=''/></a></li>
           <li class='iconosnav'><a href='\Loto\lototurf.php?idSorteo=-1'><img src='\Loto\Imagenes\iconos\Icono lototurf.png' title='Lototurf' alt='Lototurf' width='35' height=''/></a></li>
