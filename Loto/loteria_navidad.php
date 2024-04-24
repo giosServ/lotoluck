@@ -47,64 +47,81 @@ $idSorteo = -1;
 	<?php
 	generarBannersResultados(31, 2);
 	?>
-	<!---------------------FRAME LOTERIA NAVIDAD ----------------->
 
-	<p style='font-size: 18px; text-align: center; color: #d2200c;'>
-		<b>
+	<!-------------------CONTENIDO------------------->
+	<section>
+
+		<h2>
+			<article class='cabecerasJuegos' style='background-color: #d2200c;'>
+				<img src='Imagenes\logos\Logo Loteria Navidad.png' alt='loteria navidad' class='logocabecerajuegoseuromillon' />
+
+				<a href='' id='2'><img src='Imagenes\iconos\menos.png' width='25' class='icocabecerajuegos' /></a>
+				<a href='' id='2'><img src='Imagenes\iconos\mas.png' width='25' class='icocabecerajuegos' /></a>
+
+			</article>
+		</h2>
+
+		<br>
+
+
+		<!---------------------FRAME LOTERIA NAVIDAD ----------------->
+
+		<p style='font-size: 18px; text-align: center; color: #d2200c;'>
+			<b>
+				<?php
+				// Obtenemos la fecha del sorteo, comprovamos si es el ultimo o un sorteo concreto
+				if ($idSorteo == -1) {
+					$idSorteo = ObtenerUltimoSorteo(2);
+				}
+
+				$fecha = ObtenerFechaSorteo($idSorteo);
+				$fecha = FechaFormatoCorrecto($fecha);
+				echo "Loteria Navidad de Loterias y Apuestas del Estado del $fecha";
+				?>
+			</b>
+		</p>
+
+		<p style='font-size: 14px; text-align: center;'>
+			Resultados de <b> Loteria Navidad </b> de otros dias:
+			<select name='fechas' id='fechas' style='font-size: 14px; border-width: 1px; border-style: solid; background-color: #F4F4F4; border-color: #666; padding: 0.55em;'>
+				<?php
+
+				echo "<option value=$idSorteo> $fecha </option>";
+				MostrarFechasSorteos($idSorteo, 2);
+				?>
+			</select>
+
+			<button class='boton' style='padding-top: 12px;' onclick='Buscar();'> ¡ Buena suerte ! </button> <br> <br>
+
+		</p>
+
+		<div align='center'>
+
 			<?php
-			// Obtenemos la fecha del sorteo, comprovamos si es el ultimo o un sorteo concreto
-			if ($idSorteo == -1) {
-				$idSorteo = ObtenerUltimoSorteo(2);
+
+			$idSorteoAnterior = ObtenerSorteoAnterior($idSorteo, 2);
+			if ($idSorteoAnterior != -1) {
+				// Hay sorteo anterior, por lo tanto, mostramos el boton
+				echo "<a class='boton' style='font-size: 12px' href='loteria_navidad.php?idSorteo=$idSorteoAnterior'> Anterior </a>";
 			}
 
-			$fecha = ObtenerFechaSorteo($idSorteo);
-			$fecha = FechaFormatoCorrecto($fecha);
-			echo "Loteria Navidad de Loterias y Apuestas del Estado del $fecha";
+			$idSorteoSiguiente = ObtenerSorteoSiguiente($idSorteo, 2);
+			if ($idSorteoSiguiente != -1) {
+				// Hay sorteo siguiente, por lo tanto, mostramos el boton
+				echo "<a class='boton' style='font-size: 12px; margin-left:10px;' href='loteria_navidad.php?idSorteo=$idSorteoSiguiente'> Siguiente </a>";
+			}
 			?>
-		</b>
-	</p>
-
-	<p style='font-size: 14px; text-align: center;'>
-		Resultados de <b> Loteria Navidad </b> de otros dias:
-		<select name='fechas' id='fechas' style='font-size: 14px; border-width: 1px; border-style: solid; background-color: #F4F4F4; border-color: #666; padding: 0.55em;'>
-			<?php
-
-			echo "<option value=$idSorteo> $fecha </option>";
-			MostrarFechasSorteos($idSorteo, 2);
-			?>
-		</select>
-
-		<button class='boton' style='padding-top: 12px;' onclick='Buscar();'> ¡ Buena suerte ! </button> <br> <br>
-
-	</p>
-
-	<div align='center'>
-
+		</div>
 		<?php
-
-		$idSorteoAnterior = ObtenerSorteoAnterior($idSorteo, 2);
-		if ($idSorteoAnterior != -1) {
-			// Hay sorteo anterior, por lo tanto, mostramos el boton
-			echo "<a class='boton' style='font-size: 12px' href='loteria_navidad.php?idSorteo=$idSorteoAnterior'> Anterior </a>";
-		}
-
-		$idSorteoSiguiente = ObtenerSorteoSiguiente($idSorteo, 2);
-		if ($idSorteoSiguiente != -1) {
-			// Hay sorteo siguiente, por lo tanto, mostramos el boton
-			echo "<a class='boton' style='font-size: 12px; margin-left:10px;' href='loteria_navidad.php?idSorteo=$idSorteoSiguiente'> Siguiente </a>";
-		}
+		//include "../comprobador.php";
 		?>
-	</div>
-	<?php
-	//include "../comprobador.php";
-	?>
-	<div align='center' style='padding-top: 5px;'>
-		<b>
-			<?php
-			MostrarLoteriaNavidad($idSorteo);
-			?>
-		</b>
-	</div>
+		<div align='center' style='padding-top: 5px;'>
+			<b>
+				<?php
+				MostrarLoteriaNavidad($idSorteo);
+				?>
+			</b>
+		</div>
 
 	</section>
 
