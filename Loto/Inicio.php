@@ -124,6 +124,10 @@ include '../config.php';
 		<!-----------------------------QUINIELA------------------------------------>
 		<div id="quiniela" class="lotoluck_page"><?php include 'quiniela.php'; ?></div>
 
+		<!-----------------------------QUINIGOL------------------------------------>
+		<div id="quinigol" class="lotoluck_page"><?php include 'quinigol.php'; ?></div>
+
+		
 		
 		
 		
@@ -192,7 +196,7 @@ include '../config.php';
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="bonoloto"><img src='Imagenes\iconos\Icono bonoloto.png' title='Bonoloto' alt='Bonoloto' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="el_gordo"><img src='Imagenes\iconos\Icono el gordo.png' title='El Gordo' alt='El Gordo' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="quiniela"><img src='Imagenes\iconos\Icono Quiniela.png' title='La Quiniela' alt='La Quiniela' width='35' height='' /></a></li>
-				<li class='iconosnav'><a href='quinigol.php?idSorteo=-1'><img src='Imagenes\iconos\icono quinigol.png' title='El Quinigol' alt='El Quinigol' width='35' height='' /></a></li>
+				<li class='iconosnav'><a href="#" class="menubutton" pageid="quinigol"><img src='Imagenes\iconos\icono quinigol.png' title='El Quinigol' alt='El Quinigol' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href='lototurf.php?idSorteo=-1'><img src='Imagenes\iconos\Icono lototurf.png' title='Lototurf' alt='Lototurf' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href='quintuple_plus.php?idSorteo=-1'><img src='Imagenes\iconos\Icono quintuple plus.png' title='Quíntuple Plus' alt='Quíntuple Plus' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href='once_diario.php?idSorteo=-1'><img src='Imagenes\iconos\Icono once diario.png' title='Ordinario' alt='Ordinario' width='35' height='' /></a></li>
