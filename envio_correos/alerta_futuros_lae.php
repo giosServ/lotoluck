@@ -20,22 +20,22 @@ $futurosNacional =  ContarSorteosFuturosNacional();
 //Si el número de sorteos es inferior a 5 se envía la alerta por correo
 if($futurosNacional<5){
 	
-	$sender = 'pruebaslotoluck@gios-services.com';//mail validado en amazon SES
+	$sender = '';//mail validado en amazon SES
 	$senderName = 'Lotoluck'; //Nombre que queremos que aparezca como remitente
 
 	//$recipient = ($_GET['email']); //dirección del destinatario
 	
-	$recipient = 'comercial@lotoluck.es'; //dirección del destinatario
+	$recipient = ''; //dirección del destinatario
 	
 
 
-	$usernameSmtp = 'AKIASAKG3UKQWHQ5BV7E'; //usuario de las credenciales en amazon SES
+	$usernameSmtp = ''; //usuario de las credenciales en amazon SES
 
-	$passwordSmtp = 'BAPQ17kvUwhnnZV5cgtWP+JglqyQDum1A/z28WJurx5S'; //password de las credenciales en amazon SES
+	$passwordSmtp = ''; //password de las credenciales en amazon SES
 
 	//host y puerto proporcionado por amaxon SES
-	$host = 'email-smtp.eu-west-3.amazonaws.com'; 
-	$port = '587';
+	$host = ''; 
+	$port = '';
 
 	//asunto
 	$subject = utf8_decode('Alerta LotoLuck CMS: faltan sorteos a futuro de la Lotería Nacional');

@@ -16,7 +16,7 @@ require '../../vendor/autoload.php';
 function enviar_autorespondoer($correo,$asunto,$juegos,$bodytext){
 	
 	
-	$sender = 'pruebaslotoluck@gios-services.com';//mail validado en amazon SES
+	$sender = '';//mail validado en amazon SES
 	$senderName = 'Lotoluck'; //Nombre que queremos que aparezca como remitente
 
 	$recipient = $correo;
@@ -30,13 +30,13 @@ function enviar_autorespondoer($correo,$asunto,$juegos,$bodytext){
 	//$confirm_key = ($_GET['activacion']); //nombre del destinatario
 
 
-	$usernameSmtp = 'AKIASAKG3UKQWHQ5BV7E'; //usuario de las credenciales en amazon SES
+	$usernameSmtp = ''; //usuario de las credenciales en amazon SES
 
-	$passwordSmtp = 'BAPQ17kvUwhnnZV5cgtWP+JglqyQDum1A/z28WJurx5S'; //password de las credenciales en amazon SES
+	$passwordSmtp = ''; //password de las credenciales en amazon SES
 
 	//host y puerto proporcionado por amaxon SES
-	$host = 'email-smtp.eu-west-3.amazonaws.com'; 
-	$port = '587';
+	$host = ''; 
+	$port = '';
 
 	//asunto
 	$subject = utf8_decode($asunto);
