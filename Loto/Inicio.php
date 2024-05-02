@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/funciones.php';
+include  'funciones.php';
 include '../config.php';
 
 
@@ -32,6 +32,17 @@ include '../config.php';
 </style>
 
 <body>
+	<?php
+
+	//Si la request tiene la variable cod la guarda, sino lo deja null
+	$id = $id = isset($_REQUEST['cod']) ? $_REQUEST['cod'] : null;
+	if (!empty($id)) {
+		// Si 'cod' no está vacío, se procede a incluir los archivos según el valor de 'cod'
+		if ($id == 'loteria_navidad') {
+			include 'loteria_nacional.php';
+		}
+	}
+	?>
 
 	<header>
 
@@ -43,6 +54,7 @@ include '../config.php';
 			header('location: https://lotoluck.es');
 		}
 		generarBanners(30);
+
 		include __DIR__ . '/cabecera.php';
 
 		// Obtener el valor de la cookie "config"
@@ -127,22 +139,22 @@ include '../config.php';
 		<!-----------------------------QUINIGOL------------------------------------>
 		<div id="quinigol" class="lotoluck_page"><?php include 'quinigol.php'; ?></div>
 
-		
-		
-		
-		
 
-		
+
+
+
+
+
 
 		<!-----------------------------LOTERIA NAVIDAD------------------------------->
 		<div id="loteria_navidad" class="lotoluck_page"><?php include 'loteria_navidad.php'; ?></div>
 
 
-		
 
 
 
-		
+
+
 
 
 	</div>
@@ -188,7 +200,7 @@ include '../config.php';
 			<ul>
 
 				<li class='iconosnav'><a href="#" class="menubutton menuselected" pageid="resultados"> </a></li>
-				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_nacional"> <img src='Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Nacional' alt='Lotería Nacional' width='35' height='' /></a></li>
+				<li class='iconosnav'><a href="Inicio.php?cod=loteria_navidad" class="menubutton" pageid="loteria_nacional"> <img src='Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Nacional' alt='Lotería Nacional' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_navidad"><img src='Imagenes\iconos\Icono Loteria navidad.png' title='El Gordo de Navidad' alt='El Gordo de Navidad' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_niño"><img src='Imagenes\iconos\icono Loteria del niño.png' title='El Niño' alt='El Niño' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="euromillon"><img src='Imagenes\iconos\Icono euromillon.png' alt='Euromillones' title='Euromillones' width='35' height='' /></a></li>
@@ -301,9 +313,9 @@ include '../config.php';
 			</div>
 		</div>
 	</div>
-	
+
 	<!--Script para manejar la carga de paginas del aninado-->
-	<script src='lotoluckmenu.js'></script>
+	<!--<script src='lotoluckmenu.js'></script>-->
 	<script>
 		function clicks(id) {
 			var datos = {
