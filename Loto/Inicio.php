@@ -3,7 +3,20 @@
 include  'funciones.php';
 include '../config.php';
 
+//incluimos nuestra clase routeman
+require_once("../RouteMan.php");
 
+//creamos una instancia de RouteMan
+$objRouteMan = new RouteMan();
+
+
+//configuramos nuestras rutas de archivo
+$objRouteMan->addRoute('LotoInicio', ['file' => 'Inicio.php']);
+$objRouteMan->addRoute('loteria_nacional', ['file' => 'loteria_nacional.php']);
+
+
+//pedimos a nuestro RoutMan que gestione nuestras rutas.
+$objRouteMan->manageRoutes();
 
 ?>
 
@@ -200,7 +213,7 @@ include '../config.php';
 			<ul>
 
 				<li class='iconosnav'><a href="#" class="menubutton menuselected" pageid="resultados"> </a></li>
-				<li class='iconosnav'><a href="Inicio.php?cod=loteria_navidad" class="menubutton" pageid="loteria_nacional"> <img src='Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Nacional' alt='Lotería Nacional' width='35' height='' /></a></li>
+				<li class='iconosnav'><a href="loteria_nacional" class="menubutton" pageid="loteria_nacional"> <img src='Imagenes\iconos\icono Loteria Nacional.png' title='Lotería Nacional' alt='Lotería Nacional' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_navidad"><img src='Imagenes\iconos\Icono Loteria navidad.png' title='El Gordo de Navidad' alt='El Gordo de Navidad' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="loteria_niño"><img src='Imagenes\iconos\icono Loteria del niño.png' title='El Niño' alt='El Niño' width='35' height='' /></a></li>
 				<li class='iconosnav'><a href="#" class="menubutton" pageid="euromillon"><img src='Imagenes\iconos\Icono euromillon.png' alt='Euromillones' title='Euromillones' width='35' height='' /></a></li>

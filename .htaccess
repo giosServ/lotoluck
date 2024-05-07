@@ -1,11 +1,14 @@
 RewriteEngine On
 RewriteBase /
 
+# Redireccionar 'http://lotoluck.es/Loto/Inicio.php' a 'https://lotoluck.es/'
+RewriteRule ^Loto/Inicio\.php$ https://lotoluck.es [R=301,L]
+
+
 # Redireccionar las solicitudes con extensión .php a la URL sin extensión
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php
-
 
 
 # Redireccionar las solicitudes a la carpeta Loto sin extensión .php
@@ -30,5 +33,4 @@ RewriteRule ^(.*)$ /secciones_publicas.php?nombre_parametro=politica-de-cookies 
 RewriteCond %{REQUEST_URI} ^/publica-tu-administracion-punto-de-venta$ [NC]
 RewriteRule ^(.*)$ /secciones_publicas.php?nombre_parametro=publica-tu-administracion-punto-de-venta [QSA,L]
 
-RewriteEngine On
-RewriteRule ^Loto/Inicio.php$ https://lotoluck.es [R=301,L]
+
