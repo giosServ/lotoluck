@@ -2,7 +2,7 @@
 
 include  'funciones.php';
 include '../config.php';
-
+/*
 //incluimos nuestra clase routeman
 require_once("../RouteMan.php");
 
@@ -11,12 +11,12 @@ $objRouteMan = new RouteMan();
 
 
 //configuramos nuestras rutas de archivo
-$objRouteMan->addRoute('LotoInicio', ['file' => 'Inicio.php']);
-$objRouteMan->addRoute('loteria_nacional', ['file' => 'loteria_nacional.php']);
+//$objRouteMan->addRoute('LotoInicio', ['file' => 'Inicio.php']);
+$objRouteMan->addRoute('loteria_nacional', ['file' => 'onlae/loteria_nacional.php']);
 
 
 //pedimos a nuestro RoutMan que gestione nuestras rutas.
-$objRouteMan->manageRoutes();
+$objRouteMan->manageRoutes();*/
 
 ?>
 

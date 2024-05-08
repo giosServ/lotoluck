@@ -12,6 +12,7 @@ function validaciones() {
   var password = document.getElementById('password').value.trim();
   var password2 = document.getElementById('password2').value.trim();
   var genero = document.getElementById('genero').value;
+  console.log("Valor de genero "+genero);
   var fechaNac = document.getElementById('fecha_nac').value.trim();
   var cp = document.getElementById('cp').value.trim();
   var poblacion = document.getElementById('poblacion').value.trim();
@@ -68,10 +69,13 @@ function validaciones() {
     document.getElementById('alertPass2').className = 'ocultarMensaje';
   }
 
-  if (genero === '') {
+  if (genero === "") {
     document.getElementById('genero').className = 'cajaform_2';
+    document.getElementById('alertGenero').className = 'errAlias2';
+    
   } else {
     document.getElementById('genero').className = 'cajaform';
+    document.getElementById('alertGenero').className = 'ocultarMensaje';
   }
 
   if (fechaNac === '' || !regexFecha.test(fechaNac)) {
