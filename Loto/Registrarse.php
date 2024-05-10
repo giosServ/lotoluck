@@ -238,7 +238,7 @@
 
             <tr>
 
-              <td><button type='button' onclick='guardar()' id="botonSubmit" class='boton'>Crear usuario</button>
+              <td><button type='button'  id="botonSubmit" class='boton'>Crear usuario</button>
                 <!--<button name="submitForm" class=" boton" id="botonSubmit" type="button">Crear usuario</button></td>-->
               <td>
                 <div class="g-recaptcha" data-sitekey="6LeIXyYlAAAAANGF2VABrCePs2bBv7PLkZgEoTue"></div>
