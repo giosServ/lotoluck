@@ -146,6 +146,11 @@ function validaciones() {
     aceptaCon
   ) {
     document.getElementById('recibe_com').value = recibeCom;
-    document.formulario.submit();
+    document.getElementById('alertCampos').className = 'ocultarMensaje';
+    return true;
+    //document.formulario.submit();
+  }
+  else{
+    document.getElementById('alertCampos').className = 'errAlias2';
   }
 }

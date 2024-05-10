@@ -232,13 +232,15 @@
 
           <p id="alertEmail" class="ocultarMensaje">Introduce un correo electrónico válido</p>
 
+          <p id="alertCampos" class="ocultarMensaje">Hay campos vacios o incorrectos, porfavor, vuelve a revisarlos</p>
+
           <p class="textform"> Si tu correo es de Gmail, Hotmail, Yahoo o similar, o tu servidor o programa de correo tiene algún filtro anti-spam, podrías no recibir nuestras confirmaciones de tu actividad en el portal o que se queden en tu bandeja de correo no deseado. <br><br>Para asegurarte de no tener nunca problemas con la cuenta, incluye el dominio lotoluck.com en tu Lista Segura (Safe List), Lista Blanca (White List) o en el Libro de direcciones (Address Book), según sea tu caso. </p>
 
           <table width="100%">
 
             <tr>
 
-              <td><button type='button'  id="botonSubmit" class='boton'>Crear usuario</button>
+              <td><button type='button' onclick="guardar()" id="botonSubmit" class='boton'>Crear usuario</button>
                 <!--<button name="submitForm" class=" boton" id="botonSubmit" type="button">Crear usuario</button></td>-->
               <td>
                 <div class="g-recaptcha" data-sitekey="6LeIXyYlAAAAANGF2VABrCePs2bBv7PLkZgEoTue"></div>
@@ -417,40 +419,42 @@
       </section>
     </footer>
     <script>
+      /*Funcion para guardar los datos del formulario,llama a la funcion validaciones() que esta en el js/registro_suscriptores.js
+      y comprueba si los campos estan correctos*/
       function guardar() {
-        //if (validar()) {
-        var checkbox = document.querySelector('.miCheckbox');
-        var valorCheckbox = checkbox.checked ? 1 : 0;
-        var formulario = $('#form_registro'); // Convertir el formulario en un objeto jQuery
-        // Obtener los datos del formulario
-        var formData = formulario.serialize(); // Captura todos los campos del formulario
+        if (validaciones()) {
+          var checkbox = document.querySelector('.miCheckbox');
+          var valorCheckbox = checkbox.checked ? 1 : 0;
+          var formulario = $('#form_registro'); // Convertir el formulario en un objeto jQuery
+          // Obtener los datos del formulario
+          var formData = formulario.serialize(); // Captura todos los campos del formulario
 
-        var response = grecaptcha.getResponse();
+          // Guarda la respuesta del captcha
+          var response = grecaptcha.getResponse();
 
-        if (response.length == 0) {
-          alert("Por favor, completa el reCAPTCHA.");
-        } else {
-          $.ajax({
-            type: "POST",
-            url: "../Loto/form_registrarse.php",
-            data: formData, // Los datos del formulario serializados
-            success: function(response) {
-              console.log("Respuesta del servidor: " + response);
+          //Si la respuesta es 0, sale mensaje de error, sino continua con el formulario
+          if (response.length == 0) {
+            alert("Por favor, completa el reCAPTCHA.");
+          } else {
+            $.ajax({
+              type: "POST",
+              url: "../Loto/form_registrarse.php",
+              data: formData, // Los datos del formulario serializados
+              success: function(response) {
+                console.log("Respuesta del servidor: " + response);
 
-              window.location.href = 'Inicio.php';
+                window.location.href = 'Inicio.php';
 
-            },
-            error: function(xhr, status, error) {
-              // Manejar errores en la solicitud Ajax (si es necesario)
-              console.error("Error en la solicitud: " + error);
-              alert("Se ha producido un error al guardar, por favor, inténtalo de nuevo más tarde");
-              //window.location.href = 'Inicio.php';
-            }
-          });
+              },
+              error: function(xhr, status, error) {
+                // Manejar errores en la solicitud Ajax (si es necesario)
+                console.error("Error en la solicitud: " + error);
+                alert("Se ha producido un error al guardar, por favor, inténtalo de nuevo más tarde");
+                //window.location.href = 'Inicio.php';
+              }
+            });
+          }
         }
-
-
-        //}
       }
 
       /*function validar() {
@@ -539,8 +543,10 @@
       }
     </script>
     <script type="text/javascript">
-      document.getElementById("botonSubmit").addEventListener("click", validaciones)
+      //document.getElementById("botonSubmit").addEventListener("click", validaciones)
+      //console.log("Validar: " + validar);
 
+      //Hace visible el password
       jQuery('#clickme').on('click', function() {
         jQuery('#password').attr('type', function(index, attr) {
 
@@ -548,7 +554,7 @@
           return attr == 'text' ? 'password' : 'text';
         })
       })
-
+      //Hace visible la confirmacion del password
       jQuery('#clickme2').on('click', function() {
         jQuery('#password2').attr('type', function(index, attr) {
 
