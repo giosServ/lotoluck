@@ -71,8 +71,7 @@ function validaciones() {
 
   if (genero === "") {
     document.getElementById('genero').className = 'cajaform_2';
-    document.getElementById('alertGenero').className = 'errAlias2';
-    
+    document.getElementById('alertGenero').className = 'errAlias2';    
   } else {
     document.getElementById('genero').className = 'cajaform';
     document.getElementById('alertGenero').className = 'ocultarMensaje';
@@ -86,8 +85,12 @@ function validaciones() {
     document.getElementById('alertFecha').className = 'ocultarMensaje';
   }
 
-  if (cp === '') {
-    document.getElementById('cp').value = '00000';
+  if (cp === ''|| !regexCp.test(cp)) {
+    document.getElementById('cp').className = 'cajaform_2';
+    document.getElementById('alertCp').className = 'errAlias2';
+  }else{
+    document.getElementById('cp').className = 'cajaform';
+    document.getElementById('alertCp').className = 'ocultarMensaje';
   }
 
   if (poblacion === '') {

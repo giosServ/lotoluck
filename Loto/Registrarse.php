@@ -111,33 +111,33 @@
             <input type="text" name="nombre" id="nombre" style="width:70%;" class="cajaform" /value="<?php if (isset($_POST['nombre'])) {
                                                                                                         echo $_POST['nombre'];
                                                                                                       } ?>">
-            <p id="alertNombre" class="ocultarMensaje">Introduce un nombre válido</p>
+            <p id="alertNombre" class="ocultarMensaje">*Introduce un nombre válido</p>
           </span>
           <span class="boxform">
             <label for="name">Apellidos</label><br>
             <input type="text" name="Apellidos" id="apellido" style="width:70%;" class="cajaform" />
-            <p id="alertApelido" class="ocultarMensaje">Introduce unos apellidos válidos</p>
+            <p id="alertApelido" class="ocultarMensaje">*Introduce unos apellidos válidos</p>
           </span>
           <!--  <label for="name">Alias</label><br>
 		 
               <input type="text" name="username" id="username" style="width:68%;  "class="cajaform"/> &nbsp; <button class="boton" type="button"onclick="VerificarAlias()">Verificar</button>
 			  <p id = "alertAlias" class="ocultarMensaje">Este alias no está disponible, inténtalo con otro</p>
 			  <p id = "aliasOk" class="ocultarMensaje">Alias correcto</p>
-			  <p id = "aliasVoid" class="ocultarMensaje">Introduce un alias</p>
+			  <p id = "aliasVoid" class="ocultarMensaje">*Introduce un alias</p>
 			  <p id = "alias" class="ocultarMensaje">Por favor, verifica que el alias esté disponible</p>
-          <p class="textform"> Si vas a jugar Gratis a Euromillones y no quieres que aparezca tu nombre en la relación pública de Participantes, introduce aquí el Alias con el que quieres que te identifiquemos. <br><br>If you are going to play Euromillones 
+          <p class="textform"> Si vas a jugar Gratis a Euromillones y no quieres que aparezca tu nombre en la relación pública de Participantes, Introduce aquí el Alias con el que quieres que te identifiquemos. <br><br>If you are going to play Euromillones 
 		  for Free and you don’t want your name to appear in the participants’ public list, enter here the nickname you wish to be identified with</p>-->
 
           <span class="boxform">
             <label for="name">Correo Electrónico</label><br>
             <input type="text" name="email" id="email" style="width:70%; " class="cajaform" />
-            <p id="alertEmail" class="ocultarMensaje">Introduce una direccion email valida</p>
+            <p id="alertEmail" class="ocultarMensaje">*Introduce una direccion email valida</p>
 
           </span>
           <span class="boxform">
             <label for="name">Confirmar correo</label><br>
             <input type="text" name="Confirmar correo" id="email2" style="width:70%; " class="cajaform" />
-            <p id="alertEmail2" class="ocultarMensaje">Las direcciones de correo introducidas no coinciden</p>
+            <p id="alertEmail2" class="ocultarMensaje">*Las direcciones de correo introducidas no coinciden</p>
           </span>
 
           <span class="boxform">
@@ -147,7 +147,7 @@
               <button type='button' id='clickme' style='height:36px'>
                 <i id='icono' class="fa-sharp fa-solid fa-eye"></i>
               </button>
-              <p id="alertPass" class="ocultarMensaje">La contraseña debe tener al entre 8 y 16 caracteres y al menos un dígito.</p>
+              <p id="alertPass" class="ocultarMensaje">*La contraseña debe tener al entre 8 y 16 caracteres y al menos un dígito.</p>
 
 
             </div>
@@ -158,7 +158,7 @@
             <button type='button' id='clickme2' style='height:36px'>
               <i id='icono2' class="fa-sharp fa-solid fa-eye"></i>
             </button>
-            <label id="alertPass2" class="ocultarMensaje">Las contraseñas introducidas no coinciden</label>
+            <p id="alertPass2" class="ocultarMensaje">*Las contraseñas introducidas no coinciden</p>
           </span>
 
           <span class="boxform">
@@ -167,31 +167,32 @@
               <option value="">Seleccionar</option>
               <option value="Masculino">Masculino</option>
               <option value="Femenino">Femenino</option>
-            </select><br>
-            <p id="alertGenero" class="ocultarMensaje">Seleciona un genero</p>
+            </select>
+            <p id="alertGenero" class="ocultarMensaje">*Seleciona un genero</p><br>
           </span>
 
           <span class="boxform">
             <label for="name">Fecha de nacimiento</label><br>
             <input type="date" name="fecha_nac" id="fecha_nac" style="width:70%; " class="cajaform" />
-            <p id="alertFecha" class="ocultarMensaje">Introduce una fecha válida</p>
+            <p id="alertFecha" class="ocultarMensaje">*Introduce una fecha válida</p>
           </span>
 
           <span class="boxform">
             <label for="name">Código postal</label><br>
             <input type="text" name="cp" id="cp" style="width:70%;" class="cajaform" />
-
+            <p id="alertCp" class="ocultarMensaje">*Introduce un código postal válido</p>
           </span>
+
           <span class="boxform">
             <label for="name">Ciudad / Población</label><br>
             <input type="text" name="poblacion" id="poblacion" style="width:70%;" class="cajaform" />
-            <p id="alertCiudad" class="ocultarMensaje">Introduce una población válida</p>
+            <p id="alertCiudad" class="ocultarMensaje">*Introduce una población válida</p>
           </span>
 
           <span class="boxform">
             <label for="name">Provincia</label><br>
             <input type="text" name="Provincia" id="provincia" style="width:70%;" class="cajaform" />
-
+            <p id="alertProvincia" class="ocultarMensaje">*Introduce una provincia válida</p>
           </span>
           <span class="boxform">
             <label for="name">País</label><br>
@@ -211,7 +212,7 @@
               ?>
 
             </select>
-
+            <p id="alertPais" class="ocultarMensaje">*Introduce un país válido</p>
 
           </span>
 
@@ -221,16 +222,16 @@
           <label class="checkform">Quiero recibir boletín y comunicaciones de <strong>LotoLuck</strong></label><br>
           <input name="condiciones" type="checkbox" id="acepta_con" />
           <label class="checkform">He leído y Acepto las <a href="Avisos_legales.php">Condiciones de Uso</a> y <a href="Politica_privacidad.php">la Política de Privacidad</a></strong></label>
-          <h2 id="mensaje_con" class="ocultarMensaje">Debes leer y aceptar las condiciones de uso</h2>
+          <h2 id="mensaje_con" class="ocultarMensaje">*Debes leer y aceptar las condiciones de uso</h2>
 
-          <h2 id="campos" class="ocultarMensaje">Debes rellenar todos los campos</h2>
+          <!--<h2 id="campos" class="ocultarMensaje">*Debes rellenar todos los campos</h2>-->
 
 
-          <p id="alertPais" class="ocultarMensaje">Introduce un país válido</p>
-          <p id="alertCp" class="ocultarMensaje">Introduce un código postal válido</p>
-          <p id="alertProvincia" class="ocultarMensaje">Introduce una provincia válida</p>
 
-          <p id="alertEmail" class="ocultarMensaje">Introduce un correo electrónico válido</p>
+
+
+
+          <p id="alertEmail" class="ocultarMensaje">*Introduce un correo electrónico válido</p>
 
           <p id="alertCampos" class="ocultarMensaje">Hay campos vacios o incorrectos, porfavor, vuelve a revisarlos</p>
 
@@ -486,7 +487,7 @@
           
 
         } else {
-          alert('Introduce un email válido');
+          alert('*Introduce un email válido');
           email.classList.add('invalid');
           return false;
         }

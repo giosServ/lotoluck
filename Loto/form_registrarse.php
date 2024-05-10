@@ -64,8 +64,8 @@ include "../funciones.php";
 
 		if (ExisteixMail($email)) {
 
-			echo "<script>alert('El correo electrónico introducido ya se encuentra registrado. Por favor, inicia sesion con tu cuenta o recupera tu contraseña..');
-		window.location.replace('../Loto/Inicio.php');</script>";
+			// El correo electrónico ya existe, devuelve un mensaje indicando esto
+			echo json_encode(array("success" => false, "message" => "El correo electrónico introducido ya se encuentra registrado."));
 		} else {
 			$confirm_key = base64_encode($email . '--' . time()); // clave de activación
 
