@@ -65,7 +65,7 @@ include "../funciones.php";
 		if (ExisteixMail($email)) {
 
 			// El correo electrónico ya existe, devuelve un mensaje indicando esto
-			echo json_encode(array("success" => false, "message" => "El correo electrónico introducido ya se encuentra registrado."));
+			echo json_encode(array("success" => false, "message" => "El correo electronico introducido ya se encuentra registrado."));
 		} else {
 			$confirm_key = base64_encode($email . '--' . time()); // clave de activación
 
