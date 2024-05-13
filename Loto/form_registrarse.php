@@ -85,7 +85,8 @@ include "../funciones.php";
 		echo "<script>alert('Por favor, rellena el formulario de captcha para comprobar que eres humano')</script>";
 		echo "<script>window.history.back();</script>";
 	}
-	class Captcha
+	
+	/*class Captcha
 	{
 		protected $secretKey = '0x260b5f607329069E244Fc4F754B7f7D9fd4b7B07';
 		protected $captchaVerificationEndpoint = 'https://hcaptcha.com/siteverify';
@@ -112,7 +113,7 @@ include "../funciones.php";
 
 			return curl_exec($verify);
 		}
-	}
+	}*/
 
 	?>
 </body>
