@@ -457,8 +457,6 @@
           }
         }
       }
-
-      
     </script>
     <script type="text/javascript">
       //document.getElementById("botonSubmit").addEventListener("click", validaciones)
