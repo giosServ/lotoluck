@@ -1,6 +1,6 @@
 <?php
 
-include "../funciones_cms_raquel.php";
+include "../funciones_cms_5.php";
 
 if(isset($_POST['actvCompr']) && isset($_POST['idSorteo']) && isset($_POST['tipoJuego'])){
 	
