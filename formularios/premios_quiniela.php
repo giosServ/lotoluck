@@ -3,7 +3,7 @@
 	// Permite consultar o modificar los premios de los sorteos de LAE - La Quiniela
 
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
-	include "../funciones_cms_raquel.php";
+	include "../funciones_cms_5.php";
 
 	// Obtenemos los valores que se han de pasar a la consulta BBDD
 	$datos = $_GET['datos'];
