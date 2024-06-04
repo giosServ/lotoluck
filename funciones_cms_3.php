@@ -30,7 +30,1411 @@
 	/***					FUNCIONES QUE PERMITEN COMPROVAR EL USUARIO DEL CMS 						***/
 	/******************************************************************************************************/
 	
+	function VerificarUsuario($usuario, $pwd)
+	{
+		// Función que permite verificar que los datos del usuario que se pasan como parametros son correctos (permite iniciar sesión en el CMS)
+		// Se comprueba que el usuario este registrado en la BBDD y que la contraseña es correcta
+
+		// Parametros de entrada: usuario y contraseña que se han de verificar
+
+		// Parametros de salida: si el usuario y la contraseña son correctas, se devuelve el identificador.
+		// Si el usuario es erronio, se devuelve -1 y si la contraseña no es correcta se devuelve -2
+
+		// Definimos la consulta SQL
+		$consulta = "SELECT idUsuario, contrasena FROM usuarios_cms WHERE alias='$usuario'";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, se ha de verificar si la contraseña es correcta
+			while (list($idUsuario, $contrasena) = $resultado->fetch_row())
+			{
 	
+				// Comprovamos la contraseña
+				if ($contrasena == $pwd)
+				{
+					// Contraseña correcta
+					return $idUsuario;
+				}
+				else
+				{
+					// Contraseña incorrecta
+					return -2;
+				}
+			}
+		}
+		else
+		{
+			// No existe el usuario
+			return -1;
+		}
+
+		return -1;
+	}
+	
+	function ObtenerNombreUsuario($idUsuario)
+	{
+		// Función que permite obtener el nombre del usuario que se pasa como parametros
+
+		// Parametros de entrada: identificador del usuario que se quiere obtener el nombre
+		// Parametros de salida: el nombre del usuario
+
+		// Definimos la consulta SQL
+		$consulta = "SELECT alias FROM usuarios_cms WHERE idUsuario=$idUsuario";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, devolvemos el resultado
+			while (list($alias) = $resultado->fetch_row())
+			{		return $alias;			}
+		}
+		
+		return "";
+	}
+	
+	/******************************************************************************************************/
+	/***			FUNCIONES QUE PERMITEN OBTENER I MANIPULAR LOS DATOS DE LOS JUEGOS/SORTEOS 			***/
+	/******************************************************************************************************/
+	function MostrarJuegos()
+	{
+		// Función que permite mostrar todos los juegos guardados en la BBDD
+
+		// Definimos la consulta SQL
+		$consulta = "SELECT idTipo_sorteo, idFamilia, nombre, posicion, activo FROM tipo_sorteo";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado= $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se ha devuelto valores, mostramos los resultados
+			while (list($idTipo_sorteo, $idFamilia, $nombre, $posicion, $activo) = $resultado->fetch_row())
+			{
+				echo "<tr>";
+				echo "<td class='resultados'> $idTipo_sorteo </td>";
+
+				$familia = ObtenerFamilia($idFamilia);										// Obtenemos el nombre de la familia
+				echo "<td class='resultados'> $familia </td>";
+
+				echo "<td class='resultados'> $nombre </td>";
+				echo "<td class='resultados'> $posicion </td>";
+
+				if ($activo== 1)
+				{		echo "<td class='resultados'> Sí </td>";			}
+				else
+				{		echo "<td class='resultados'> No </td>";			}
+
+				echo "<td width='150px'></td>";
+				echo "<td class='boton'> <button class='botonEditar'> <a class='cms_resultados' href='juegos_dades.php?idJuego=$idTipo_sorteo'> Editar </a> </button> </td>";
+				echo "</tr>";
+			}
+		}
+	}
+
+	function MostrarJuego($idJuego)
+	{
+		// Función que permite mostrar los datos del juego que se pasa como parametro
+
+		// Definimos la consulta SQL
+		$consulta = "SELECT idTipo_sorteo, idFamilia, nombre, posicion, activo, app FROM tipo_sorteo WHERE idTipo_sorteo=$idJuego";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			//Se han devuelto valores, los mostramos por pantalla
+			while (list($idTipo_sorteo, $idFamilia, $nombre, $posicion, $activo, $app) = $resultado->fetch_row())
+			{
+				echo "<tr>";
+				echo "<td> <label class='cms'> Juego: </label> </td>";
+				echo "<td> <input class='resultados' id='juego' name='juego' type='text' style='text-align:left; width: 400px;' value='$nombre' onchange='Reset()'> </td>";
+				
+				echo "</tr> <tr>";
+
+				echo "<td> <label class='cms'> Familia: </label> </td>";
+				$familia = ObtenerFamilia($idFamilia);										// Obtenemos el nombre de la familia
+				echo "<td> <input class='resultados' id='familia' name='familia' type='text' style='text-align:left; width: 100px;' value='$familia' onchange='Reset()'> </td>";
+				
+				echo "</tr> <tr>";
+
+				echo "<td> <label class='cms'> Posición: </label> </td>";
+				echo "<td> <input class='resultados' id='posicion' name='posicion' type='text' style='text-align:left' value='$posicion' onchange='Reset()'> </td>";
+				
+				echo "</tr> <tr>";
+
+				echo "<td> <label class='cms'> Activo: </label> </td>";
+				if ($activo == 1)
+				{			echo "<td> <input class='resultados' id='activo' name='activo' type='text' style='text-align:left' value='Sí' onchange='Reset()'> </td>";		}
+				else
+				{			echo "<td> <input class='resultados' id='activo' name='activo' type='text' style='text-align:left' value='No' onchange='Reset()'> </td>";		}
+				
+				echo "<td> <label class='cms'> App: </label> </td>";
+				if ($app == 1)
+				{			echo "<td> <input class='resultados' id='app' name='app' type='text' style='text-align:left' value='Sí' onchange='Reset()'> </td>";		}
+				else
+				{			echo "<td> <input class='resultados' id='app' name='app' type='text' style='text-align:left' value='No' onchange='Reset()'> </td>";		}
+				echo "</tr> <tr>";
+
+				echo "<td> <input class='resultados' id='id' name='id' type='text' style='text-align:left;display:none;' value='$idTipo_sorteo' onchange='Reset()'> </td>";				
+
+				echo "</tr>";
+			}
+		}
+		else
+		{
+			echo "<tr>";
+			echo "<td> <label class='cms'> Juego: </label> </td>";
+			echo "<td> <input class='resultados' id='juego' name='juego' type='text' style='text-align:left; width: 400px;' value='' onchange='Reset()'> </td>";
+			echo "</tr> <tr>";
+			echo "<td> <label class='cms'> Familia: </label> </td>";
+			echo "<td> <input class='resultados' id='familia' name='familia' type='text' style='text-align:left; width: 100px;' value='' onchange='Reset()'> </td>";
+			echo "</tr> <tr>";
+			echo "<td> <label class='cms'> Posición: </label> </td>";
+			echo "<td> <input class='resultados' id='posicion' name='posicion' type='text' style='text-align:left' value='' onchange='Reset()'> </td>";
+			echo "</tr> <tr>";
+			echo "<td> <label class='cms'> Activo: </label> </td>";
+			echo "<td> <input class='resultados' id='activo' name='activo' type='text' style='text-align:left' value='' onchange='Reset()'> </td>";
+			echo "</tr> <tr>";
+			echo "<td> <input class='resultados' id='id' name='id' type='text' style='text-align:left;display:none;' value='' onchange='Reset()'> </td>";
+			echo "</tr>";
+		}	
+	}
+
+	function MostrarSorteos($idFamilia,$pagina_activa = NULL)
+	{
+		// Función que permite obtener los sorteos de la familia de la LAE guardados en la BBDD
+
+		// Definimos la consulta SQL
+		$consulta = "SELECT idTipo_sorteo, nombre, tabla FROM tipo_sorteo WHERE idFamilia=$idFamilia and activo=1 ORDER BY posicion";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, mostramos en forma de tabla los resultados
+			while (list($idTipo_sorteo, $nombre, $tabla) = $resultado->fetch_row())
+			{
+				$pag = $tabla;
+				
+				$pag .= ".php";
+				echo "<a href='$pag' class='" . isActive($nombre, $pagina_activa) . "'>$nombre</a>";
+
+			}
+		}
+	}
+
+	function ObtenerIDJuegosFamilia($idFamilia)
+	{
+		// Función que permite obtener los identificadores de los sorteos de la familia que se pasa como parametro
+
+		// Parametros de entrada: idFamilia de la que se quieren obtener los identificadores
+		// Parametros de salida: lista que contiene todos los identificadores de los sorteos de la familia
+
+		// Definimos la consulta SQL
+		$consulta = "SELECT idTipo_sorteo FROM tipo_sorteo WHERE idFamilia=$idFamilia ORDER BY posicion";
+
+		$listaSorteos = array();
+		array_push($listaSorteos, 0);
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, guardamos el identificador en la variable listaSorteos
+			while (list($idTipo_sorteo) = $resultado->fetch_row())
+			{
+				array_push($listaSorteos, $idTipo_sorteo);
+			}
+		}
+
+		array_push($listaSorteos, 0);
+
+		return $listaSorteos;
+	}
+
+	function ObtenerSorteo($idTipoSorteo, $data)
+	{
+		// Función que a partir del tipo de sorteo y de la fecha obtenemos el identificador del sorteo registrado
+
+		// Parametros de entrada: el tipo del sorteo y la fecha del juego que se quiere obtener
+
+		// Definimos la consulta SQL
+		$consulta = "SELECT idSorteos FROM sorteos WHERE idTipoSorteo=$idTipoSorteo and fecha='$data' ORDER BY idSorteos DESC";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, devolvemos el identificador de sorteo
+			while (list($idSorteos) = $resultado->fetch_row())
+			{	return $idSorteos;			}
+		}
+
+		return -1;
+	}
+
+	
+
+	function EliminarSorteo($idSorteo)
+	{
+		// Función que permite eliminar un juego de la tabla sorteos
+
+		// Parametros de entrada: identificador del sorteo que se ha de elminar
+		// Parametros de salida: 0 si el sorteo se ha eliminado correctamente, -1 si ha habido error
+
+		// Eliminamos el registro
+		$consulta = "DELETE FROM sorteos WHERE idSorteos=$idSorteo";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{	return 0;		}
+		else
+		{	return -1;		}
+	}
+
+	function ObtenerFamilia($idFamilia)
+	{
+		// Función que permite obtener la familia del juego a partir del identifficador
+
+		// Definimos la consulta SQL
+		$consulta = "SELECT nombre FROM familias WHERE idFamilia = $idFamilia";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, devolvemos el nombre de la familia
+			while (list($nombre) = $resultado->fetch_row())
+			{
+				return $nombre;
+			}
+		}
+
+		return $idFamilia;
+	}
+
+	/******************************************************************************************************/
+	/*** FUNCIONES QUE PERMITEN OBTENER I MANIPULAR LOS DATOS DE LAS CATEGORIAS DE LOS JUEGOS/SORTEOS 	***/
+	/******************************************************************************************************/
+	function MostrarCategoriaPremio($idTipoSorteo, $idSorteo)
+	{
+		$GLOBALS["conexion"]->set_charset('utf8');
+		// Función que permite mostrar las categorias de un juego
+
+		// Parametros d'entrada: el tipo de sorteo i el identificador del juego
+		// Parametros de salida: las categoria del premio, si se ha pasado un identificador vàlid tambien se devolveran los premios
+
+		// Comprovamos si el identificador de sorteo es vàlido
+		if ($idSorteo == -1)
+		{
+			// Solo se tienen que mostrar las categorias
+			$consulta = "SELECT idCategorias, nombre, descripcion, posicion FROM categorias WHERE idTipoSorteo=$idTipoSorteo ORDER BY posicion";
+
+			// Comprovamos si la consulta ha devuelto valores
+			if ($resultado = $GLOBALS["conexion"]->query($consulta))
+			{
+				// Se han devuelto valores, mostramos las categorias por pantalla
+				while (list($idCategorias, $nombre, $descripcion, $posicion) = $resultado->fetch_row())
+				{
+					echo "<tr>";
+
+					if ($nombre != '-') {	
+						echo "<td> <input class='resultados' id='nombre_$idCategorias' name='nombre_$idCategorias' type='text' style='width:100px;' value='$nombre' onchange='Reset()'> </td>";		
+					}
+					echo "<td> <input class='resultados' id='descripcion_$idCategorias' name='descripcion_$idCategorias' type='text' style='width:400px;' value='$descripcion' onchange='Reset()'> </td>";
+					echo "<td> <input class='resultados' id='acertantes_$idCategorias' name='acertantes_$idCategorias' type='text' style='width:200px; text-align:right' value='' onchange='Reset()'>";
+					echo "<td> <input class='resultados' id='euros_$idCategorias' name='euros_$idCategorias' type='text' style='width:150px; text-align:right' value='' onchange='Reset()'>";
+					echo "<td> <input class='resultados' id='posicion_$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+					echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+					echo "</tr>";
+				}
+			}
+		}	
+		else
+		{
+
+			// Solo se tienen que mostrar las categorias
+			$consulta = "SELECT idCategorias, nombre, descripcion, posicion FROM categorias WHERE idTipoSorteo=$idTipoSorteo ORDER BY posicion";
+
+			// Comprovamos si la consulta ha devuelto valores
+			if ($resultado = $GLOBALS["conexion"]->query($consulta))
+			{
+				// Se han devuelto valores, mostramos las categorias por pantalla
+				while (list($idCategorias, $nombre, $descripcion, $posicion) = $resultado->fetch_row())
+				{
+					// Se tienen que mostrar las categorias y los premios			
+					switch ($idTipoSorteo) 
+					{
+						case '4':
+							$err= MostrarPremiosEuromillones($idSorteo, $idCategorias);
+							break;
+						case '5':
+							$err= MostrarPremiosPrimitiva($idSorteo, $idCategorias);
+							break;
+						case '6':
+							$err= MostrarPremiosBonoloto($idSorteo, $idCategorias);
+							break;
+						case '7':
+							$err= MostrarPremiosGordoprimitiva($idSorteo, $idCategorias);
+							break;
+						case '10':
+							$err= MostrarPremiosLototurf($idSorteo, $idCategorias);
+							break;
+						case '11':
+							$err= MostrarPremiosQuintuple($idSorteo, $idCategorias);
+							break;
+						case '12':
+							$err= MostrarPremiosOrdinario($idSorteo, $idCategorias);
+							break;
+						case '13':
+							$err= MostrarPremiosExtraordinario($idSorteo, $idCategorias);
+							break;
+						case '14':
+							$err= MostrarPremiosCuponazo($idSorteo, $idCategorias);
+							break;
+						case '15':
+							$err= MostrarPremiosFinDeSemana($idSorteo, $idCategorias);
+							break;
+						case '16':
+							$err= MostrarPremiosEurojackpot($idSorteo, $idCategorias);
+							break;
+						case '18':
+							$err= MostrarPremiosTriplex($idSorteo, $idCategorias);
+							break;
+						case '19':
+							$err= MostrarPremiosMidia($idSorteo, $idCategorias);
+							break;
+						case '20':
+							$err= MostrarPremios649($idSorteo, $idCategorias);
+							break;
+						
+						case '21':
+							$err= MostrarPremiosTrio($idSorteo, $idCategorias);
+							break;
+
+						case '22':
+							$err= MostrarPremiosGrossa($idSorteo, $idCategorias);
+							break;
+
+						default:
+							# code...
+							break;
+					}	
+
+					if ($err==-1)
+					{
+						echo "<tr>";
+						switch ($idTipoSorteo) {
+							case '4':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:150px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='acertantes_$idCategorias' class='resultados acertantes_$idCategorias acertantes' data-category_id ='$idCategorias'  name='acertantes_$idCategorias' type='text' style='width:100px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='acertantes_espana_$idCategorias' class='resultados acertantes_espana_$idCategorias' data-category_id ='$idCategorias'  name='acertantes_espana_$idCategorias' type='text' style='width:180px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:400px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							case '5':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:150px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='acertantes_$idCategorias' class='resultados acertantes_$idCategorias acertantes' data-category_id ='$idCategorias'  name='acertantes_$idCategorias' type='text' style='width:100px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:400px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							case '6':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:150px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='acertantes_$idCategorias' class='resultados acertantes_$idCategorias acertantes' data-category_id ='$idCategorias'  name='acertantes_$idCategorias' type='text' style='width:100px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:400px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							case '7':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:150px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='acertantes_$idCategorias' class='resultados acertantes_$idCategorias acertantes' data-category_id ='$idCategorias'  name='acertantes_$idCategorias' type='text' style='width:100px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:400px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							case '10':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:150px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='acertantes_$idCategorias' class='resultados acertantes_$idCategorias acertantes' data-category_id ='$idCategorias'  name='acertantes_$idCategorias' type='text' style='width:100px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:400px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							case '11':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:150px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='acertantes_$idCategorias' class='resultados acertantes_$idCategorias acertantes' data-category_id ='$idCategorias'  name='acertantes_$idCategorias' type='text' style='width:100px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:400px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							case '12':
+								echo "<td> <input class='resultados' data-category_id ='$idCategorias' id='descripcion_$idCategorias' name='nombre_$idCategorias' type='text' style='width:400px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input class='resultados euros' data-category_id ='$idCategorias' id='euros_$idCategorias' name='euros_$idCategorias' type='text' style='width:150px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td> <input class='resultados series' data-category_id ='$idCategorias' id='serie_$idCategorias' name='serie_$idCategorias' type='text' style='width:150px; text-align:right;' value='' onchange='Reset()'>";
+								echo "<td> <input class='resultados numeros' data-category_id ='$idCategorias' id='numero_$idCategorias' name='numero_$idCategorias' type='text' style='width:150px; text-align:right;' value='' onchange='Reset()'>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input class='resultados' data-category_id ='$idCategorias' id='posicion_$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar'> X </button> </td>";
+							break;
+							case '13':
+								echo "<td> <input class='resultados descripcion' name='nombre_$idCategorias' type='text' style='width:400px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input class='resultados euros' name='euros_$idCategorias' type='text' style='width:150px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td> <input class='resultados series name='serie_$idCategorias' type='text' style='width:150px; text-align:right;' value='' onchange='Reset()'>";
+								echo "<td> <input class='resultados numeros' name='numero_$idCategorias' type='text' style='width:150px; text-align:right;' value='' onchange='Reset()'>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input class='resultados posicion ' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar'> X </button> </td>";
+							break;
+							case '14':
+								echo "<td> <input class='resultados descripcion' name='nombre_$idCategorias' type='text' style='width:300px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input class='resultados euros' name='euros_$idCategorias' type='text' style='width:450px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td> <input class='resultados series' name='serie_$idCategorias' type='text' style='width:150px; text-align:right;' value='' onchange='Reset()'>";
+								echo "<td> <input class='resultados numeros' ' name='numero_$idCategorias' type='text' style='width:150px; text-align:right;' value='' onchange='Reset()'>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input class='resultados posicion' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar'> X </button> </td>";
+							break;
+							case '15':
+								echo '';
+							break;
+							case '16':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:150px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='acertantes_$idCategorias' class='resultados acertantes_$idCategorias' data-category_id ='$idCategorias'  name='acertantes_$idCategorias' type='text' style='width:100px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:400px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							case '18':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:400px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='numeros_$idCategorias' class='resultados numeros numeros$idCategorias' data-category_id ='$idCategorias'  name='numeros$idCategorias' type='text' style='width:100px; text-align:right;' value='' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:200px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							case '19':
+								echo "<td> <input id='descripcion_$idCategorias' class='resultados descripcion_$idCategorias' data-category_id ='$idCategorias' name='nombre_$idCategorias' type='text' style='width:400px;' value='$descripcion' onchange='Reset()'> </td>";				
+								echo "<td> <input id='acertantes_$idCategorias' class='resultados acertantes acertantes$idCategorias' data-category_id ='$idCategorias'  name='acertantes_$idCategorias' type='text' style='width:200px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td> <input id='euros_$idCategorias' class='resultados euros_$idCategorias euros' data-category_id ='$idCategorias' name='euros_$idCategorias' type='text' style='width:200px; text-align:right;' value='0' onchange='Reset()'>";
+								echo "<td class='euro'> € </td>";
+								echo "<td width='50px'> </td>";
+								echo "<td> <input id='posicion_$idCategorias' class='resultados posicion_$idCategorias' data-category_id ='$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+								echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+							default:
+							if ($nombre != '-') {
+								echo "<td> <input class='resultados' id='nombre_$idCategorias' name='nombre_$idCategorias' type='text' style='width:100px;'' value='$nombre' onchange='Reset()'> </td>";				
+							}
+							echo "<td> <input class='resultados' id='descripcion_$idCategorias' name='descripcion_$idCategorias' type='text' style='width:400px;' value='$descripcion' onchange='Reset()'> </td>";
+							echo "<td> <input class='resultados' id='euros_$idCategorias' name='euros_$idCategorias' type='text' style='width:150px; text-align:right' value='' onchange='Reset()'>";
+							echo "<td> <input class='resultados' id='acertantes_$idCategorias' name='acertantes_$idCategorias' type='text' style='width:200px; text-align:right' value='' onchange='Reset()'>";
+							echo "<td> <input class='resultados' id='posicion_$idCategorias' name='posicion_$idCategorias' type='text' style='width:100px; text-align: right;' value='$posicion' onchange='Reset()'>";
+							echo "<td style='width:100px; text-align: right;'> <button class='botonEliminar' onclick='EliminarCategoria($idCategorias)'> X </button> </td>";
+							break;
+						}
+						echo "</tr>";
+					}
+				}
+			}
+		}	
+	}
+
+	function ObtenerCategorias($idTipoSorteo)
+	{
+		// Función que permite obtener una lista con las categorias (identificador) del tipo de sorteo que se pasa como parametros
+
+		// Parametros de entrada: el tipo de sorteo del que se quiere obtener las categorias
+		// Parametros de salida: listado con los identificadores de las categorias
+
+		if ($idTipoSorteo==1 or $idTipoSorteo==2 or $idTipoSorteo==3)
+		{	$consulta = "SELECT idCategorias FROM categorias WHERE idTipoSorteo=$idTipoSorteo ORDER BY posicion";	}
+		else			
+		{	$consulta = "SELECT idCategorias FROM categorias WHERE idTipoSorteo=$idTipoSorteo AND nPremios = 0 ORDER BY posicion";	}
+
+		$listaCategorias = array();
+		array_push($listaCategorias, 0);
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, obtenemos los identificadores
+			while (list($idCategorias) = $resultado->fetch_row())
+			{
+				array_push($listaCategorias, $idCategorias);
+			}
+		}
+
+		return $listaCategorias;
+	}
+
+	function InsertarCategoria($idTipoSorteo, $nombre, $descripcion, $posicion)
+	{
+		// Función que permite insertar una nueva categoria en la BBDD
+
+		// Parametros de entrada: valores de la nueva categoria
+		// Parametros de salida: la función devuelve 0 si se ha insertado correctamente i -1 si se ha producido un error
+
+		$consulta = "INSERT INTO categorias (idTipoSorteo, nombre, descripcion, posicion) VALUES ($idTipoSorteo, '$nombre', '$descripcion', $posicion)";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{	return 0;		}
+		else
+		{	return -1;		}
+	}
+
+	function ActualizarCategoria($idCategoria, $nombre, $descripcion, $posicion)
+	{
+		// Función que permite actualizar una categoria en la BBDD
+
+		// Parametros de entrada: valores de la categoria
+		// Parametros de salida: la función devuelve 0 si se ha insertado correctamente i -1 si se ha producido un error
+
+		$consulta = "UPDATE categorias SET nombre='$nombre', descripcion='$descripcion', posicion='$posicion' WHERE idCategorias=$idCategoria";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{		return 0;		}
+		else
+		{		return -1;		}
+	}
+
+	function EliminarCategoria($idCategoria) {
+		// Función que permite eliminar una categoria
+		// Parametros de entrada: identificador de la categoria que se ha de elminar
+		// Parametros de salida: 0 si la categoria se ha eliminado correctamente, -1 si ha habido error
+		
+		// Seleccionamos el tipoSorteo
+		$consulta = "SELECT idTipoSorteo FROM categorias WHERE idCategorias=$idCategoria";
+		if ($resultado = $GLOBALS["conexion"]->query($consulta)) {
+			// Se han devuelto valores, devolvemos el identificador
+			while (list($idTipoSorteo) = $resultado->fetch_row()){
+				$IDTipoSorteo = $idTipoSorteo;
+			}
+		}
+		// Eliminamos el registro de premiofinsemana
+		if ($idTipoSorteo == '14') {
+			$consulta = "DELETE FROM premio_cuponazo WHERE idCategoria=$idCategoria AND adicional = 'No' ";
+			if (mysqli_query($GLOBALS["conexion"], $consulta)){	
+				return 0;		
+			} else {	
+				return -1;		
+			}
+		}
+		if ($idTipoSorteo == '15') {
+			$consulta = "DELETE FROM premio_finsemana WHERE idCategoria=$idCategoria AND adicional = 'No' ";
+			if (mysqli_query($GLOBALS["conexion"], $consulta)){	
+				return 0;		
+			} else {	
+				return -1;		
+			}
+		}
+		// Eliminamos el registro
+		$consulta = "DELETE FROM categorias WHERE idCategorias=$idCategoria";
+		if (mysqli_query($GLOBALS["conexion"], $consulta)){	
+			return 0;		
+		} else {	
+			return -1;		
+		}
+	}
+
+
+	/**************************************************************************************************************/
+	/*** FUNCIONES QUE PERMITEN OBTENER I MANIPULAR LOS DATOS DE LAS PUNTOS DE VENTA DE LOS PREMIOS SORTEOS 	***/
+	/**************************************************************************************************************/
+	function ObtenerTipoSorteo($idSorteo)
+	{
+		$consulta = "SELECT idTipoSorteo fROM sorteos WHERE idSorteos=$idSorteo";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, devolvemos el identificador
+			while (list($idTipoSorteo) = $resultado->fetch_row())
+			{
+				return ($idTipoSorteo);
+			}
+		}
+
+		return -1;
+	}
+	function InsertarPremioPuntoVenta($idSorteo, $idCategoria, $idpv)
+	{
+		// Función que permite insertar un nuevo punto de venta donde se ha vendido un premio
+
+		// Parametros de entrada: valores del punto de venta
+		// Parametros de salida: la función devuelve 0 si se ha insertado correctamente i -1 si se ha producido un error
+
+		// Comprovamos si ya existe premio
+		$id = ExistePremioPV($idSorteo, $idCategoria, $idpv);
+		if ( $id == -1)
+		{
+			// Insertamos el punto de venta
+			$consulta = "INSERT INTO premios_puntoventa (idSorteo, idCategoria, idPuntoVenta) VALUES ($idSorteo, $idCategoria, $idpv)";
+			if (mysqli_query($GLOBALS["conexion"], $consulta))
+			{		return 0;	}
+			else
+			{		return -1;	}
+		}
+	}
+
+	function ExistePremioPV($idSorteo, $idCategoria, $idpv)
+	{
+		// Función que permite comprovar si ya se registro un premio en un punto de venta
+
+		$consulta = "SELECT idpremios_puntoVenta fROM premios_puntoVenta WHERE idSorteo=$idSorteo and idCategoria=$idCategoria and idPuntoVenta=$idpv";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, devolvemos el identificador
+			while (list($idpremios_puntoVenta) = $resultado->fetch_row())
+			{
+				return ($idpremios_puntoVenta);
+			}
+		}
+
+		return -1;
+	}
+
+	function MostrarAdministracionesPremios($idSorteo, $idCategoria)
+	{
+		// Función que permite mostrar los puntos de ventas donde se ha vendido un premio
+
+		$idTipoSorteo = ObtenerTipoSorteo($idSorteo);
+		if ($idCategoria == 1)
+			{
+				if ($idTipoSorteo == 1)
+				{		$idCategoria=24;		}
+				elseif ($idTipoSorteo == 2)				
+				{		$idCategoria=29;		}
+				elseif ($idTipoSorteo == 3)
+				{		$idCategoria=35;		}
+			}
+			elseif ($idCategoria == 2)
+			{				
+				if ($idTipoSorteo == 1)
+				{		$idCategoria=25;		}
+				elseif ($idTipoSorteo == 2)				
+				{		$idCategoria=30;		}
+				elseif ($idTipoSorteo == 3)
+				{		$idCategoria=36;		}
+			}
+			elseif ($idCategoria == 3)			
+			{
+				if ($idTipoSorteo == 1)
+				{		$idCategoria=28;		}
+				elseif ($idTipoSorteo = 2)				
+				{		$idCategoria=31;		}
+				elseif ($idTipoSorteo == 3)
+				{		$idCategoria=37;		}
+			}
+
+		$consulta = "SELECT idPuntoVenta FROM premios_puntoVenta WHERE idSorteo=$idSorteo and idCategoria=$idCategoria";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+
+			// Se han devuelto valores, mostramos por pantalla los resultados
+			while (list($idPuntoVenta) = $resultado ->fetch_row())
+			{
+				echo "<tr>";
+				echo "<td class='resultados'> $idPuntoVenta </td>";
+
+				$pv = ObtenerInfoAdministracion($idPuntoVenta);						// Obtenemos la información del punto de venta
+				echo "<td class='resultados'> $pv[0] </td>";
+				echo "<td class='resultados'> $pv[1] </td>";
+				echo "<td class='resultados'> $pv[2] </td>";
+				$provincia = ObtenerNombreProvincia($pv[3]);						// Obtenemos el nombre de la provincia
+				echo "<td class='resultados'> $provincia </td>";
+				echo "<td class='resultados'> $pv[4] </td>";
+				echo "<td class='boton'> <button class='botonEliminar' onclick='EliminarPuntoVenta($idSorteo, $idCategoria, $idPuntoVenta)'> X </button> </td>";
+				echo "</tr>";
+			}
+		}
+	}
+
+	function EliminarPremiosPuntoVenta($idSorteo)
+	{
+		// Función que permite eliminar un sorteo de la tabla premios_puntoVenta
+
+		// Parametros de entrada: identificador del sorteo que se quiere eliminar
+		// Parametros de salida: devuelve 0 si se ha eliminado correctamente i -1 en caso de error
+
+
+		// Eliminamos el registro de la tabla premio_puntoventa
+		$consulta = "DELETE FROM premios_puntoventa WHERE idSorteo=$idSorteo";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{		return 0;		}
+		else
+		{		return -1;		}
+	}
+
+	function EliminarPremioPuntoVenta($idSorteo, $idCategoria, $idpv)
+	{
+		// Función que permite eliminar los punto de venta de un sorteo
+
+		// Parametros de entrada: identificador del sorteo, categoria i administración que se quiere eliminar
+		// Parametros de salida: devuelve 0 si se ha eliminado correctamente i -1 en caso de error
+
+		$consulta="DELETE FROM premios_puntoVenta WHERE idSorteo=$idSorteo and idCategoria=$idCategoria and idPuntoVenta=$idpv";
+		if (mysqli_query($GLOBALS["conexion"], $consulta))
+		{		return 0;		}
+		else
+		{		return -1;		}
+	}
+
+	/******************************************************************************************************************/
+	/***			FUNCIONES QUE PERMITEN OBTENER I MANIPULAR LOS DATOS DE LOS JUEGOS DE LAE - Loteria Nacional	***/
+	/******************************************************************************************************************/
+	function MostrarSorteosLNacional()
+	{
+		// Función que permite mostrar por pantalla los resultados del sorteo de LAE - Loteria Nacional
+
+		// Realizamos la consulta a la BBDD, primero hemos de consultar la tabla sorteos i con el identificador que devuelve consultar la tabla 
+		$consulta = "SELECT idSorteos, fecha FROM sorteos WHERE idTipoSorteo=1 ORDER BY fecha DESC";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, por cada valor obtenemos la información del sorteo y lo mostramos por pantalla
+			while (list($idSorteos, $fecha) = $resultado->fetch_row())
+			{
+				$numeroPremiado='';
+				$f = '';
+				$s = '';
+				$segundoPremio='';
+				$terminaciones='';
+
+				// Obtenemos el primer premio
+				$c = "SELECT numero, fraccion, serie FROM loteriaNacional WHERE idSorteo=$idSorteos AND idCategoria=24";
+				if ($res = $GLOBALS["conexion"]->query($c))
+				{
+					// Se han devuelto valores, por cada valor obtenemos la información del sorteo y lo mostramos por pantalla
+					while (list($numero, $fraccion, $serie) = $res->fetch_row())
+					{
+						$numeroPremiado = $numero;
+						$f = $fraccion;
+						$s = $serie;
+					}
+				}
+
+				// Obtenemos el segundo premio
+				$c = "SELECT numero FROM loteriaNacional WHERE idSorteo=$idSorteos AND idCategoria=25";
+				if ($res = $GLOBALS["conexion"]->query($c))
+				{
+					// Se han devuelto valores, por cada valor obtenemos la información del sorteo y lo mostramos por pantalla
+					while (list($numero) = $res->fetch_row())
+					{
+						$segundoPremio = $numero;
+					}
+				}
+				
+				// Obtenemos los reintegros
+				$c = "SELECT numero FROM loteriaNacional WHERE idSorteo=$idSorteos AND idCategoria=26";
+				if ($res = $GLOBALS["conexion"]->query($c))
+				{
+					$terminaciones = '';
+					// Se han devuelto valores, por cada valor obtenemos la información del sorteo y lo mostramos por pantalla
+					while (list($numero) = $res->fetch_row())
+					{
+						if ($terminaciones == '')
+						{
+							$terminaciones = $numero;
+						}
+						else
+						{
+							$terminaciones .= " - ";
+							$terminaciones .= $numero;
+						}
+					}
+				}			
+			
+				echo "<tr>";
+				echo "<td class='resultados'> $idSorteos </td>";
+				echo "<td class='resultados'> </td>";
+				$dia = ObtenerDiaSemana($fecha);
+				echo "<td class='resultados'> $dia </td>";
+				$fecha = FechaCorrecta($fecha, 1);
+				echo "<td class='resultados'> $fecha </td>";
+				echo "<td class='resultados'> $numeroPremiado </td>";
+				echo "<td class='resultados'> $f </td>";
+				echo "<td class='resultados'> $s </td>";
+				echo "<td class='resultados'> $terminaciones </td>";
+				echo "<td class='resultados'> $segundoPremio </td>";
+				echo "<td width='150x'></td>";
+				echo "<td class='boton'> <button class='botonEditar'> <a class='cms_resultados' href='loteriaNacional_dades.php?idSorteo=$idSorteos'> Editar </a> </button> </td>";
+				echo "<td width='150px'></td>";
+				echo "<td class='boton'> <button class='botonEliminar' onclick='EliminarSorteo($idSorteos)'> X </button> </td>";
+				echo "</tr>";
+			}
+		}
+	}
+
+	function MostrarSorteoLNacional($idSorteo)
+	{
+		// Función que permite mostrar por pantalla los resultados del sorteo de LAE - Loteria Nacional
+
+		// Parametros de entrada: el identificador del sorteo del que se quieren ver los resultados
+		// Parametros de salida: los resultados del sorteo
+
+		$consulta = "SELECT idSorteos, fecha FROM sorteos WHERE idSorteos=$idSorteo";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, mostramos los resultados por pantalla
+			while (list($idSorteos, $fecha) = $resultado->fetch_row())
+			{
+				echo "<tr>";
+				echo "<td> <label class='cms'> Fecha </label> </td>";
+				$fecha=FechaCorrecta($fecha, 2);
+				echo "<td colspan='3'> <input class='fecha' id='fecha' name='fecha' type='date' value='$fecha'> </td>";
+				echo "</tr>";
+
+				// Buscamos los resultados, mostramos el primer premio
+				$c = "SELECT numero, fraccion, serie, codiLAE FROM loterianacional WHERE idSorteo=$idSorteo and idCategoria=24";
+				$nLAE='';
+				if ($res = $GLOBALS["conexion"]->query($c))
+				{
+					while (list($numero, $fraccion, $serie, $codiLAE) = $res->fetch_row())
+					{
+						echo "<tr>";
+						echo "<td> <label class='cms'> Número premiado: </label> </td>";
+						echo "<td> <input class='resultados' id='1premio' name='1premio' type='text' style='text-align:right; width:160px;' value='$numero' onchange='Reset()'> </td>";
+						echo "<td> <label class='cms'> Fracción: </label> </td>";
+						echo "<td>";
+						echo "<input class='resultados' id='fraccion' name='fraccion' type='text' style='text-align:right' value='$fraccion' onchange='Reset()'>";
+						echo "</td>";
+						echo "<td> <label class='cms'> Serie: </label> </td>";
+						echo "<td>";
+						echo "<input class='resultados' id='serie' name='serie' type='text' style='text-align:right' value='$serie' onchange='Reset()'>";
+						echo "</td>";
+
+						$nLAE = $codiLAE;
+
+					}
+				}
+				else
+				{
+					echo "<tr>";
+					echo "<td> <label class='cms'> Número premiado: </label> </td>";
+					echo "<td> <input class='resultados' id='1premio' name='1premio' type='text' style='text-align:right; width:160px;' value='' onchange='Reset()'> </td>";
+					echo "<td> <label class='cms'> Fracción: </label> </td>";
+					echo "<td>";
+					echo "<input class='resultados' id='fraccion' name='fraccion' type='text' style='text-align:right' value='' onchange='Reset()'>";
+					echo "</td>";
+					echo "<td> <label class='cms'> Serie: </label> </td>";
+					echo "<td>";
+					echo "<input class='resultados' id='serie' name='serie' type='text' style='text-align:right' value='' onchange='Reset()'>";
+					echo "</td>";
+				}
+
+				$haypremio=-1;
+					
+				// Mostramos el segundo premio
+				$c = "SELECT numero FROM loterianacional WHERE idSorteo=$idSorteo and idCategoria=25";
+				if ($r = $GLOBALS["conexion"]->query($c))
+				{
+					while (list($numero) = $r->fetch_row())
+					{
+						echo "<td> <label class='cms'> Segundo premio: </label> </td>";
+						echo "<td>";
+						echo "<input class='resultados' id='2premio' name='2premio' type='text' style='width:120px; text-align:right' value='$numero' onchange='Reset()'>";
+						echo "</td>";
+						$haypremio=0;
+					}
+				}
+				if ($haypremio==-1)
+				{
+					echo "<td> <label class='cms'> Segundo premio: </label> </td>";
+					echo "<td>";
+					echo "<input class='resultados' id='2premio' name='2premio' type='text' style='width:120px' style='text-align:right' value='' onchange='Reset()'>";
+					echo "</td>";
+				}
+
+				$haypremio=-1;
+				// Mostramos el tercer premio
+				$c2 = "SELECT numero FROM loterianacional WHERE idSorteo=$idSorteo and idCategoria=28";
+			
+				if ($r2 = $GLOBALS["conexion"]->query($c2))
+				{
+					while (list($numero) = $r2->fetch_row())
+					{
+						echo "<td> <label class='cms'> Tercer premio: </label> </td>";
+						echo "<td>";
+						echo "<input class='resultados' id='3premio' name='3premio' type='text' style='width:120px; text-align:right' value='$numero' onchange='Reset()'>";
+						echo "</td>";
+
+						$haypremio=0;
+					}
+				}
+				if ($haypremio==-1)
+				{
+					echo "<td> <label class='cms'> Tercer premio: </label> </td>";
+					echo "<td>";
+					echo "<input class='resultados' id='3premio' name='3premio' type='text' style='width:120px' style='text-align:right' value='' onchange='Reset()'>";
+					echo "</td>";
+				}
+
+				echo "</tr>";
+
+				echo "<tr>";
+				echo "<td> <label class='cms'> Num. de sorteo LAE: </label> </td>";
+				echo "<td>";
+				echo "<input class='resultados' id='codigoLAE' name='codigoLAE' type='text' value='$nLAE' style='width: 160px;'>";
+				echo "</td>";
+				echo "<td>";
+				echo "<input class='resultados' id='r_id' name='r_id' type='text' value='$idSorteos' style='display:none'>";
+				echo "</td>";
+				echo "</tr>";
+
+				echo "<tr> </tr>";
+			}
+		}
+	}
+
+	function MostrarReintegrosLNacional($idSorteo)
+	{
+		// Función que permite mostrar por pantalla los resultados - reintegros del sorteo de LAE - Loteria Nacional
+
+		// Parametros de entrada: el identificador del sorteo del que se quieren ver los resultados
+		// Parametros de salida: los resultados del sorteo
+
+		$consulta = "SELECT numero FROM loteriaNacional WHERE idSorteo=$idSorteo and idCategoria=26";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			$n = 1;
+			echo "<td> </td>";
+
+			// Se han devuelto valores, mostramos los resultados por pantalla
+			while (list($numero) = $resultado->fetch_row())
+			{
+				$nombre = "r_";
+				$nombre .= $n;
+
+				if ($n == 1)
+				{		echo "<td> <input class='resultados' id='$nombre' name='$nombre' type='text' style='text-align:right; margin-left:38px;' value='$numero' onchange='Reset()'> </td>";		}
+				else
+				{		echo "<td> <input class='resultados' id='$nombre' name='$nombre' type='text' style='text-align:right;' value='$numero' onchange='Reset()'> </td>";							}
+				
+				$n = $n +1;
+			}
+		}
+		
+		if ($n==1)
+		{
+			echo "<td> </td>";
+			echo "<td> <input class='resultados' id='r_1' name='r_1' type='text' style='text-align:right; margin-left:38px;' value='' onchange='Reset()'> </td>";
+			echo "<td> <input class='resultados' id='r_2' name='r_2' type='text' style='text-align:right;' value='' onchange='Reset()'> </td>";
+			echo "<td> <input class='resultados' id='r_3' name='r_3' type='text' style='text-align:right;' value='' onchange='Reset()'> </td>";
+		}
+	}
+
+	function MostrarTerminacionesLNacional($idSorteo)
+	{
+		// Función que permite mostrar por pantalla los resultados - terminaciones del sorteo de LAE - Loteria Nacional
+
+		// Parametros de entrada: el identificador del sorteo del que se quieren ver los resultados
+		// Parametros de salida: los resultados del sorteo
+
+		$consulta = "SELECT numero, premio FROM loteriaNacional WHERE idSorteo=$idSorteo and idCategoria=27";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			$i = 1;
+			$posicion=4;
+			$nValores=1;
+
+			while (list($numero, $premio) = $resultado->fetch_row())
+			{
+				echo "<tr>";
+				echo "<td></td>";
+				
+				$nombre="t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:100px;' type='text' value='$numero'> </td>";
+				
+				$nombre="premio_t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:150px; text-align:right;' type='text' value='$premio'> </td>";
+				
+				echo "<td class='euro'> € </td>";
+
+				$nombre="posicion_t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:75px' type='text' value='$posicion'> </td>";
+				
+				echo "<tr>";
+
+				$posicion=$posicion+1;
+				$nValores = $nValores+1;
+				$i=$i+1;
+			}
+
+			// Completamos la lista de terminaciones con campos vacios
+			if ($nValores < 21)
+			{
+				for ($i=$nValores;$i<21;$i++)
+				{
+					echo "<tr>";
+					echo "<td></td>";
+					
+					$nombre="t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:100px;' type='text' value=''> </td>";
+					
+					$nombre="premio_t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:150px; text-align:right;' type='text' value=''> </td>";
+					
+					echo "<td class='euro'> € </td>";
+
+					$nombre="posicion_t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:75px' type='text' value='$posicion'> </td>";
+					
+					echo "<tr>";
+
+					$posicion=$posicion+1;
+				}
+
+				for ($i=21;$i<51;$i++)
+				{
+					echo "<tr>";
+					echo "<td></td>";
+					
+					$nombre="t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:100px; display:none' type='text' value=''> </td>";
+					
+					$nombre="premio_t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:150px; text-align:right; display:none' type='text' value=''> </td>";
+					
+					$nombre="euro_t_";
+					$nombre.=$i;
+					echo "<td> <label id='$nombre' name='$nombre' style='margin-left:10px; font-family: arial; font-size:24px; display:none'>   € </label> </td>";
+
+					$nombre="posicion_t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:75px; display:none' type='text' value='$posicion'> </td>";
+					
+					echo "<tr>";
+
+					$posicion=$posicion+1;
+				}
+			}
+			else
+			{
+
+				for ($i=$nValores;$i<51;$i++)
+				{
+					echo "<tr>";
+					echo "<td></td>";
+					
+					$nombre="t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:100px; display:none' type='text' value=''> </td>";
+					
+					$nombre="premio_t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:150px; text-align:right; display:none' type='text' value=''> </td>";
+					
+					$nombre="euro_t_";
+					$nombre.=$i;
+					echo "<td> <label id='$nombre' name='$nombre' style='margin-left:10px; font-family: arial; font-size:24px; display:none'>   € </label> </td>";
+
+					$nombre="posicion_t_";
+					$nombre.=$i;
+					echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:75px; display:none' type='text' value='$posicion'> </td>";
+					
+					echo "<tr>";
+
+					$posicion=$posicion+1;
+				}
+			}
+		}
+		else
+		{
+			$posicion = 4;
+
+			for ($i=1;$i<21;$i++)
+			{
+				echo "<tr>";
+				echo "<td></td>";
+				
+				$nombre="t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:100px;' type='text' value=''> </td>";
+				
+				$nombre="premio_t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:150px; text-align:right;' type='text' value=''> </td>";
+				
+				echo "<td class='euro'> € </td>";
+
+				$nombre="posicion_t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:75px' type='text' value='$posicion'> </td>";
+				
+				echo "<tr>";
+
+				$posicion=$posicion+1;
+			}
+
+			for ($i=21;$i<51;$i++)
+			{
+				echo "<tr>";
+				echo "<td></td>";
+				
+				$nombre="t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:100px; display:none' type='text' value=''> </td>";
+				
+				$nombre="premio_t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:150px; text-align:right; display:none' type='text' value=''> </td>";
+				
+				$nombre="euro_t_";
+				$nombre.=$i;
+				echo "<td> <label id='$nombre' name='$nombre' style='margin-left:10px; font-family: arial; font-size:24px; display:none'>   € </label> </td>";
+
+				$nombre="posicion_t_";
+				$nombre.=$i;
+				echo "<td> <input class='resultados' id='$nombre' name='$nombre' style='width:75px; display:none' type='text' value='$posicion'> </td>";
+				
+				echo "<tr>";
+
+				$posicion=$posicion+1;
+			}
+		}
+	}
+
+	function ObtenerNTerminaciones($idSorteo)
+	{
+		// Función que nos permite saber cuantas terminaciones hay guardades en la BBDD
+
+		$consulta = "SELECT numero FROM loteriaNacional WHERE idSorteo=$idSorteo and idCategoria=27";
+
+		$n=0;
+
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			while (list($numero) = $resultado->fetch_row())
+			{
+				$n=$n+1;
+			}
+		}
+
+		return $n;
+	}
+
+	function MostrarPremioLNacional($idSorteo, $idCategoria)
+	{
+		// Función que permite mostrar por pantalla los resultados - premios del sorteo de LAE - Loteria Nacional
+
+		// Parametros de entrada: el identificador del sorteo del que se quieren ver los resultados
+		// Parametros de salida: los premios del sorteo
+
+		$consulta = "SELECT premio from loteriaNacional WHERE idSorteo=$idSorteo and idCategoria=$idCategoria";
+
+		$p='';
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			
+
+			//Se han devuelto valores, mostramos los resultados por pantalla
+			while (list($premio) = $resultado->fetch_row())
+			{
+
+				$p=$premio;
+			}
+		}
+
+		switch ($idCategoria) 
+		{
+			case 24:
+				echo "<tr>";
+				echo "<td> <label class='cms'> Primer premio </label> </td>";
+				echo "<td> <label class='cms' style='font-size: 14px; font-weight: normal; width: 100px;'> (Se edita arriba) </label> </td>";
+				echo "<td> <input class='resultados' id='premio_1p' name='premio_1p' style='width: 150px; text-align:right;' type='text' value='$p'> </td>";
+				echo "<td class='euro'> € </td>";
+				echo "<td> <input class='resultados' id='posicion_1p' name='posicion_1p' style='width: 75px;' type='text' value='1'> </td>";
+				echo "<tr>";
+				break;
+
+			case 25:
+				echo "<tr>";
+				echo "<td> <label class='cms'> Segundo premio </label> </td>";
+				echo "<td> <label class='cms' style='font-size: 14px; font-weight: normal; width: 100px;'> (Se edita arriba) </label> </td>";
+				echo "<td> <input class='resultados' id='premio_2p' name='premio_2p' style='width: 150px; text-align:right;' type='text' value='$p'> </td>";
+				echo "<td class='euro'> € </td>";
+				echo "<td> <input class='resultados' id='posicion_2p' name='posicion_2p' style='width: 75px;' type='text' value='2'> </td>";
+				echo "<tr>";				
+				break;
+
+			case 26:
+				echo "<tr>";
+				echo "<td> <label class='cms'> Reintegro </label> </td>";
+				echo "<td> <label class='cms' style='font-size: 14px; font-weight: normal; width: 100px;'> (Se edita arriba) </label> </td>";
+				echo "<td> <input class='resultados' id='premio_reintegro' name='premio_reintegro' style='width: 150px; text-align:right;' type='text' value='$p'> </td>";
+				echo "<td class='euro'> € </td>";
+				echo "<td> <input class='resultados' id='posicion_reintegro' name='posicion_reintegro' style='width: 75px;' type='text' value='4'> </td>";
+				echo "<tr>";
+				break;
+
+			case 28:
+				echo "<tr>";
+				echo "<td> <label class='cms'> Tercer premio: </label> </td>";
+				echo "<td> <label class='cms' style='font-size: 14px; font-weight: normal; width: 100px;'> (Se edita arriba) </label> </td>";
+				echo "<td> <input class='resultados' id='premio_3p' name='premio_3p' style='width: 150px; text-align:right;' type='text' value='$p'> </td>";
+				echo "<td class='euro'> € </td>";
+				echo "<td> <input class='resultados' id='posicion_3p' name='posicion_3p' style='width: 75px;' type='text' value='3'> </td>";
+				echo "<tr>";
+				break;
+		}
+	}
+
+	function InsertarPremioLNacional($fecha, $numeroPremiado, $fraccion, $serie, $nLAE, $premio, $idCategoria)
+	{
+		// Función que permite insertar un nuevo premio del sorteo de LAE - Loteria Nacional
+
+		// Parametros de entrada: la fecha del sorteo y el numero premiado
+		// Parametros de salida: la función devuelve el identificador si se ha insertado correctamente y -1 si se ha producido un error
+
+		// Para registrar el sorteo se ha de insertar registro en la tabla sorteos i en la tabla loteriaNacional
+
+		// Primero comprovamos si ya hay sorteo de Loteria Nacional de la fecha indicada en la BBDD
+
+		$data = $fecha;
+		$data .= " 00:00:00";
+		$id=ObtenerSorteo(1, $data);
+
+		if ($id <> -1)
+		{
+			// Ya existe un sorteo en la tabla sorteo de la fecha indicada, se ha de comprovar si ya hay sorteo en la tabla loteriaNacional, en caso afirmativo, se actualizara
+			if (ExisteSorteoLNacional($id, $idCategoria) == -1)
+			{ 
+
+				// Se ha de insertar el registro
+				if ($idCategoria == 24)
+				{
+					$consulta = "INSERT INTO loteriaNacional (idSorteo, idCategoria, codiLAE, numero, fraccion, serie, premio) VALUES ($id, 24, '$nLAE', '$numeroPremiado', '$fraccion', '$serie', $premio)";
+				}
+				else
+				{
+					$consulta = "INSERT INTO loteriaNacional (idSorteo, idCategoria, codiLAE, numero, premio) VALUES ($id, $idCategoria, '$nLAE', '$numeroPremiado', $premio)";
+				}
+
+				if (mysqli_query($GLOBALS["conexion"], $consulta))
+				{		return $id;		}
+				else
+				{		return -1;		}
+			}
+			else
+			{
+				// Se ha de actualizar el registro
+				ActualizarPremioLNacional($id, $fecha, $numeroPremiado, $fraccion, $serie, $nLAE, $premio, $idCategoria);
+			}
+		}
+		else
+		{
+			$consultaTipoSorteo = "SELECT app FROM tipo_sorteo WHERE idTipo_sorteo=1";
+			// Comprovamos si la consultaTipoSorteo ha devuelto valores
+			if ($resultadoTipoSorteo = $GLOBALS["conexion"]->query($consultaTipoSorteo)) {
+				// Se han devuelto valores, devolvemos el identificaor
+				while (list($app) = $resultadoTipoSorteo->fetch_row()) {
+					if ($app == NULL) {
+						$appBD = 0;
+					} else {
+						$appBD = $app;
+					}
+				}
+			}
+			// El sorteo se ha de insertar en la tabla sorteos y en la tabla loteriaNacional
+			$consulta = "INSERT INTO sorteos (idTipoSorteo, fecha, app) VALUES (1, '$fecha', $appBD)";
+			if (mysqli_query($GLOBALS["conexion"], $consulta))
+			{
+				// Se ha registrado en la primera tabla, realizamos el segundo registro para el que necesitamos el identificador del registro anterior
+				return InsertarPremioLNacional($fecha, $numeroPremiado, $fraccion, $serie, $nLAE, $premio, $idCategoria);
+			}
+			else
+			{		return -1;		}
+		}
+	}
+
+	function ActualizarPremioLNacional($idSorteo, $fecha, $numeroPremiado, $fraccion, $serie, $nLAE, $premio, $idCategoria)
+	{
+		// Función que permite actualizar un sorteo de LAE - Loteria Nacional
+
+		// Parametros de entrada: la fecha del sorteo y el numero premiado
+		// Parametros de salida: la función devuelve el identificador si se ha actualizado correctamente y -1 si se ha producido un error
+
+		if ($idSorteo <> -1)
+		{
+			if (ExisteSorteoLNacional($idSorteo, $idCategoria) <> -1)
+			{ 
+				// Se ha de actualizar el registro
+				if ($idCategoria == 24)
+				{
+					$consulta = "UPDATE loteriaNacional SET codiLAE='$nLAE', numero='$numeroPremiado', fraccion='$fraccion', serie='$serie', premio=$premio WHERE idSorteo=$idSorteo and idCategoria=24";
+				}
+				else
+				{
+
+					$consulta = "UPDATE loteriaNacional SET codiLAE='$nLAE', numero='$numeroPremiado', premio=$premio WHERE idSorteo=$idSorteo and idCategoria=$idCategoria";				}
+
+				if (mysqli_query($GLOBALS["conexion"], $consulta))
+				{		return $idSorteo;		}
+				else
+				{		return -1;		}
+			}
+			else
+			{
+				// No existe registro, se ha de insertar
+				InsertarPremioLNacional($fecha, $numeroPremiado, $fraccion, $serie, $nLAE, $premio, $idCategoria);
+			}
+		}
+		else
+		{
+			// El sorteo se ha de insertar en la tabla sorteos y en la tabla loteriaNacional
+			return InsertarPremioLNacional($fecha, $numeroPremiado, $fraccion, $serie, $nLAE, $premio, $idCategoria);
+		}
+	}
+
+	function ExisteSorteoLNacional($id, $idCategoria)
+	{
+		// Función que permite saber si un premio esta registrado ya en la BBDD
+
+		// Realizamos la consulta a la BBDD
+		$consulta = "SELECT idSorteo FROM loterianacional WHERE idSorteo=$id AND idCategoria=$idCategoria";
+
+		// Comprovamos si la consulta ha devuelto valores
+		if ($resultado = $GLOBALS["conexion"]->query($consulta))
+		{
+			// Se han devuelto valores, devolvemos el id
+			while (list($idSorteo) = $resultado->fetch_row())
+			{
+				return $idSorteo;
+			}
+		}
+
+		return -1;
+	}
 
 	function InsertarReintegrosLNacional($fecha, $r1, $r2, $r3, $premio)
 	{

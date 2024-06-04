@@ -4,7 +4,7 @@
 
 <?php
 	// Indicamos donde estan las funciones que permiten obtener la información de la BBDD
-	include "../funciones3.php";
+	include "../funciones_raquel.php";
 ?>
 
 <html>
