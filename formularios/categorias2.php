@@ -3,7 +3,7 @@
 	// Permite consultar o modificar los datos de las categorias de los sorteos
 
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
-	include "../funciones_cms_5.php";
+	include "../funciones_cms_raquel.php";
 
 	header('Content-Type: text/html; charset=utf-8');
 	

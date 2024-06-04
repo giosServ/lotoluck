@@ -5,7 +5,7 @@
 <?php
 	$pagina_activa = "Loteria Nacional";
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
-	include "../funciones_cms_5.php";
+	include "../funciones_cms_raquel.php";
 ?>
 
 <!DOCTYPE html>

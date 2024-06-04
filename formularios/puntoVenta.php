@@ -3,7 +3,7 @@
 	// Permite consultar o modificar los datos de los puntos de ventas de LAE - LoteriaNacional
 
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
-	include "../funciones_cms_5.php";
+	include "../funciones_cms_raquel.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Definimos valores predeterminados para cada dato (pueden ser valores vacíos o cualquier otro valor que desees)

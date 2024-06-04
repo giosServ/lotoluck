@@ -3,7 +3,7 @@
 	// Permite consultar la información de las provincias
 
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
-	include "../funciones_cms_5.php";
+	include "../funciones_cms_raquel.php";
 
 	// Obtenemos los valores que se han de pasar a la consulta BBDD
 	$datos = $_GET['datos'];

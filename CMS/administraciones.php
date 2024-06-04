@@ -4,7 +4,7 @@
 
 <?php
 	// Indicamos el fichero donde están las funciones que nos permiten conectarnos a la BBDD
-	include "../funciones_cms_5.php";
+	include "../funciones_cms_raquel.php";
 ?>
 
 <!DOCTYPE html>
