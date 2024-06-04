@@ -48,13 +48,13 @@ $objRouteMan->manageRoutes();*/
 	<?php
 
 	//Si la request tiene la variable cod la guarda, sino lo deja null
-	/*$id = $id = isset($_REQUEST['cod']) ? $_REQUEST['cod'] : null;
+	$id = $id = isset($_REQUEST['cod']) ? $_REQUEST['cod'] : null;
 	if (!empty($id)) {
 		// Si 'cod' no está vacío, se procede a incluir los archivos según el valor de 'cod'
 		if ($id == 'loteria_navidad') {
 			include 'loteria_nacional.php';
 		}
-	}*/
+	}
 	?>
 
 	<header>
@@ -328,7 +328,7 @@ $objRouteMan->manageRoutes();*/
 	</div>
 
 	<!--Script para manejar la carga de paginas del aninado-->
-	<script src='lotoluckmenu.js'></script>
+	<!--<script src='lotoluckmenu.js'></script>-->
 	<script>
 		function clicks(id) {
 			var datos = {
