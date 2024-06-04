@@ -3,7 +3,7 @@
 	// Permite consultar o modificar los premios de los sorteos de LC - 6/49
 
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
-	include "../funciones_cms_raquel.php";
+	include "../funciones_cms_5.php";
     header('Content-Type: text/html; charset=utf-8');
 
 	// Obtenemos los valores que se han de pasar a la consulta BBDD

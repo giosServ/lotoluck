@@ -7,7 +7,7 @@
     $pagina_activa = "Loteria Nacional";
 	$idSorteo = $_GET['idSorteo'];
 	// Indicamos el fichero donde estan las funciones que nos permiten conectarnos a la BBDD
-	include "../funciones_cms_raquel.php";
+	include "../funciones_cms_5.php";
 	include "../funciones_texto_banner_comentarios.php";
 	include "../funciones_navegacion_sorteos_cms.php";
 

@@ -1,7 +1,7 @@
 
 <?php
 	// Indicamos el fichero donde estan las funciones que permiten conectarnos a la BBDD
-	include "../funciones_cms_raquel.php";
+	include "../funciones_cms_5.php";
 	// Obtemos el id de la administración que se ha de mostrar
 	$idAdmin = $_GET['idAdmin'];
 	$guardado = '';

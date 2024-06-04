@@ -1,7 +1,7 @@
 <?php
 
 
-include"../funciones_cms_raquel.php";
+include"../funciones_cms_5.php";
 
 
 // Define la tabla y la clave primaria
