@@ -12,6 +12,7 @@ function validaciones() {
   var password = document.getElementById('password').value.trim();
   var password2 = document.getElementById('password2').value.trim();
   var genero = document.getElementById('genero').value;
+  console.log("Valor de genero "+genero);
   var fechaNac = document.getElementById('fecha_nac').value.trim();
   var cp = document.getElementById('cp').value.trim();
   var poblacion = document.getElementById('poblacion').value.trim();
@@ -68,10 +69,12 @@ function validaciones() {
     document.getElementById('alertPass2').className = 'ocultarMensaje';
   }
 
-  if (genero === '') {
+  if (genero === "") {
     document.getElementById('genero').className = 'cajaform_2';
+    document.getElementById('alertGenero').className = 'errAlias2';    
   } else {
     document.getElementById('genero').className = 'cajaform';
+    document.getElementById('alertGenero').className = 'ocultarMensaje';
   }
 
   if (fechaNac === '' || !regexFecha.test(fechaNac)) {
@@ -82,8 +85,12 @@ function validaciones() {
     document.getElementById('alertFecha').className = 'ocultarMensaje';
   }
 
-  if (cp === '') {
-    document.getElementById('cp').value = '00000';
+  if (cp === ''|| !regexCp.test(cp)) {
+    document.getElementById('cp').className = 'cajaform_2';
+    document.getElementById('alertCp').className = 'errAlias2';
+  }else{
+    document.getElementById('cp').className = 'cajaform';
+    document.getElementById('alertCp').className = 'ocultarMensaje';
   }
 
   if (poblacion === '') {
@@ -142,6 +149,11 @@ function validaciones() {
     aceptaCon
   ) {
     document.getElementById('recibe_com').value = recibeCom;
-    document.formulario.submit();
+    document.getElementById('alertCampos').className = 'ocultarMensaje';
+    return true;
+    //document.formulario.submit();
+  }
+  else{
+    document.getElementById('alertCampos').className = 'errAlias2';
   }
 }
